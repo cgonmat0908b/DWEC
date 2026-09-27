@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian González Mateo</title>
+    <link rel="script" href="">
+</head>
+
+<body>
+
+    <!-- 1. Crea un archivo "02-02-JSTiposdeDatos.html" comentalo
+    de las dos maneras posibles -->
+
+    <!--Comentario 1-->
+    <script>
+        // Comentario en JS de una linea
+
+        /* Comentario multilinea en JS
+        */
+    </script>
+
+    <ol start="3">
+
+        <li>
+            ¿Qué etiqueta se utiliza para insertar código JavaScript en HTML?
+        </li>
+        <p>La etiqueta "&lt;script&gt;&lt;/script&gt;"</p>
+
+        <li>
+            ¿Qué ventajas tiene incrustar el código JavaScript en un archivo externo?
+        </li><br>
+        <ul>
+            <li>Mejor organización: separas el HTML del código JavaScript.</li>
+            <li>Mayor reutilización: el mismo archivo .js puede usarse en varias páginas.</li>
+            <li>Mantenimiento más fácil: puedes modificar el JavaScript sin tocar el HTML.</li>
+            <li>Código más limpio y legible: cada archivo tiene una responsabilidad más clara.</li>
+            <li>Mejor rendimiento en algunos casos: el navegador puede guardar el archivo .js en caché y reutilizarlo.</li>
+        </ul><br>
+        
+        <li>
+            ¿Qué extensión suelen tener los archivos que contienen código JavaScript?
+        </li>
+        <p>.js</p>
+
+        <li>
+            ¿Cómo se referencia un archivo .js en HTML?
+        </li>
+        <p>Con la etiqueta &lt;script src:"RutaDelArchivo.js&gt;"</p>
+
+        <li>
+            ¿Qué debe hacer si el archivo JavaScript se encuentra en otro directorio?
+        </li>
+        <p>Enlazarlo con un ruta relativa, por ejemplo: src:"../script/script.js"</p>
+
+        <li>
+            ¿Qué etiqueta se usa para mostrar un mensaje si el navegador no soporta JavaScript?
+        </li>
+        <p>La etiqueta &lt;noscript&gt;</p>
+
+        <li>
+            ¿Qué diferencia hay al insertar JavaScript en XHTML?
+        </li>
+        <p>Carateres como &lt;, &gt; o & pueden ser interpretados como XML</p>
+
+        <li>
+            ¿Qué es la ofuscación de código y por qué se utiliza?
+        </li>
+        <p>La ofuscación de código consiste en transformar el código para que sea difícil de leer y entender por una persona, pero siga funcionando igual.</p>
+
+        <li>
+            ¿Cómo se llama el lenguaje que se menciona en el texto?
+        </li>
+        <p></p>
+
+        <li>
+            ¿Qué nombre le dio Microsoft a JavaScript?
+        </li>
+        <p>JScript</p>
+
+        <li>
+            ¿Por qué Microsoft usó el nombre Jscript?
+        </li>
+        <p>Microsoft usó el nombre JScript principalmente por motivos de marca y compatibilidad legal.</p>
+        
+        <li>
+            ¿Qué problema surgió con la versión de JScript de Microsoft?
+        </li>
+        <p>El principal problema fue la incompatibilidad entre navegadores.</p>
+
+        <li>
+            ¿Qué es el DOM y por qué fue diseñado?
+        </li>
+        <p>Document Object Model, es una representación de un documento
+            HTML o XML en forma de árbol de objetos.
+        </p>
+        
+        <li>
+            ¿Qué navegadores incorporaron el DOM desde su primera versión?
+        </li>
+        <p>Mozilla Firefrox, Netscape Navigator e Internet Explorer</p>
+        
+        <li>
+            ¿Qué estándar regula el lenguaje JavaScript desde 1997?
+        </li>
+        <p>El estándar es ECMAScript (ECMA-262), definido por ECMA International.</p>
+
+        <li>
+            ¿Qué documento detalla las especificaciones del estándar ECMA?
+        </li>
+        <p>El ECMA-262</p>
+
+        <li>
+            ¿Qué relación tiene JavaScript con Java?
+        </li>
+        <p>JavaScript y Java son lenguajes diferentes.
+            La relación principal es el nombre y algunas similitudes de sintaxis. JavaScript tomó ese nombre en los años 90 por motivos de marketing.</p>
+
+        <li>
+            ¿Quién desarrolló originalmente JavaScript y con qué nombre?
+        </li>
+        <p>JavaScript fue desarrollado originalmente por Brendan Eich en Netscape.
+            Su primer nombre fue Mocha, después pasó a llamarse LiveScript y finalmente JavaScript.</p>
+
+        <li>Usa la función alert para enseñar el mensaje holamundo</li><br>
+        <script>
+            alert("Hola mundo");
+        </script>
+
+        <li>
+            En el un archivo y declara varias variables en una sola linea
+        </li><br>
+        <script>
+            let x,y,z;
+        </script>
+
+        <li>
+            ¿Que caracteres y nombres  están prohibidos como nombre de variables? 
+        </li><br>
+        <ul>
+            <li>Empezar por un número: 2nombre </li>
+            <li>Contener espacios: mi nombre </li>
+            <li>Usar caracteres como -, +, *, /, @, etc.: mi-variable </li>
+            <li>-Usar palabras reservadas del lenguaje, como if, for, class, return, let, const, function, etc.</li>
+        </ul><br>
+
+        <li>
+            Crea un ejemplo para cada tipos de datos  (Crea una tabla en html5 en el documento htm)
+        </li>
+        <table border="1">
+
+            <tr>
+                <th>Cadena</th>
+                <td>let cadena = "Hola, Mundo";</td>
+            </tr>
+
+            <tr>
+                <th>Número</th>
+                <td>let entero = 5;</td>
+            </tr>
+
+            <tr>
+                <th>Boolean</th>
+                <td>let boleano = true;</td>
+            </tr>
+
+            <tr>
+                <th>Null</th>
+                <td>let nulo = null;</td>
+            </tr>
+
+            <tr>
+                <th>Object</th>
+                <td>let cristian = new Humano();</td>
+            </tr>
+
+            <tr>
+                <th>Arrays</th>
+                <td>let lista = [1,2,3,4];</td>
+            </tr>
+
+            <tr>
+                <th>Function</th>
+                <td>function funcion(){Contenido de la función}</td>
+            </tr>
+        </table>
+
+        <li>
+            Usa la función  typeof para mostrar el tipo de los códigos 
+        </li>
+        <p></p>
+
+        <li>
+            Ejecuta estos datos y muestralos en un documento htm
+            var a=true;
+            var b=hola;
+            var c=1;
+        </li>
+        <p>var a = <span id="variableA"></span></p>
+        <p>var b = <span id="variableB"></span></p>
+        <p>var c = <span id="variableC"></span></p>
+
+        <script>
+            var a = true;
+            document.getElementById("variableA").textContent = a;
+
+            var b = "hola";
+            document.getElementById("variableB").textContent = b;
+
+            var c = 1;
+            document.getElementById("variableC").textContent = c;
+        </script>
+
+        <li>
+            Usa la función  parseFloat y  parseInt para convertir explícitamente los valores   2.9e3,  30.1e-3, 0,000000004 , 0,6, 3000000 , 301231000
+        </li>
+        <table border="1">
+
+            <thead>
+                <tr>
+                    <th>Valores</th>
+                    <th>parseInt</th>
+                    <th>parseFloat</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <th>2.9e3</th>
+                <td id="linea1I"></td>
+                <td id="linea1F"></td>
+            </tr>
+                
+            <tr>
+                <th>30.1e-3</th>
+                <td id="linea2I"></td>
+                <td id="linea2F"></td>
+            </tr>
+
+            <tr>
+                <th>0.000000004</th>
+                <td id="linea3I"></td>
+                <td id="linea3F"></td>
+            </tr>
+
+            <tr>
+                <th>0.6</th>
+                <td id="linea4I"></td>
+                <td id="linea4F"></td>
+            </tr>
+
+            <tr>
+                <th>3000000</th>
+                <td id="linea5I"></td>
+                <td id="linea5F"></td>
+            </tr>
+
+            <tr>
+                <th>301231000</th>
+                <td id="linea6I"></td>
+                <td id="linea6F"></td>
+            </tr>
+
+        </table><br>
+        
+        <script>
+
+            let conversion = 0;
+
+            conversion = parseInt("2.9e3");
+            document.getElementById("linea1I").textContent = conversion;
+            conversion = parseFloat("2.9e3");
+            document.getElementById("linea1F").textContent = conversion;
+
+            conversion = parseInt("30.1e-3");
+            document.getElementById("linea2I").textContent = conversion;
+            conversion = parseFloat("30.1e-3");
+            document.getElementById("linea2F").textContent = conversion;
+
+            conversion = parseInt("0.000000004");
+            document.getElementById("linea3I").textContent = conversion;
+            conversion = parseFloat("0.000000004");
+            document.getElementById("linea3F").textContent = conversion;
+
+            conversion = parseInt("0.6");
+            document.getElementById("linea4I").textContent = conversion;
+            conversion = parseFloat("0.6");
+            document.getElementById("linea4F").textContent = conversion;
+
+            conversion = parseInt("3000000");
+            document.getElementById("linea5I").textContent = conversion;
+            conversion = parseFloat("3000000");
+            document.getElementById("linea5F").textContent = conversion;
+
+            conversion = parseInt("301231000");
+            document.getElementById("linea6I").textContent = conversion;
+            conversion = parseFloat("301231000");
+            document.getElementById("linea6F").textContent = conversion;
+
+        </script>
+
+        <li>
+            Usa la función length para hallar el tamaño de las cadenas "123456"
+        </li>
+        <p>El tamaño de "123456" es: <span id="lenghtCadena"></span></p>
+
+        <script>
+            let longitud = "123456".length
+            document.getElementById("lenghtCadena").textContent = longitud;
+        </script>
+        
+        <li>
+            Declara varias variables con const e intenta cambiarlas y visualizarlas con un alert que pasa?
+        </li>
+        <script>
+            const constante1 = "Hola";
+            alert(constante1);
+            const constante2 = "Mundo"
+            alert(constante2);
+            const constante3 = "Aguacate";
+            alert(constante3);
+
+            constante1 = "3";
+            constante2 = "2";
+            constante3 = "1";
+            alert(constante1);
+            alert(constante2);
+            alert(constante3);
+        </script>
+        <p>Una constante no puede cambiar de valor una vez dado, con lo cual,
+            JavaScript falla y el resto del código tras cambiar la constante no
+            se ejecuta.
+        </p>
+        
+        <li>
+            Declara varias variables con var dentro de un bloque if al principio e  intenta acceder a ellas para mostrarlas dentro del bloque y fuera del bloque con un alert que pasa? 
+        </li>
+        <script>
+
+            if(true){
+                var dentroIf1 = "Hola";
+                var dentroIf2 = "Mundo";
+
+                alert(dentroIf1);
+                alert(dentroIf2);
+            }
+
+            alert(dentroIf1);
+            alert(dentroIf2);
+            
+        </script>
+        <p>Dentro del bloque if, el alert funcionará ya que esas variables
+            existen dentro del mismo bloque, fuera de este,también funciona,
+            ya que las variables declaradas con var, son variables globales.
+        </p>
+        
+        <li>
+            Realiza el mismo ejercicio anterior pero con varias variables con let dentro de un bloque if . Se pueden ver el contenido de las variables. 
+        </li>
+        <script>
+
+            if(true){
+                let dentroIf1 = "Hola";
+                let dentroIf2 = "Mundo";
+
+                alert(dentroIf1);
+                alert(dentroIf2);
+            }
+
+            alert(dentroIf1);
+            alert(dentroIf2);
+            
+        </script>
+        <p>Dentro del bloque if, el alert funcionará ya que esas variables
+            existen dentro del mismo bloque, fuera de este, no funciona,
+            ya que las variables declaradas con let dentro de un if, solo existen
+            dentro del if, no se puede acceder desde fuera del if.
+        </p>
+
+        
+    </ol>
+    
+</body>
+
+</html>
