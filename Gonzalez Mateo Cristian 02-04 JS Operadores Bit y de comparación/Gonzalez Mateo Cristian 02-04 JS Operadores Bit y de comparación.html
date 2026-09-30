@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ol>
+
+        <li>Rellena el siguiente tabla  y creala con html5</li>
+
+        <table border="1">
+
+            <thead>
+
+                <tr>
+                    <th>Sintaxis</th>
+                    <th>Nombre</th>
+                    <th>Uso</th>
+                    <th>Significado</th>
+                    <th>Ejemplo</th>
+                </tr>
+
+            </thead>
+
+            <tr>
+                <td>=</td>
+                <td>Asignación</td>
+                <td>Asignación de variables</td>
+                <td>x = y</td>
+                <td>x = y</td>
+            </tr>
+
+            <tr>
+                <td>+=</td>
+                <td>Suma un valor</td>
+                <td>Asignación de variables sumándose a sí misma</td>
+                <td>x = x + y</td>
+                <td>x += y</td>
+            </tr>
+
+            <tr>
+                <td>-=</td>
+                <td>Sustraer un valor</td>
+                <td>Asignación de variables restandose a sí misma</td>
+                <td>x = x - y</td>
+                <td>x -= y</td>
+            </tr>
+
+            <tr>
+                <td>*=</td>
+                <td>Multiplicar un valor</td>
+                <td>Asignación de variables multiplicándose a sí misma</td>
+                <td>x = x *y</td>
+                <td>x *= y</td>
+            </tr>
+
+            <tr>
+                <td>/=</td>
+                <td>Dividir un valor</td>
+                <td>Asignación de variables dividiéndose a sí misma</td>
+                <td>x = x / y</td>
+                <td>x /= y</td>
+            </tr>
+
+            <tr>
+                <td>%=</td>
+                <td>Módulo de un valor</td>
+                <td>Asignación de variables dividiéndose a sí misma dando el resto de la división</td>
+                <td>x = x % y</td>
+                <td>x %= y</td>
+            </tr>
+
+            <tr>
+                <td>&lt;&lt;=</td>
+                <td>Desplazar bits a la izquierda</td>
+                <td>Asignación de variables desplazando sus bits a la izquierda </td>
+                <td>0110 &lt;&lt;= 1100</td>
+                <td>x &lt;&lt;= y</td>
+            </tr>
+
+            <tr>
+                <td>&gt;=</td>
+                <td>Desplazar bits a la derecha</td>
+                <td>Asignación de variables desplazando sus bits a la derecha</td>
+                <td>0110 >= 0011</td>
+                <td>x >= y</td>
+            </tr>
+
+            <tr>
+                <td>&gt;&gt;=</td>
+                <td>Desplazar bit a la derecha rellenando con 0</td>
+                <td>Asignación de variables desplazando sus bits a la derecha rellenando con 0s</td>
+                <td>x = x >> y</td>
+                <td>x >>= y</td>
+            </tr>
+
+            <tr>
+                <td>&gt;&gt;&gt;=</td>
+                <td>Desplazar bits a la derecha</td>
+                <td>Asignación de variables desplazando sus bits a la derecha sin signo </td>
+                <td>x = x >>> y</td>
+                <td>x >>>= y</td>
+            </tr>
+
+            <tr>
+                <td>&=</td>
+                <td>Operación AND bit a bit</td>
+                <td>Asignación de variables aplicando AND bit a bit sobre sí misma </td>
+                <td>Var a =15 Var a&=900001111 & 00001001 =  00001001</td>
+                <td>x &= y</td>
+            </tr>
+
+            <tr>
+                <td>|=</td>
+                <td>Operación OR bit a bit</td>
+                <td>Asignación de variables aplicando OR bit a bit sobre sí misma </td>
+                <td>x = x |y</td>
+                <td>x |= y</td>
+            </tr>
+
+            <tr>
+                <td>^=</td>
+                <td>Operación XOR bit a bit</td>
+                <td>Asignación de variables aplicando XOR bit a bit sobre sí misma</td>
+                <td>x = x ^ y </td>
+                <td>x ^= y</td>
+            </tr>
+
+            <tr>
+                <td>[]=</td>
+                <td>Desestructurando asignaciones</td>
+                <td>Asignación múltiple o intercambio de valores</td>
+                <td>a=c, b=d</td>
+                <td>[a,b] = [c,d]</td>
+            </tr>
+
+        </table>
+
+        <li>Crea un ejemplo para cada asignación y muestralo con document.write(“”) console o con el alert</li>
+
+        <p id="Ejercicio2"></p>
+
+        <script>
+
+            let num1 = 500
+            let num2 = 100
+
+            document.getElementById("Ejercicio2").innerHTML = 
+            "(=); let variable = 2" +
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(-=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
+
+
+        </script>
+
+    </ol>
+    
+</body>
+
+</html>
