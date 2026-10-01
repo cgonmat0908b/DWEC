@@ -84,14 +84,6 @@
             </tr>
 
             <tr>
-                <td>&gt;=</td>
-                <td>Desplazar bits a la derecha</td>
-                <td>Asignación de variables desplazando sus bits a la derecha</td>
-                <td>0110 >= 0011</td>
-                <td>x >= y</td>
-            </tr>
-
-            <tr>
                 <td>&gt;&gt;=</td>
                 <td>Desplazar bit a la derecha rellenando con 0</td>
                 <td>Asignación de variables desplazando sus bits a la derecha rellenando con 0s</td>
@@ -140,30 +132,79 @@
             </tr>
 
         </table>
+        <br>
 
         <li>Crea un ejemplo para cada asignación y muestralo con document.write(“”) console o con el alert</li>
 
-        <p id="Ejercicio2"></p>
+        <div id="Ejercicio2"></div>
 
         <script>
 
-            let num1 = 500
-            let num2 = 100
+            let num1 = 500;
+            let num2 = 100;
+
+            let valorInicial = num1;
+
+            let suma = num1 += num2;
+
+            num1 = valorInicial;
+            let resta = num1 -= num2;
+
+            num1 = valorInicial;
+            let multiplicacion = num1 *= num2;
+
+            num1 = valorInicial;
+            let division = num1 /= num2;
+
+            num1 = valorInicial;
+            let modulo = num1 %= num2;
+
+            num1 = valorInicial;
+            let despIzq = num1 <<= num2;
+
+            num1 = valorInicial;
+            let despDer = num1 >>= num2;
+
+            num1 = valorInicial;
+            let despDerSig = num1 >>>= num2;
+
+            num1 = valorInicial;
+            let andBit = num1 &= num2;
+
+            num1 = valorInicial;
+            let orBit = num1 |= num2;
+
+            num1 = valorInicial;
+            let xorBit = num1 ^= num2;
+
+            let c = 10;
+            let d = 20;
+            let a;
+            let b;
+
+            [a, b] = [c, d];
 
             document.getElementById("Ejercicio2").innerHTML = 
-            "(=); let variable = 2" +
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(-=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-            "<p>(+=); " +  num1 + " += " + num2 + " = " + (num1 += num2) + "</p>";
-
+            "<br>(=); let variable = 2" +
+            "<p>(+=); " + valorInicial + " += " + num2 + " = " + suma + "</p>" +
+            "<p>(-=); " + valorInicial + " -= " + num2 + " = " + resta + "</p>" +
+            "<p>(*=); " + valorInicial + " *= " + num2 + " = " + multiplicacion + "</p>" +
+            "<p>(/=); " + valorInicial + " /= " + num2 + " = " + division + "</p>" +
+            "<p>(%=); " + valorInicial + " %= " + num2 + " = " + modulo + "</p>" +
+            "<p>(<<=); " + valorInicial + " <<= " + num2 + " = " + despIzq + "</p>" +
+            "<p>(>>=); " + valorInicial + " >>= " + num2 + " = " + despDer + "</p>" +
+            "<p>(>>>=); " + valorInicial + " >>>= " + num2 + " = " + despDerSig + "</p>" +
+            "<p>(&=); " + valorInicial + " &= " + num2 + " = " + andBit + "</p>" +
+            "<p>(|=); " + valorInicial + " |= " + num2 + " = " + orBit + "</p>" +
+            "<p>(^=); " + valorInicial + " ^= " + num2 + " = " + xorBit + "</p>" +
+            "<p>([]=); [a, b] = [c, d] → a = " + a + ", b = " + b + "</p>";
 
         </script>
+
+        <li>
+
+        </li>
+
 
     </ol>
     
