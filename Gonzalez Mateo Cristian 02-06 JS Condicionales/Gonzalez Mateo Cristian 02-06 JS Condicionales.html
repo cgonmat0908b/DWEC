@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>1. copia el siguiente código y ejecutalo</h2>
+    <script language="JavaScript">
+        var nombre;
+        var edad;
+        nombre=prompt('Ingrese su nombre:','');
+        edad=prompt('Ingrese su edad:','');
+        document.write('Hola ');
+        document.write(nombre);
+        document.write(' asi que tienes ');
+        document.write(edad);
+        document.write(' años');
+    </script>
+
+    <!-- Ejercicio 2-->
+    
+    <h2>2. crea un programa que lea una entrada con prompt y la escriba en negrita y h1</h2>
+    <p id="Ej2"></p>
+
+    <script>
+        let ej2 = prompt("Pasar a negrita y h1:");
+        document.getElementById("Ej2").innerHTML = "<h1><b>" + ej2 + "</h1><b>";
+    </script>
+
+    <!-- Ejercicio 3-->
+    <h2>3. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad (&lt;18)</h2>
+    <p id="Ej3"></p>
+
+    <script>
+
+        let fecha = prompt("Fecha:dd/mm/yyyy");
+
+        let anyo = 2026 - parseInt(edad.substring(6,10));
+
+        if(anyo < 18){
+            document.getElementById("Ej3").innerHTML = "Eres menor";
+        }
+
+    </script>
+
+    <h2>4. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad (&lt;18)
+    o en edad activa (>=18)</h2>
+
+    <script>
+        
+        if(anyo < 18){
+            document.getElementById("Ej3").innerHTML = "Eres menor";
+        }else{
+            document.getElementById("Ej3").innerHTML = "Eres mayor";
+        }
+
+    </script>
+    
+
+    <!--Ejercicio 7-->
+    <h2>7. crea un programa que leyendo la variable window.location.href y sacando sus primeros 4
+    valores substring(inicio,fin) decida si es una pagina local o remota.</h2>
+
+    <p id="Ej7"></p>
+
+    <script>
+
+        let url = (window.location.href);
+
+        if(url.substring(0,4) == "http"){
+            msg = "Es local";
+
+        }else if(url.substring(0,17) == "http://localhost/"){
+            msg = "Es local";
+
+        }else{
+            msg = "Es remoto";
+        }
+
+        document.getElementById("Ej7").innerHTML = url + "  " + msg;
+
+    </script>
+    
+</body>
+
+</html>
