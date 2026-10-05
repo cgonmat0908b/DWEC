@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian González Mateo</title>
+    <link rel="script" href="">
+</head>
+
+<body>
+
+    <ol>
+
+        <li>
+            Crea un archivo "02-02-JSTiposdeDatos.html" comentalo de las dos maneras posibles
+        </li>
+
+        <!--Comentario 1-->
+
+        <script>
+            // Comentario en JS de una linea
+
+            /* Comentario multilinea en JS
+            */
+        </script>
+
+
+        <li>
+            Usa la función alert para enseñar el mensaje holamundo
+        </li><br>
+
+        <script>
+            alert("Hola mundo");
+        </script>
+
+
+        <li>
+            En el un archivo y declara varias variables en una sola linea
+        </li><br>
+
+        <script>
+            let x,y,z;
+        </script>
+
+
+        <li>
+            ¿Que caracteres y nombres están prohibidos como nombre de variables?
+        </li><br>
+
+        <ul>
+            <li>Empezar por un número: 2nombre </li>
+            <li>Contener espacios: mi nombre </li>
+            <li>Usar caracteres como -, +, *, /, @, etc.: mi-variable </li>
+            <li>-Usar palabras reservadas del lenguaje, como if, for, class, return, let, const, function, etc.</li>
+        </ul><br>
+
+
+        <li>
+            Crea un ejemplo para cada tipos de datos (Crea una tabla en html5 en el documento htm)
+        </li>
+
+        <table border="1">
+
+            <tr>
+                <th>Cadena</th>
+                <td>let cadena = "Hola, Mundo";</td>
+            </tr>
+
+            <tr>
+                <th>Número</th>
+                <td>let entero = 5;</td>
+            </tr>
+
+            <tr>
+                <th>Boolean</th>
+                <td>let boleano = true;</td>
+            </tr>
+
+            <tr>
+                <th>Null</th>
+                <td>let nulo = null;</td>
+            </tr>
+
+            <tr>
+                <th>Object</th>
+                <td>let cristian = new Humano();</td>
+            </tr>
+
+            <tr>
+                <th>Arrays</th>
+                <td>let lista = [1,2,3,4];</td>
+            </tr>
+
+            <tr>
+                <th>Function</th>
+                <td>function funcion(){Contenido de la función}</td>
+            </tr>
+
+        </table>
+
+
+        <li>
+            Usa la función typeof para mostrar el tipo de los códigos
+        </li>
+
+        <p id="tipos"></p>
+
+        <script>
+
+            let cadena = "Hola, Mundo";
+            let num = 5;
+            let boleano = true;
+            let nulo = null;
+            let lista = [1,2,3,4];
+            function funcion(){}
+
+            document.getElementById("tipos").innerHTML = "<p>Cadena: " + typeof(cadena)
+            + "</p><p>Entero: " + typeof(num) + "</p><p>Booleano: " + typeof(boleano) + "</p><p>"
+            + "Nulo: " + typeof(nulo) + "</p><p>"+ "Lista: " + typeof(lista)
+            + "</p><p>Funcion: " + typeof(funcion) + "</p>";
+
+        </script>
+
+
+        <li>
+            Ejecuta estos datos y muestralos en un documento htm
+            <br>
+            var a=true;
+            <br>
+            var b=hola;
+            <br>
+            var c=1;
+        </li>
+
+        <p>var a = <span id="variableA"></span></p>
+        <p>var b = <span id="variableB"></span></p>
+        <p>var c = <span id="variableC"></span></p>
+
+        <script>
+
+            var a = true;
+            document.getElementById("variableA").textContent = a;
+
+            var b = "hola";
+            document.getElementById("variableB").textContent = b;
+
+            var c = 1;
+            document.getElementById("variableC").textContent = c;
+
+        </script>
+
+        <table border="1">
+
+            <tr>
+                <th>4+4</th>
+                <td id="operacion1"></td>
+            </tr>
+
+            <tr>
+                <th>"4"+4</th>
+                <td id="operacion2"></td>
+            </tr>
+
+            <tr>
+                <th>a+c</th>
+                <td id="operacion3"></td>
+            </tr>
+
+            <tr>
+                <th>b+c</th>
+                <td id="operacion4"></td>
+            </tr>
+
+            <tr>
+                <th>2.9e3+1</th>
+                <td id="operacion5"></td>
+            </tr>
+
+            <tr>
+                <th>2.9e3 + b</th>
+                <td id="operacion6"></td>
+            </tr>
+
+            <tr>
+                <th>2.9e3 + a</th>
+                <td id="operacion7"></td>
+            </tr>
+
+        </table>
+
+        <script>
+
+            document.getElementById("operacion1").textContent = 4+4;
+            document.getElementById("operacion2").textContent = "4"+4;
+            document.getElementById("operacion3").textContent = a+c;
+            document.getElementById("operacion4").textContent = b+c;
+            document.getElementById("operacion5").textContent = 2.9e3+1;
+            document.getElementById("operacion6").textContent = 2.9e3+b;
+            document.getElementById("operacion7").textContent = 2.9e3+a;
+
+        </script>
+
+
+        <li>
+            Usa la función parseFloat y parseInt para convertir explícitamente los valores 2.9e3, 30.1e-3, 0.000000004, 0.6, 3000000, 301231000
+        </li>
+
+        <table border="1">
+
+            <thead>
+                <tr>
+                    <th>Valores</th>
+                    <th>parseInt</th>
+                    <th>parseFloat</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <th>2.9e3</th>
+                <td id="linea1I"></td>
+                <td id="linea1F"></td>
+            </tr>
+
+            <tr>
+                <th>30.1e-3</th>
+                <td id="linea2I"></td>
+                <td id="linea2F"></td>
+            </tr>
+
+            <tr>
+                <th>0.000000004</th>
+                <td id="linea3I"></td>
+                <td id="linea3F"></td>
+            </tr>
+
+            <tr>
+                <th>0.6</th>
+                <td id="linea4I"></td>
+                <td id="linea4F"></td>
+            </tr>
+
+            <tr>
+                <th>3000000</th>
+                <td id="linea5I"></td>
+                <td id="linea5F"></td>
+            </tr>
+
+            <tr>
+                <th>301231000</th>
+                <td id="linea6I"></td>
+                <td id="linea6F"></td>
+            </tr>
+
+        </table><br>
+
+        <script>
+
+            let conversion = 0;
+
+            conversion = parseInt("2.9e3");
+            document.getElementById("linea1I").textContent = conversion;
+
+            conversion = parseFloat("2.9e3");
+            document.getElementById("linea1F").textContent = conversion;
+
+
+            conversion = parseInt("30.1e-3");
+            document.getElementById("linea2I").textContent = conversion;
+
+            conversion = parseFloat("30.1e-3");
+            document.getElementById("linea2F").textContent = conversion;
+
+
+            conversion = parseInt("0.000000004");
+            document.getElementById("linea3I").textContent = conversion;
+
+            conversion = parseFloat("0.000000004");
+            document.getElementById("linea3F").textContent = conversion;
+
+
+            conversion = parseInt("0.6");
+            document.getElementById("linea4I").textContent = conversion;
+
+            conversion = parseFloat("0.6");
+            document.getElementById("linea4F").textContent = conversion;
+
+
+            conversion = parseInt("3000000");
+            document.getElementById("linea5I").textContent = conversion;
+
+            conversion = parseFloat("3000000");
+            document.getElementById("linea5F").textContent = conversion;
+
+
+            conversion = parseInt("301231000");
+            document.getElementById("linea6I").textContent = conversion;
+
+            conversion = parseFloat("301231000");
+            document.getElementById("linea6F").textContent = conversion;
+
+        </script>
+
+
+        <li>
+            Usa la función length para hallar el tamaño de las cadenas "123456"
+        </li>
+
+        <p>El tamaño de "123456" es: <span id="lenghtCadena"></span></p>
+
+        <script>
+
+            let longitud = "123456".length
+            document.getElementById("lenghtCadena").textContent = longitud;
+
+        </script>
+
+    </ol>
+
+</body>
+
+</html>

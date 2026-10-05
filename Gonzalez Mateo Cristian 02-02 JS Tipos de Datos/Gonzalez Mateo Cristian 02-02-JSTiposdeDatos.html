@@ -21,6 +21,8 @@
         */
     </script>
 
+    <h2>Cristian González Mateo</h2>
+
     <ol start="3">
 
         <li>
@@ -189,7 +191,24 @@
         <li>
             Usa la función  typeof para mostrar el tipo de los códigos 
         </li>
-        <p></p>
+        <p id="tipos"></p>
+
+        <script>
+
+            let cadena = "Hola, Mundo";
+            let num = 5;
+            let boleano = true;
+            let nulo = null;
+            let lista = [1,2,3,4];
+            function funcion(){}
+
+            document.getElementById("tipos").innerHTML = "<p>Cadena: " + typeof(cadena) 
+            + "</p><p>Entero: " + typeof(num) + "</p><p>Booleano: " + typeof(boleano) + "</p><p>"
+            + "Nulo: " + typeof(nulo) + "</p><p>"+ "Lista: " + typeof(lista)
+            + "</p><p>Funcion: " + typeof(funcion) + "</p>";  
+            
+
+        </script>
 
         <li>
             Ejecuta estos datos y muestralos en un documento htm
