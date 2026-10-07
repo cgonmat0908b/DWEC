@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Bucle for 
+        let factorial = 5;
+        for(i = 1, factorialValor = 1; i < factorial; i++, factorialValor *= i){}
+
+        document.writeln("Factorial de " + factorial + " es " + factorialValor);
+
+        let cadenaRepeticion = prompt("Número de repeticiones");
+        let numReps = parseInt(cadenaRepeticion);
+
+        if(isNaN(numReps)){
+            document.writeln("No es un número");
+        }else{
+            for (var i=1; i<=numReps; i++){
+                document.writeln(i)
+            }
+        }
+        
+
+    </script>
+    
+</body>
+
+</html>

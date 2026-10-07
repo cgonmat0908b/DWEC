@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Practica 02-01 DWEC Fundamentos de JS </title>
+    <meta charset="UTF-8">
+    <style>
+        .img1 {
+            width: 900px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Practica 02-07 </h1>
+        <h1>Nombre: Cristian</h1>
+    </header>
+
+    <h1> Ejemplos</h1>
+
+    <script>
+        for (var i = 0; i < 10; i++) { document.write(i + "<br>") }
+
+        var i = 0;
+        while (i < 0) {
+            document.write(i + "-2<br>")
+            i++
+        }
+        var i = 0;
+        do {
+            document.write(i + "-3<br>")
+            i++
+        } while (i < 0)
+    </script>
+
+    <h1> Ejemplos</h1>
+
+    <!--
+    <br><br>1. Ejercicio 1 Escribir un programa que pida al usuario una palabra y la muestre por pantalla 10 veces con
+    for
+
+    <p id="Ej1"></p>
+
+    <script>
+
+        let cadena = prompt("Dime una palabra ", " ")
+
+        for(var i = 1; i <= 10; i++){
+            document.getElementById("Ej1").innerHTML += cadena;
+        }
+
+    </script>
+
+    <br><br>2. Ejercicio 2 Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años
+    que ha cumplido (desde 1 hasta su edad). (while)
+
+    <p id="Ej2"></p>
+
+    <script>
+
+        let edad = parseInt(prompt("Introduce tu edad: ", 1));
+        let contador = 1;
+
+        while(contador < edad){
+            document.getElementById("Ej2").innerHTML += "Has cumplido " + contador + " años<br>";
+            contador++;
+        }
+
+    </script>
+
+    <br><br>3. Ejercicio 3 Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla
+    todos los números impares desde 1 hasta ese número separados por comas.
+    <p id="Ej3"></p>
+
+    <script>
+
+        let num = parseInt(prompt("Introduce un número: "));
+
+        for(let i = 1; i <= num; i += 2){
+            document.getElementById("Ej3").innerHTML += i + "<br>"; 
+        }
+
+    </script>
+
+    
+    <br><br>4. Ejercicio 4 Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla la
+    cuenta atrás desde ese número hasta cero separados por comas.
+    <p id="Ej4"></p>
+
+    <script>
+
+        num = parseInt(prompt("Introduce un número: "));
+
+        for(let i = num; i >= 0 ; i--){
+            document.getElementById("Ej4").innerHTML += i + ", ";
+        }
+
+
+
+    </script>
+
+    
+
+    <br><br>5. Ejercicio 5 Escribir un programa que pregunte al usuario una cantidad a invertir, el interés anual y el
+    número de años, y muestre por pantalla el capital obtenido en la inversión cada año que dura la inversión.
+    <p id="Ej5"></p>
+
+    <script>
+
+        // ej 5
+
+        let cantidad5 = parseInt(prompt("Cantidad a invertir", 10));
+        let interes5 = parseInt(prompt("interés ", 10));
+        let anos5 = parseInt(prompt("número de años ", 10));
+        let interesanual;
+
+        if (isNaN(cantidad5) || isNaN(interes5) || isNaN(anos5)) {
+            document.getElementById("ej5").innerHTML = "Error datos no numericos";
+        } else {
+
+            document.getElementById("ej5").innerHTML =
+                " Cantidad inicial" + cantidad5 + " <br>";
+
+            for (var i = 1; i <= anos5; i += 1) {
+                interesanual = cantidad5 * (interes5 / 100);
+                cantidad5 = cantidad5 + interesanual;
+
+                document.getElementById("ej5").innerHTML +=
+                    "Al final del año " + i +
+                    " tenemos un interes de  " + interesanual +
+                    " y una cantidad de  " + cantidad5 +
+                    " <br>";
+            }
+        }
+
+    </script>
+
+    
+
+    <br><br>6. Ejercicio 6 Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo
+    rectángulo como el de más abajo, de altura el número introducido.
+    <br>*
+    <br>**
+    <br>***
+    <br>****
+    <br>*****
+
+    <p id="Ej6"></p>
+
+    <script>
+
+        let num6 = parseInt(prompt("Altura del triangulo: "));
+
+        for(let i = 0; i <= num6; i++){
+            document.getElementById("Ej6").innerHTML += "<br>";
+            for(let f = 0; f <= i; f++){
+                document.getElementById("Ej6").innerHTML += "*";
+            }
+        }
+
+    </script>
+
+    
+
+    <br><br>7. Ejercicio 7 Escribir un programa que muestre por pantalla la tabla de multiplicar del 1 al <br><br>10.
+
+    <p id="Ej7"></p>
+
+    <script>
+
+        let resultado7 = 0;
+
+        for(let i = 1; i <= 10; i++){
+            document.getElementById("Ej7").innerHTML += "Tabla del " + i + ": <br><br>";
+            for(let f = 1; f <= 10; f++){
+                resultado7 = i * f;
+                document.getElementById("Ej7").innerHTML += i + " * " + f + " = " + resultado7 + "<br><br>";
+            }
+        }
+
+    </script>
+    -->
+
+    <br><br>8. Ejercicio 8 Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo
+    rectángulo como el de más abajo.
+    <br>1
+    <br>3 1
+    <br>5 3 1
+    <br>7 5 3 1
+    <br>9 7 5 3 1
+
+    <p id="Ej8"></p>
+
+    <script>
+
+        let num8 = parseInt(prompt("Altura del triangulo: "));
+
+        for(let i = 1; i <= num8; i++){
+            document.getElementById("Ej8").innerHTML += "<br>";
+            for(let f = 1; f < i * 2 - 1; f += 2){
+                document.getElementById("Ej8").innerHTML += f + " ";
+            }
+        }
+
+    </script>
+
+    <br><br>9. Ejercicio 9 Escribir un programa que almacene la cadena de caracteres contraseña en una variable,
+    pregunte al usuario por la contraseña hasta que introduzca la contraseña correcta.
+    <p id="Ej9"></p>
+
+
+    <script>
+
+        
+
+    </script>
+
+    <br><br>10. Ejercicio 10 Escribir un programa que pida al usuario un número entero y muestre por pantalla si es un
+    número primo o no.
+    <br><br>11. Ejercicio 11 Escribir un programa que pida al usuario una palabra y luego muestre por pantalla una a una
+    las letras de la palabra introducida empezando por la última.
+    <br><br>12. Ejercicio 12 Escribir un programa en el que se pregunte al usuario por una frase y una letra, y muestre
+    por pantalla el número de veces que aparece la letra en la frase.
+    <br><br>13. Ejercicio 13 Escribir un programa que muestre el eco de todo lo que el usuario introduzca hasta que el
+    usuario escriba “salir” que terminará.
+    <br><br>14. Ejercicio 14 Escribir un programa que pregunte al usuario una cantidad a pedir, el interés anual y el
+    número de años en el que lo amortizara, y muestre por pantalla las cuotas pagadas durante cada años suponiendo que
+    actualizan los intereses cada año.
+
+
+
+
+
+</body>
+
+</html>
