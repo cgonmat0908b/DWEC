@@ -8,6 +8,257 @@
 </head>
 
 <body>
+
+    <ol>
+        <li>Rellena el siguiente tabla y creala con html5</li>
+        
+        <table border="1">
+
+            <thead>
+
+                <tr>
+                    <th>Sintaxix
+                    <th>Nombre</th>
+                    <th>Uso</th>
+                    <th>Significado</th>
+                    <th>Ejemplo</th>
+                </tr>
+
+            </thead>
+            
+            <tr>
+                <td>=</td>
+                <td>Asignación</td>
+                <td>Asignación de variables</td>
+                <td>x = y</td>
+                <td>x = y</td>
+            </tr>
+
+            <tr>
+                <td>+=</td>
+                <td>Suma un valor</td>
+                <td>Asignación de variables sumándose a sí misma</td>
+                <td>x = x + y</td>
+                <td>x += y</td>
+            </tr>
+
+            <tr>
+                <td>-=</td>
+                <td>Sustraer un valor</td>
+                <td>Asignación de variaables restandose a sí misma</td>
+                <td>x = x - y</td>
+                <td>x -= y</td>
+            </tr>
+
+            <tr>
+                <td>*=</td>
+                <td>Multiplicar un valor</td>
+                <td>Asignación de variables multiplicándose a sí misma</td>
+                <td>x = x * y</td>
+                <td> x *= y</td>
+            </tr>
+
+            <tr>
+                <td>/=</td>
+                <td>Dividir un valor</td>
+                <td>Asignación de una variable dividiéndose entre sí misma</td>
+                <td>x = x / y</td>
+                <td>x /= y</td>
+            </tr>
+
+            <tr>
+                <td>%=</td>
+                <td>Módulo de un valor</td>
+                <td>Asignación de variables didviéndose a sí misma dando el resto de la división</td>
+                <td>x = x % y</td>
+                <td>x %= y</td>
+            </tr>
+
+            <tr>
+                <td>&lt;&lt;=</td>
+                <td>Desplazar bits a la izquierda</td>
+                <td>Asignación de variables desplazando sus bits a la izquierda</td>
+                <td>01110 &lt;&lt;= 11000</td>
+                <td>x &lt;&lt;= y</td>
+            </tr>
+
+            <tr>
+                <td>>>=</td>
+                <td>Desplazar bit a la derecha rellenando con 0</td>
+                <td>Asignación de variables desplazando sus bits a la derecha rellenando con 0s</td>
+                <td>x = x >> y</td>
+                <td>x >>= y</td>
+            </tr>
+
+            <tr>
+                <td>>>>=</td>
+                <td>Desplazar bits a la derecha</td>
+                <td>Asignación de variables desplazando sus bits a la derecha sin signo </td>
+                <td>x = x >>> y</td>
+                <td>x >>>= y</td>
+            </tr>
+
+            <tr>
+                <td>&=</td>
+                <td>Operación AND bit a bit</td>
+                <td>Asignación de variables aplicando AND bit a bit sobre sí misma </td>
+                <td>Var a =15 Var a&=9 00001111 & 00001001 = 00001001</td>
+                <td>x &= y</td>
+            </tr>
+
+            <tr>
+                <td>|=</td>
+                <td>Operación OR bit a bit</td>
+                <td>Asignación de variables aplicando OR bit a bit sobre sí misma </td>
+                <td>x |= y</td>
+                <td>x = x |y</td>
+            </tr>
+
+            <tr>
+                <td>^=</td>
+                <td>Operación XOR bit a bit</td>
+                <td>Asignación de variables aplicando XOR bit a bit sobre sí misma</td>
+                <td>x = x ^ y</td>
+                <td>x ^= y</td>
+            </tr>
+
+            <tr>
+                <td>[]=</td>
+                <td>Desestructurando asignaciones</td>
+                <td>Asignación múltiple o intercambio de valores </td>
+                <td>a=c, b=d</td>
+                <td>[a,b] = [c,d]</td>
+            </tr>
+
+
+        </table>
+
+
+        <li>Crea un ejemplo para cada asignación y muestralo con document.write(“”) console o con el alert</li>
+
+        <script>
+
+            // 1. Asignación =
+            let a = 10;
+            document.write("= → a vale: " + a + "<br>");
+
+
+            // 2. Asignación +=
+            let b = 10;
+            b += 5;
+            document.write("+= → b vale: " + b + "<br>");
+
+
+            // 3. Asignación -=
+            let c = 10;
+            c -= 4;
+            document.write("-= → c vale: " + c + "<br>");
+
+
+            // 4. Asignación *=
+            let d = 10;
+            d *= 3;
+            document.write("*= → d vale: " + d + "<br>");
+
+
+            // 5. Asignación /=
+            let e = 20;
+            e /= 4;
+            document.write("/= → e vale: " + e + "<br>");
+
+
+            // 6. Asignación %=
+            let f = 10;
+            f %= 3;
+            document.write("%= → f vale: " + f + "<br>");
+
+
+            // 7. Asignación <<=
+            let g = 5;
+            g <<= 1;
+            document.write("<<= → g vale: " + g + "<br>");
+
+
+            // 8. Asignación >>=
+            let h = 20;
+            h >>= 2;
+            document.write(">>= → h vale: " + h + "<br>");
+
+
+            // 9. Asignación >>>=
+            let i = 20;
+            i >>>= 2;
+            document.write(">>>= → i vale: " + i + "<br>");
+
+
+            // 10. Asignación &=
+            let j = 15;
+            j &= 9;
+            document.write("&= → j vale: " + j + "<br>");
+
+
+            // 11. Asignación |=
+            let k = 10;
+            k |= 5;
+            document.write("|= → k vale: " + k + "<br>");
+
+
+            // 12. Asignación ^=
+            let l = 10;
+            l ^= 5;
+            document.write("^= → l vale: " + l + "<br>");
+
+
+            // 13. Asignación ??=
+            let m = null;
+            m ??= 10;
+            document.write("??= → m vale: " + m + "<br>");
+            
+        </script>
+
+        <li>Rellena el siguiente tabla y creala con html5</li>
+
+        <table border="1">
+
+            <thead>
+                <tr>
+                    <th>Sintaxis</th>
+                    <th>Nombre</th>
+                    <th>Ejemplo</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td>&&</td>
+                <td>AND</td>
+                <td>1 == 1 && 2 == 2 (TRUE)</td>
+            </tr>
+
+            <tr>
+                <td>||</td>
+                <td>OR</td>
+                <td>1 == 2 || 1 == 1 (TRUE)</td>
+            </tr>
+
+            <tr>
+                <td>!</td>
+                <td>NOT</td>
+                <td>!encontrado (False)</td>
+            </tr>
+
+        </table>
+
+        <li>Rellena las tablas de verdad del operador AND y creala con html5</li>
+        <li>Rellena las tablas de verdad del operador OR y creala con html5</li>
+        <li>Crea un ejemplo para cada operador booleano y muestra lo con document.write</li>
+        <li>Crea un ejemplo combinando con paréntesis con cada uno de los operadores booleanos y muestra lo con document.write</li>
+        <li>En que consiste los Operadores bit a bit.? son muy usados?</li>
+        <li>En que formatos se puede usar?</li>
+        <li>Rellena las tablas de bits y creala con html5</li>
+        <li>Ejecuta este codigo y observa los resultados de los alert</li>
+        <li>Modifica la variable segundoparametroBinario operador para que siempre salga el elemento en 
+        comentario y arregla el problema con los let</li>
+    </ol>
     
 </body>
 

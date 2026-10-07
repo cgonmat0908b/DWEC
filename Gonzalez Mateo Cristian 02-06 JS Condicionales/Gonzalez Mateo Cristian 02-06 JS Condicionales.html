@@ -50,17 +50,58 @@
 
     <h2>4. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad (&lt;18)
     o en edad activa (>=18)</h2>
+    <p id="Ej4"></p>
 
     <script>
+
+        fecha = prompt("Fecha:dd/mm/yyyy");
+        anyo = 2026 - parseInt(edad.substring(6,10));
         
         if(anyo < 18){
-            document.getElementById("Ej3").innerHTML = "Eres menor";
+            document.getElementById("Ej4").innerHTML = "Eres menor";
         }else{
-            document.getElementById("Ej3").innerHTML = "Eres mayor";
+            document.getElementById("Ej4").innerHTML = "Eres mayor";
         }
 
     </script>
-    
+
+    <!--Ejercicio 5-->
+    <h2>5. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad (&lt;18)
+    , en edad activa (>=18) o jubilado (>67)</h2>
+    <p id="Ej5"></p>
+
+    <script>
+        
+        fecha = prompt("Fecha:dd/mm/yyyy");
+        anyo = 2026 - parseInt(edad.substring(6,10));
+
+        if(anyo < 18){
+            document.getElementById("Ej5").innerHTML = "Eres menor";
+        }else if(anyo >= 18 && anyo <= 67){
+            document.getElementById("Ej5").innerHTML = "Eres mayor";
+        }else{
+            document.getElementById("Ej5").innerHTML = "Jubilado";
+        }
+
+    </script>
+
+    <!--Ejercicio 6-->
+    <h2>6. crea un programa que lea el año que es y te diga si es bisiesto o no
+        ( ayuda: modulo 4de el numero es 0)</h2>
+
+    <p id="Ej6"></p>
+
+    <script>
+
+        let anyoBi = parseInt(prompt("Introduce un año: yyyy"));
+
+        if(anyoBi % 4 == 0){
+            document.getElementById("Ej6").innerHTML = "Es bisiesto";
+        }else{
+            document.getElementById("Ej6").innerHTML = "No es bisiesto";
+        }
+
+    </script>
 
     <!--Ejercicio 7-->
     <h2>7. crea un programa que leyendo la variable window.location.href y sacando sus primeros 4
@@ -85,7 +126,146 @@
         document.getElementById("Ej7").innerHTML = url + "  " + msg;
 
     </script>
-    
+
+    <h2>8. Solicitar al usuario un número de cliente. Si el número es el 1000,
+    imprimir "Ganaste un premio".</h2>
+    <p id="Ej8"></p>
+
+    <script>
+
+        let numCliente = parseInt(prompt("Introduce un número"));
+
+        if(numCliente == 1000){
+            document.getElementById("Ej8").innerHTML = "Ganaste un premio";
+        }
+
+    </script>
+
+    <h2>9. Solicitar al usuario que ingrese dos números y mostrar cuál
+    de los dos es menor. No considerar el caso en que ambos números son iguales.</h2>
+    <p id="Ej9"></p>
+
+    <script>
+
+        let num1 = parseInt(prompt("Introduce un número"));
+        let num2 = parseInt(prompt("Introduce otro número"));
+
+        if(num1 < num2){
+            document.getElementById("Ej9").innerHTML = num1;
+        }else{
+            document.getElementById("Ej9").innerHTML = num2;
+        }
+
+    </script>
+
+    <h2>10. Solicitar al usuario que ingrese dos números y mostrar cuál
+    de los dos es menor. Considerar el caso en que ambos números son iguales.</h2>
+    <p id="Ej10"></p>
+
+    <script>
+
+        num1 = parseInt(prompt("Introduce un número"));
+        num2 = parseInt(prompt("Introduce otro número"));
+
+        if(num1 < num2){
+            document.getElementById("Ej10").innerHTML = num1;
+        }else if(num2 < num1){
+            document.getElementById("Ej10").innerHTML = num2;
+        }else{
+            document.getElementById("Ej10").innerHTML = "Son iguales";
+        }
+
+    </script>
+
+    <h2>11. Requerir al usuario que ingrese un día de la semana e imprimir
+    un mensaje si es lunes, otro mensaje diferente si es viernes, 
+    otro mensaje diferente si es sábado o domingo. Si el día ingresado
+    no es ninguno de esos, imprimir otro mensaje.</h2>
+    <p id="Ej11"></p>
+
+    <script>
+
+        let diaSemana = prompt("Introduce un día de la semana: ")
+
+        switch(diaSemana){
+            case "lunes":
+                document.getElementById("Ej11").innerHTML = "Es lunes";
+                break;
+            case "martes":
+            case "miercoles":
+            case "jueves":
+                document.getElementById("Ej11").innerHTML = "Es martes, miercoles o jueves";
+                break;
+            case "viernes":
+                document.getElementById("Ej11").innerHTML = "Es viernes";
+                break;
+            case "sabado", "domingo":
+                document.getElementById("Ej11").innerHTML = "Es sábado o domingo";
+                break;
+            default:
+                document.getElementById("Ej11").innerHTML = "Día invalido";
+                break;
+        }
+
+    </script>
+
+    <h2>12. escribir un programa que, dado un número entero, muestre su valor
+    absoluto. Nota: paralos números positivos su valor absoluto es igual
+    al número (el valor absoluto de 52 es 52), mientras que, para los negativos,
+    su valor absoluto es el número multiplicado por -1 (el valor absoluto de -52
+    es 52).</h2>
+    <p id="Ej12"></p>
+
+    <script>
+
+        let abs = prompt("Pasar a absoluto");
+
+        if(abs < 0 ){
+            abs * -1;
+            document.getElementById("Ej12").innerHTML= abs;
+        }else{
+            document.getElementById("Ej12").innerHTML= abs;
+        }
+
+    </script>
+
+    <h2>13. Solicitar al usuario que ingrese los nombres de dos personas,
+    los cuales se almacenaránen dos variables. A continuación, imprimir
+    “coincidencia” si los nombres de ambas personas comienzan con 
+    la misma letra ó si terminan con la misma letra. Si no es así,
+    imprimir “no hay coincidencia”.</h2>
+    <p id="Ej13"></p>
+
+    <script>
+
+        let nombre1 = prompt("Introduce el primer nombre:");
+        let nombre2 = prompt("Introduce el primer nombre:");
+
+        if(nombre1[0] == nombre2[0] 
+        || nombre1[nombre1.length -1] == nombre2[nombre2.length -1]){
+            document.getElementById("Ej13").innerHTML= "coincidencia";
+        }else{
+            document.getElementById("Ej13").innerHTML= "no hay coincidencia";
+        }
+
+    </script>
+
+    <h2>14. crear un programa que permita al usuario elegir un candidato
+    por el cual votar. Las posibilidades son: candidato A por el partido rojo,
+    candidato B por el partido verde, candidato C por el partido azul. 
+    Según el candidato elegido (A, B ó C) se le debe imprimir el mensaje 
+    “Usted ha votado por el partido [color que corresponda al candidato elegido]”.
+
+    Si el usuario ingresa una opción que no corresponde a ninguno de los candidatos
+    disponibles, indicar “Opción errónea”.</h2>
+    <p id="Ej14"></p>
+
+    <script>
+        
+        
+
+    </script>
+
 </body>
 
 </html>
