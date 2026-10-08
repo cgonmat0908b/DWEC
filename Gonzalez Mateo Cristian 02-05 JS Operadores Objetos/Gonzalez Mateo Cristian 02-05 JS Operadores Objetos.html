@@ -9,255 +9,262 @@
 
 <body>
 
+    <h2>Cristian González Mateo</h2>
+    <h3>02-05 JS Operadores Objetos</h3>
+
     <ol>
-        <li>Rellena el siguiente tabla y creala con html5</li>
+        <!-- Ejercicio 1 -->
+        <li>¿Qué hace el operador .?</li>
+        <p>Se usa para acceder a las propiedades o métodos de un objeto</p>
+
+        <!-- Ejercicio 2 -->
+        <li>
+            Ejecuta este código y explícalo:
+            var s = new String('rafa');
+            document.write(s);
+            var longitud = s.length;
+            document.write(longitud);
+            var pos = s.indexOf("fa");
+            document.write(pos);
+        </li>
+
+        <p>
+            var s = new String('rafa'); -> Crea un objeto String con el parametro 'rafa'<br>
+            document.write(s); -> Escribe en el documento el valor de la variable s('rafa)<br>
+            var longitud = s.length; -> Guarda en la variable longitud, el resultado del metod lenght aplicado a la variable s<br>
+            document.write(longitud); -> Escribe en el documento el valor de la variable longitud(4)
+            var pos = s.indexOf("fa"); -> Guarda en la variable pos, el resultado del metodo indexOf aplicado a la variable s<br>
+            document.write(pos); -> Escribe en el documento el valor de la variable pos(2)
+        </p>
+
+        <script>
         
-        <table border="1">
+            var s = new String('rafa');
+            document.write(s);
+            var longitud = s.length;
+            document.write(longitud);
+            var pos = s.indexOf("fa");
+            document.write(pos);
 
-            <thead>
+        </script>
 
-                <tr>
-                    <th>Sintaxix
-                    <th>Nombre</th>
-                    <th>Uso</th>
-                    <th>Significado</th>
-                    <th>Ejemplo</th>
-                </tr>
+        <!-- Ejercicio 3 -->
+        <li>¿Qué hace el operador [ ]?</li>
+        <p>Se usa principalmente para acceder a elementos de un array mediante su posición, por ejemplo: lista[0], devulve el valor de la primera posición de lista.</p>
 
-            </thead>
-            
-            <tr>
-                <td>=</td>
-                <td>Asignación</td>
-                <td>Asignación de variables</td>
-                <td>x = y</td>
-                <td>x = y</td>
-            </tr>
-
-            <tr>
-                <td>+=</td>
-                <td>Suma un valor</td>
-                <td>Asignación de variables sumándose a sí misma</td>
-                <td>x = x + y</td>
-                <td>x += y</td>
-            </tr>
-
-            <tr>
-                <td>-=</td>
-                <td>Sustraer un valor</td>
-                <td>Asignación de variaables restandose a sí misma</td>
-                <td>x = x - y</td>
-                <td>x -= y</td>
-            </tr>
-
-            <tr>
-                <td>*=</td>
-                <td>Multiplicar un valor</td>
-                <td>Asignación de variables multiplicándose a sí misma</td>
-                <td>x = x * y</td>
-                <td> x *= y</td>
-            </tr>
-
-            <tr>
-                <td>/=</td>
-                <td>Dividir un valor</td>
-                <td>Asignación de una variable dividiéndose entre sí misma</td>
-                <td>x = x / y</td>
-                <td>x /= y</td>
-            </tr>
-
-            <tr>
-                <td>%=</td>
-                <td>Módulo de un valor</td>
-                <td>Asignación de variables didviéndose a sí misma dando el resto de la división</td>
-                <td>x = x % y</td>
-                <td>x %= y</td>
-            </tr>
-
-            <tr>
-                <td>&lt;&lt;=</td>
-                <td>Desplazar bits a la izquierda</td>
-                <td>Asignación de variables desplazando sus bits a la izquierda</td>
-                <td>01110 &lt;&lt;= 11000</td>
-                <td>x &lt;&lt;= y</td>
-            </tr>
-
-            <tr>
-                <td>>>=</td>
-                <td>Desplazar bit a la derecha rellenando con 0</td>
-                <td>Asignación de variables desplazando sus bits a la derecha rellenando con 0s</td>
-                <td>x = x >> y</td>
-                <td>x >>= y</td>
-            </tr>
-
-            <tr>
-                <td>>>>=</td>
-                <td>Desplazar bits a la derecha</td>
-                <td>Asignación de variables desplazando sus bits a la derecha sin signo </td>
-                <td>x = x >>> y</td>
-                <td>x >>>= y</td>
-            </tr>
-
-            <tr>
-                <td>&=</td>
-                <td>Operación AND bit a bit</td>
-                <td>Asignación de variables aplicando AND bit a bit sobre sí misma </td>
-                <td>Var a =15 Var a&=9 00001111 & 00001001 = 00001001</td>
-                <td>x &= y</td>
-            </tr>
-
-            <tr>
-                <td>|=</td>
-                <td>Operación OR bit a bit</td>
-                <td>Asignación de variables aplicando OR bit a bit sobre sí misma </td>
-                <td>x |= y</td>
-                <td>x = x |y</td>
-            </tr>
-
-            <tr>
-                <td>^=</td>
-                <td>Operación XOR bit a bit</td>
-                <td>Asignación de variables aplicando XOR bit a bit sobre sí misma</td>
-                <td>x = x ^ y</td>
-                <td>x ^= y</td>
-            </tr>
-
-            <tr>
-                <td>[]=</td>
-                <td>Desestructurando asignaciones</td>
-                <td>Asignación múltiple o intercambio de valores </td>
-                <td>a=c, b=d</td>
-                <td>[a,b] = [c,d]</td>
-            </tr>
-
-
-        </table>
-
-
-        <li>Crea un ejemplo para cada asignación y muestralo con document.write(“”) console o con el alert</li>
+        <!-- Ejercicio 4 -->
+        <li>
+            Ejecuta estos códigos y explica qué hacen:
+            var arraya = ["Santiago", "Coruña", "Lugo"];
+            // var arrayb = { elem1:"Santiago", elem2:"Coruña", elem3:"Lugo" };
+            document.write(arraya[1]);
+            // document.write(arrayb["elem3"]);
+        </li>
+        <p>
+            var arraya = ["Santiago", "Coruña", "Lugo"]; -> Define un array de Strings de 3 posiciones con los 3 elementos<br>
+            // var arrayb = { elem1:"Santiago", elem2:"Coruña", elem3:"Lugo" }; -> Define un objeto literal con 3 propiedades y 3 valores<br>
+            document.write(arraya[1]); -> Escribe en el documento el valor de la segunda posición del array<br>
+            // document.write(arrayb["elem3"]); -> Escribe en el documento el valor del la clave "elem3" del segundo array/objeto
+        </p>
 
         <script>
 
-            // 1. Asignación =
-            let a = 10;
-            document.write("= → a vale: " + a + "<br>");
+            var arraya = ["Santiago", "Coruña", "Lugo"];
+            // var arrayb = { elem1:"Santiago", elem2:"Coruña", elem3:"Lugo" };
+            document.write(arraya[1]);
+            // document.write(arrayb["elem3"]);
 
-
-            // 2. Asignación +=
-            let b = 10;
-            b += 5;
-            document.write("+= → b vale: " + b + "<br>");
-
-
-            // 3. Asignación -=
-            let c = 10;
-            c -= 4;
-            document.write("-= → c vale: " + c + "<br>");
-
-
-            // 4. Asignación *=
-            let d = 10;
-            d *= 3;
-            document.write("*= → d vale: " + d + "<br>");
-
-
-            // 5. Asignación /=
-            let e = 20;
-            e /= 4;
-            document.write("/= → e vale: " + e + "<br>");
-
-
-            // 6. Asignación %=
-            let f = 10;
-            f %= 3;
-            document.write("%= → f vale: " + f + "<br>");
-
-
-            // 7. Asignación <<=
-            let g = 5;
-            g <<= 1;
-            document.write("<<= → g vale: " + g + "<br>");
-
-
-            // 8. Asignación >>=
-            let h = 20;
-            h >>= 2;
-            document.write(">>= → h vale: " + h + "<br>");
-
-
-            // 9. Asignación >>>=
-            let i = 20;
-            i >>>= 2;
-            document.write(">>>= → i vale: " + i + "<br>");
-
-
-            // 10. Asignación &=
-            let j = 15;
-            j &= 9;
-            document.write("&= → j vale: " + j + "<br>");
-
-
-            // 11. Asignación |=
-            let k = 10;
-            k |= 5;
-            document.write("|= → k vale: " + k + "<br>");
-
-
-            // 12. Asignación ^=
-            let l = 10;
-            l ^= 5;
-            document.write("^= → l vale: " + l + "<br>");
-
-
-            // 13. Asignación ??=
-            let m = null;
-            m ??= 10;
-            document.write("??= → m vale: " + m + "<br>");
-            
         </script>
 
-        <li>Rellena el siguiente tabla y creala con html5</li>
+        <!-- Ejercicio 5 -->
+        <li>¿Qué hace el operador { }?</li>
+        <p>Se usa principalmente para crear objetos literales o delimitar bloques de código</p>
 
-        <table border="1">
 
-            <thead>
-                <tr>
-                    <th>Sintaxis</th>
-                    <th>Nombre</th>
-                    <th>Ejemplo</th>
-                </tr>
-            </thead>
+        <!-- Ejercicio 6 -->
+        <li>
+            Ejecuta estos códigos y explica qué hacen:
+            var arrayb = { elem1:"Santiago", elem2:"Coruña", elem3:"Lugo" };
+            document.write(arrayb["elem3"]);
+        </li>
+        <p>
+            var arrayb = { elem1:"Santiago", elem2:"Coruña", elem3:"Lugo" }; -> Define un objeto literal con 3 propiedades y 3 valores<br>
+            document.write(arrayb["elem3"]); -> -> Escribe en el documento el valor del la clave "elem3" del segundo array/objeto
+        </p>
 
-            <tr>
-                <td>&&</td>
-                <td>AND</td>
-                <td>1 == 1 && 2 == 2 (TRUE)</td>
-            </tr>
+        <script>
 
-            <tr>
-                <td>||</td>
-                <td>OR</td>
-                <td>1 == 2 || 1 == 1 (TRUE)</td>
-            </tr>
+            var arrayb = { elem1:"Santiago", elem2:"Coruña", elem3:"Lugo" };
+            document.write(arrayb["elem3"]);
 
-            <tr>
-                <td>!</td>
-                <td>NOT</td>
-                <td>!encontrado (False)</td>
-            </tr>
+        </script>
 
-        </table>
+        <!-- Ejercicio 7 -->
+        <li>¿Qué hace el operador delete?</li>
+        <p>Sirve para eliminar una propiedad de un objeto</p>
 
-        <li>Rellena las tablas de verdad del operador AND y creala con html5</li>
-        <li>Rellena las tablas de verdad del operador OR y creala con html5</li>
-        <li>Crea un ejemplo para cada operador booleano y muestra lo con document.write</li>
-        <li>Crea un ejemplo combinando con paréntesis con cada uno de los operadores booleanos y muestra lo con document.write</li>
-        <li>En que consiste los Operadores bit a bit.? son muy usados?</li>
-        <li>En que formatos se puede usar?</li>
-        <li>Rellena las tablas de bits y creala con html5</li>
-        <li>Ejecuta este codigo y observa los resultados de los alert</li>
-        <li>Modifica la variable segundoparametroBinario operador para que siempre salga el elemento en 
-        comentario y arregla el problema con los let</li>
+        <!-- Ejercicio 8 -->
+        <li>
+            Crea un ejemplo de delete para eliminar la propiedad elem3.
+        </li>
+        <p>delete arrayb.elem3</p>
+
+        <script>
+
+            delete arrayb.elem3;
+
+        </script>
+
+        <!-- Ejercicio 9 -->
+        <li>¿Qué hace el operador de escape \' ?</li>
+        <p>El operador de escape \' sirve para representar una comilla simple dentro de una cadena escrita con comillas simples, evitando que JavaScript interprete esa comilla como el final de la cadena.</p>
+
+
+        <!-- Ejercicio 10 -->
+        <li>
+            Crea un ejemplo para escribir la cadena literal
+            “&lt;el pajarito “pedro” comia “grillos”&gt;”.
+            Ojo, a lo mejor debes usar las entidades HTML.
+        </li>
+        <p id="Ej10"></p>
+
+        <script>
+
+            let cadenaLiteral10 = "&ltel pajarito \"pedro\" comia \"grillos\"&gt.";
+            document.getElementById("Ej10").innerHTML = cadenaLiteral10;
+
+        </script>
+
+        <!-- Ejercicio 11 -->
+        <li>¿Qué hace el operador instanceof?</li>
+        <p>Se usa para comprobar si un objeto pertenece a una clase o a sido creado a partir de un determinado constructor</p>
+
+        <!-- Ejercicio 12 -->
+        <li>
+            Ejecuta el código:
+            a = new Array(1, 2, 3);
+            a instanceof Array; // devolverá true.
+        </li>
+        <p id="Ej12"></p>
+
+        <script>
+
+            a = new Array(1, 2, 3);
+            let esArray = a instanceof Array; // devolverá true.
+            document.getElementById("Ej12").innerHTML = esArray;
+
+        </script>
+
+
+        <!-- Ejercicio 13 -->
+        <li>
+            ¿Qué hace el operador coma?
+            Operador . Coma operador : instanceof
+        </li>
+        <p>Permite separar varias expresiones o declaraciones</p>
+
+        <!-- Ejercicio 14 -->
+        <li>
+            Ejecuta este código:
+            var nombre = "juan",
+            direccion = "C\ pepep,1",
+            apellidos = "lopez Abad",
+            edad = "30";
+
+            document.write(nombre + "," + apellidos + "," + direccion + "," + edad);
+        </li>
+
+        <script>
+
+            var nombre = "juan",
+            direccion = "C\ pepep,1",
+            apellidos = "lopez Abad",
+            edad = "30";
+
+            document.write("<br>" + nombre + "," + apellidos + "," + direccion + "," + edad + "<br><br>");
+
+        </script>
+
+        <!-- Ejercicio 15 -->
+        <li>¿Qué hace el operador :?</li>
+        <p>Se usa en objetos para separar una propieda de su valor y para el operador ternario junto con ? para indicar la opción que se usa cuando la condición es false</p>
+
+        <!-- Ejercicio 16 -->
+        <li>
+            Ejecuta este código:
+            var a = 10;
+            var b = 15;
+            var opcion = b > a ? "B es mayor que A" : "A es mayor que B";
+
+            document.write("opcion " + opcion);
+        </li>
+
+        <script>
+
+            var a = 10;
+            var b = 15;
+            var opcion = b > a ? "B es mayor que A" : "A es mayor que B";
+
+            document.write("opcion " + opcion + "<br><br>");
+
+        </script>
+
+        <!-- Ejercicio 17 -->
+        <li>
+            Ejecuta este código:
+            var a = confirm("Estas de Acuerdo");
+            var opcion = a ? "Acuerdo" : "En Desacuerdo";
+
+            document.write("opcion " + opcion);
+        </li>
+
+        <script>
+
+            var a = confirm("Estas de Acuerdo");
+            var opcion = a ? "Acuerdo" : "En Desacuerdo";
+
+            document.write("opcion " + opcion + "<br><br>");
+
+        </script>
+
+        <!-- Ejercicio 18 -->
+        <li>¿Qué hace el operador typeof?</li>
+        <p>El operador typeof se utiliza para saber qué tipo de dato tiene una variable o valor</p>
+
+        <!-- Ejercicio 19 -->
+        <li>
+            Ejecuta este código:
+            var a = "hola",
+            b = 34,
+            c = 3.1e3,
+            d = 34;
+
+            var at = typeof(a);
+            var bt = typeof(b);
+            var ct = typeof(c);
+
+            document.write(" tipo de " + a + " es " + at);
+            document.write(" tipo de " + b + " es " + bt);
+            document.write(" tipo de " + c + " es " + ct);
+        </li>
+
+        <script>
+
+            var a = "hola",
+            b = 34,
+            c = 3.1e3,
+            d = 34;
+
+            var at = typeof(a);
+            var bt = typeof(b);
+            var ct = typeof(c);
+
+            document.write(" tipo de " + a + " es " + at + "<br><br>");
+            document.write(" tipo de " + b + " es " + bt + "<br><br>");
+            document.write(" tipo de " + c + " es " + ct + "<br><br>");
+
+        </script>
+        
     </ol>
     
 </body>
