@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h2>Cristian González Mateo</h2>
+    <h2>03-01 JS Objeto String</h2>
+
+    <!--
+    <h2>1. Toma una entrada con window.prompt() y muestra su tamaño</h2>
+    <p id="Ej1"></p>
+
+    <script>
+
+        let cadena1 = window.prompt("Introduce una cadena: ");
+        document.getElementById("Ej1").innerHTML = cadena1.length;
+
+    </script>
+
+    <h2>2. Toma una entrada con window.prompt() y nos muestre el caracter que esta en la mitad con charAt()</h2>
+    <p id="Ej2"></p>
+
+    <script>
+
+        let cadena2 = window.prompt("Cadena para mostrar caracter en la mitad: ");
+        document.getElementById("Ej2").innerHTML = cadena2.charAt((cadena2.length / 2));
+
+    </script>
+
+    <h2>3. Modifica el anterior para que muestre tambien su codigo Unicode</h2>
+    <p id="Ej3"></p>
+
+    <script>
+
+        let cadena3 = window.prompt("Cadena para mostrar caracter en la mitad: ");
+        document.getElementById("Ej3").innerHTML = "Caracter en la mitad de la cadena: " + cadena3.charAt((cadena3.length / 2));
+        document.getElementById("Ej3").innerHTML =  "Carácter en unicode: " + (cadena3.charCodeAt((cadena3.length / 2)));
+
+    </script>
+
+    
+
+    <h2>4. Modifica el primero anterior para que muestre tambien su codigo Unicode</h2>
+    <p id="Ej4"></p>
+
+    <script>
+
+        let cadena4 = window.prompt("Introduce una cadena: ");
+        document.getElementById("Ej4").innerHTML = cadena4.length;
+        document.getElementById("Ej4").innerHTML = cadena4.charCodeAt((cadena4.length - 1));
+
+    </script>
+
+    <h2>5. Toma dos entradas con window.prompt() y unelas</h2>
+    <p id="Ej5"></p>
+
+    <script>
+
+        let concatenar1 = window.prompt("Cadena 1 a concatenar: ");
+        let concatenar2 = window.prompt("Cadena 2 a concatenar: ");
+        let concatenar3 = concatenar1 + concatenar2;
+
+        document.getElementById("Ej5").innerHTML = concatenar3;
+
+    </script>
+    
+    <h2>6. Toma una numero (si no es un numero da error) y muestra su carácter unicode asociado. FromCharCode()</h2>
+    <p id="Ej6"></p>
+
+    <script>
+
+        let num6 = window.prompt("Número a unicode: ");
+        let numVerificar = parseInt(num6);
+        let mensaje6 = "";
+
+        if(isNaN(numVerificar)){
+            mensaje6 = "Error";
+        }else{
+            mensaje6 = String.fromCharCode(num6);
+        }
+
+        document.getElementById("Ej6").innerHTML = mensaje6; 
+
+    </script>
+    
+    <h2>7. Toma dos entradas con window.prompt() y que se busque la primera aparicion de la primera entrada en la
+    segunda con indexOf()</h2>
+    <p id="Ej7"></p>
+
+    <script>
+
+        let cadenaBuscar = window.prompt("Introduce la primera cadena a buscar en la segunda: ");
+        let cadenaCompleta = window.prompt("Segunda cadena: ");
+
+        let cadenaCoincidente = cadenaCompleta.indexOf(cadenaBuscar);
+
+        document.getElementById("Ej7").innerHTML = cadenaCoincidente;
+
+    </script>
+
+    <h2>8. Toma dos entradas con window.prompt() y que se busque la primera en la segunda indexOf()</h2>
+    <p id="Ej8"></p>
+
+    <script>
+
+        let cadenaBuscar8 = window.prompt("Introduce la primera cadena a buscar en la segunda: ");
+        let cadenaCompleta8 = window.prompt("Segunda cadena: ");
+
+        let cadenaCoincidente8 = cadenaCompleta8.indexOf(cadenaBuscar8);
+
+        document.getElementById("Ej8").innerHTML = cadenaCoincidente8;
+
+    </script>
+    
+    <h2>9. Toma dos entradas con window.prompt() y que se busque la ultima aparición de la primera entrada en la
+    segunda con lastIndexOf()</h2>
+    <p id="Ej9"></p>
+
+    <script>
+
+        let cadenaBuscar9 = window.prompt("Introduce la primera cadena a buscar en la segunda: ");
+        let cadenaCompleta9 = window.prompt("Segunda cadena: ");
+
+        let cadenaCoincidente9 = cadenaCompleta9.lastIndexOf(cadenaBuscar9);
+
+        document.getElementById("Ej9").innerHTML = cadenaCoincidente9;
+
+    </script>
+    
+    <h2>10. Ejecuta el siguiente codigo y explica que hace la variable expresion y hallado match() Busca una coincidencia
+    entre una expresión regular y una cadena y devuelve las coincidencias o null si no ha encontrado nada.</h2>
+    <p id="Ej10"></p>
+    <p>`expresion` busca `"tema"` seguido de un número.  <br>
+    `hallado` guarda la coincidencia encontrada con `match()`, que en este caso es `"tema 1"`.</p>
+    
+    <script>
+
+        cadena = "<br>Los temas son tema 1, tema 3, tema 5 y tema 6";
+        //expresion = /(capítulo \d+(\.\d)*)/i;
+        expresion = /(tema \d+)/i;
+        hallado = cadena.match(expresion);
+        document.getElementById("Ej10").innerHTML = ( cadena + "<br> expresion en "+ hallado[1]);  
+
+    </script>
+    
+    <h2>11. Toma dos entradas con window.prompt() y que se reemplace la primera en la segunda replace()</h2>
+    <p id="Ej11"></p>
+
+    <script>
+
+        let cadenaReemplazar = window.prompt("Introduce la primera cadena a reemplazar: ");
+        let cadenaReemplazo = window.prompt("Reemplazo de la cadena: ");
+
+        let reemplazada = cadenaReemplazo.replace(cadenaReemplazo, cadenaReemplazar);
+
+        document.getElementById("Ej11").innerHTML = reemplazada;
+
+    </script>
+    -->
+    <h2></h2>
+
+</body>
+
+</html>
