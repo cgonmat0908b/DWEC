@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #tabla4 {
+            border-collapse: collapse;
+            border: 2px solid gray;
+        }
+
+        #tabla4 td{
+            border-left: 2px solid gray;
+            border-right: 2px solid gray;
+            padding: 2px 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Cristin González Mateo</h2>
+    <h2>Practica 02-08 Bucles 2 Avanzados JS</h2>
+
+    <h2>Escribir un programa que cree muestre todos los elementos de este array con for of
+    const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
+    en una lista html con color verde.</h2>
+    <div id="Ej1"></div>
+
+    <script>
+
+        const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+
+        let ciudadesVerde = "<ol style=\"color: green;\">";
+
+        for(ciudad of arr1){
+            ciudadesVerde += "<li>" + ciudad + "</li>";
+        }
+
+        ciudadesVerde += "</ol>";
+
+        document.getElementById("Ej1").innerHTML = ciudadesVerde;
+
+    </script>
+    
+    <h2>Ejercicio 2. Modifica el anterior para que el verde sea un degradado (000000 va a 00ff00)</h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        const COLORES = ["#002200", "#004400", "#006600", "#008800", "#00AA00", "#00CC00", "#00FF00"];
+
+        ciudadesVerde = "<ol>";
+        contador = 0;
+
+        for(ciudad of arr1){
+            ciudadesVerde += "<li style=\"color:" + COLORES[contador]  + "\">"
+            + ciudad + "</li>";
+
+            contador++
+        }
+
+        ciudadesVerde += "</ol>";
+
+        document.getElementById("Ej2").innerHTML = ciudadesVerde;
+
+    </script>
+
+    <h2>Ejercicio 3. Usa for in para ver todas las asignaturas de este objeto
+    var Mis_notas = { mates: 9, Lengua: 6, Efisica: 5, Quimica: 9, fisica: 5, ingles: 5 };</h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        var Mis_notas = { mates: 9, Lengua: 6, Efisica: 5, Quimica: 9, fisica: 5, ingles: 5 };
+        let mostrarNotas = "";
+
+        for(asignatura in Mis_notas){
+            mostrarNotas += asignatura + ": " + Mis_notas[asignatura] + "<br>";
+        }
+
+        document.getElementById("Ej3").innerHTML = mostrarNotas;
+
+    </script>
+
+    <h2>Sea estos dos arrays
+    const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
+    const arr2 = ["bonita", "Guapa", " Bella", "Pintoresca", "Hermosa" ];
+    Usa for of doble para combinarlos todos y mostrarlos en una tabla</h2>
+    <div id="Ej4"></div>
+
+    <script>
+
+        const arr2 = ["bonita", "Guapa", " Bella", "Pintoresca", "Hermosa" ];
+
+        let ciudadAdjetivo = "<table id=\"tabla4\">";
+        for(ciudad of arr1){
+            ciudadAdjetivo += "<tr>"
+            for(adjetivo of arr2){
+                ciudadAdjetivo += "<td>" + ciudad + "-" + adjetivo + "</td>";
+            }
+            ciudadAdjetivo += "</tr>"
+        }
+
+        ciudadAdjetivo += "</table>";
+
+        document.getElementById("Ej4").innerHTML = ciudadAdjetivo;
+        
+    </script>
+
+    <h2>Ejercicio 5. Crea un script que cree un formulario con tantos botones como haya en el siguiente
+    const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
+    ponle esto dentro de cada boton</h2>
+    <div id="Ej5"></div>
+
+    <script>
+
+        let formulario = "<form>";
+
+        for(ciudad of arr1){
+            formulario += "<input type='button'; onclick=\"alert('La ciudad mas bonita es " + ciudad + "')\"; value='" + ciudad + "';><br>";
+        }
+
+        document.getElementById("Ej5").innerHTML += formulario + "</form>";
+
+    </script>
+    
+
+    <h2>Ejercicio 6. Escribe un programa que dibuje la frase "hola que tal" 10 veces cada vez mas pequeña ... puedes usar algo como
+    document.write(&lt;p style="font-size: "+i+"px"> hola que tal&lt;/p>);</h2>
+    <div id="Ej6"></div>
+
+    <p style="font-size: 5px;"></p>
+
+    <script>
+
+        let frasesFuente = "";
+
+        for(let i = 50; i >= 0; i-=5){
+            frasesFuente += "<p style='font-size: " + i + "px'>Hola que tal </p><br>"; 
+        }
+
+        document.getElementById("Ej6").innerHTML += frasesFuente;
+
+    </script>
+
+    <h2>Ejercicio 7. Copia este codigo y ejecutalo modificalo para hacerlo con un while y un do loop</h2>
+
+    <form name="selectForm">
+
+        <p>
+
+            <label for="musicTypes"
+            >Elija algunos tipos de música, luego haga clic en el botón de
+            abajo:</label >
+            <select id="musicTypes" name="musicTypes" multiple="multiple">
+                <option selected="selected">R&B</option>
+                <option>Jazz</option>
+                <option>Blues</option>
+                <option>New Age</option>
+                <option>Classical</option>
+                <option>Opera</option>
+            </select>
+
+        </p>
+
+        <p>
+            <input id="btn" type="button" value="¿Cuántos están seleccionados?" />
+        </p>
+
+    </form>
+
+    <script>
+
+        function howMany(selectObject) {
+            let numberSelected = 0;
+            let contador = 0;
+
+            // Con while:
+            /*
+            while(contador < selectObject.options.length){
+                if (selectObject.options[contador].selected) {
+                    numberSelected++;
+                }
+                contador++;
+            }
+
+            return numberSelected;
+        
+            */
+            // Con do-while
+            do{
+                if (selectObject.options[contador].selected) {
+                    numberSelected++;
+                }
+                contador++;
+            }while(contador < selectObject.options.length);
+
+            return numberSelected;
+        }
+
+        let btn = document.getElementById("btn");
+        
+        btn.addEventListener("click", function () {
+            alert("Número de opciones seleccionadas: "
+            + howMany(document.selectForm.musicTypes),);
+        });
+
+    </script>
+    <br><br>
+    <h2>Ejercicio 8. un bucle para pintar esta figura usando una tabla que ponemos de fondo el color adecuado la
+    tabla debe tener estos valores (pista es un array 3x3)
+    document.writeln("&lt;table width='500px' height='500px' border='0'
+    cellpadding=0 cellspacing=0> &lt;tr> ");
+    ...
+    ...
+    document.writeln("&lt;/tr> &lt;/table> ");</h2>
+
+    <div id="Ej8"></div>
+
+    <script>
+
+        let figura1 = "<table cellpadding='0'; cellspacing='0'; style='width: 500px; height: 500px; border: 0;'>";
+        const COLORES_FIGURA = ["'background-color: blue;'","'background-color: green;'","'background-color: red;'"];
+        let colorInicio = 0;
+
+        for(let fila = 0; fila < 3; fila++){
+            colorInicio = fila;
+            figura1 += "<tr>"
+            for(let columna = 0; columna < 3; columna++){
+                figura1 += "<td style=" + COLORES_FIGURA[colorInicio] + "></td>";
+                colorInicio++;
+                if(colorInicio == 3){
+                    colorInicio = 0;
+                }
+            }
+            figura1 += "</tr>";
+        }
+
+        document.getElementById("Ej8").innerHTML += figura1 + "</table>";
+
+    </script>
+
+    <h2>Ejercicio 9. Modifica el anterior para crear esta figura (PISTA: es un
+    array 6x6 y se usan los colores "f0f","ff0", "0ff")</h2>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>R1. Primos en un intervalo · 30 min</h2>
+    <h2>Cristian González Mateo</h2>
+
+    <div id="Ej2"></div>
+    <div id="Ej3"></div>
+
+    <script>
+        // Apartado 1 Solicitar valores
+        let num1 = parseInt(prompt("Introduce un número 1-100"));
+        let num2 = parseInt(prompt("Introduce otro número 1-100"));
+        let intercambio = 0;
+
+        // Variables para ejercicio3
+        let arrayPrimos = [];
+
+        // Intercambio de límites si el primero es mayor que el segundo
+        if(num1 > num2){
+            intercambio = num1;
+            num1 = num2;
+            num2 = intercambio;
+        }
+
+        // Apartado 2 Mostrar lista HTML primos intervalo
+        let listaPrimos = "<ul>";
+        let contadorDiv = 0;
+
+        for(let i = num1; i <= num2; i++){
+            contadorDiv = 0;
+            for(let f = i; f > 0; f--){
+                if(i % f == 0){
+                    contadorDiv++;
+                }
+                
+            }
+            if(contadorDiv == 2){
+                listaPrimos += "<li>" + i + "</li>";
+                arrayPrimos.push(i);
+            }
+        }
+
+        document.getElementById("Ej2").innerHTML = listaPrimos + "</ul>"; 
+
+
+        // Apartado 3 Mostrar número de primos y su suma.
+        let mensaje3 = "<p>Número de primos: " + arrayPrimos.length + "</p>Suma de primos: ";
+        let acumulador = 0;
+
+        if(arrayPrimos.length == 0){
+            mensaje3 = "No hay números primos";
+        }else{
+            for(let i = 0; i < arrayPrimos.length; i++){
+                acumulador += arrayPrimos[i];
+            }
+            mensaje3 += acumulador + "</p>";
+        }
+
+        document.getElementById("Ej3").innerHTML = mensaje3;
+
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>R2. Análisis de una frase · 30 min</h2>
+    <h2>Cristian González Mateo</h2>
+    <div id="Ejs"></div>
+
+    <script>
+
+        // Apartado 1 pedir frase y letra
+        let frase = prompt("Introduce una frase", "");
+        let letra = prompt("Introduce una letra", "");
+        let mensaje = "";
+        // Variables apartado 2
+        let fraseInvertida = "";
+        let contadorLetra = 0;
+        let posicionLetra = []
+        // Variable apartado 4
+        let concidencia = "";
+
+        if(frase == null || letra == null || letra.length != 1 ){
+            mensaje = "Error, dato invalido introducido.";
+            document.getElementById("Ejs").innerHTML = mensaje;
+        }else{
+            // Apartado 2 frase invertida y aparaciones de letra
+            for(let letras = frase.length - 1; letras >= 0; letras--){
+                fraseInvertida += frase[letras];
+                if(frase[letras] == letra){
+                    contadorLetra++;
+                    posicionLetra.push(letras);
+                }
+            }
+
+            if(contadorLetra == 0){
+                concidencia = "No aparece";
+            }else{
+                concidencia = "El texto contiene la letra " + letra + " " + contadorLetra + " numero de veces,<br>"
+                + "Posición de las letras: " + posicionLetra.reverse;
+            }
+
+            mensaje = "Longitud de la frase: " + frase.length + ",<br>"
+            + "Texto invertido: " + fraseInvertida + ",<br>"
+            + concidencia;
+        
+            document.getElementById("Ejs").innerHTML = mensaje;
+        }
+
+    </script>
+
+</body>
+
+</html>
