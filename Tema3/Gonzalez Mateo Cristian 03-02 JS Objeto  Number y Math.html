@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    <h2>03-02 JS Objeto  Number y Math</h2>
+    <h2>Cristian González Mateo</h2>
+    
+    <h2>1. Toma una entrada con window.prompt() y que nos pida
+    la un radio y debemos calcular la ci2rcunferencia 
+    (2*PI*Radio) y el area ( PI*Radio2)</h2>
+    <div id="Ej1"></div>
+
+    <script>
+
+        let radio = parseFloat(prompt("1. Introduce un radio: "));
+
+        let circunferencia = 2 * Math.PI * radio;
+        let area = Math.PI * Math.pow(radio, 2);
+
+        document.getElementById("Ej1").innerHTML = "Circunferencia: " + circunferencia + " Area: " + area;
+
+    </script>
+    
+    <h2>2. Toma dos entradas con window.prompt() y que nos pida los dos catetos y debemos calcular la hipotenusa</h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        let a = parseFloat(prompt("2. Introduce el valor del primer cateto: "));
+        let b = parseFloat(prompt("2. Introduce el valor del segundo cateto: "));
+        let hipotenusa = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
+
+        document.getElementById("Ej2").innerHTML = "Hipotenusa: " + hipotenusa;
+
+    </script>
+    
+    <h2>3. Haz un script que nos muestre los siguientes constantes</h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        let constantesMath = "Euler: " + Math.E 
+        + "<br>Logaritmo neperiano de 2: " + Math.LN2
+        + "<br>Logaritmo neperiano de 10: " + Math.LN10
+        + "<br>Logaritmo neperiano base 2 de E: " + Math.LOG2E
+        + "<br>Logaritmo neperiano base 10 de E: " + Math.LOG10E
+
+        document.getElementById("Ej3").innerHTML = constantesMath;
+    </script>
+    
+    <h2>4. Toma una entrada con window.prompt() y que nos pida un numero y debemos
+    calcular los siguientes valores</h2>
+    <div id="Ej4"></div>
+
+    <script>
+
+        let num4 = parseInt(prompt("4. Introduce un número: "));
+
+        let logNep = Math.log(num4);
+        let logBase2 = logNep / Math.LN2;
+        let logBase10 = logNep / Math.LN10;
+
+        document.getElementById("Ej4").innerHTML = "Logaritmo neperiano de " + num4 + ": " + logNep 
+        + "<br>" + "Logaritmo base 2 de " + num4 + ": " + logBase2 
+        + "<br>" + "Logaritmo base 10 de " + num4 + ": " + logBase10;
+
+    </script>
+    
+    <h2>5. Toma como entrada un angulo entre 0 y 360 con window.prompt() y nos la debe
+    convertir en radianes ( radianes = (grados/180)*PI ) debe tener un if para que su
+    valor este entre 0 y 360 en caso contrario debe dar error.</h2>
+    <div id="Ej5"></div>
+
+    <script>
+
+        let angulo = parseFloat(prompt("5. Introduce un ángulo: "))
+        let radianes = 0;
+
+        if(isNaN(angulo) || angulo <= 0 || angulo > 360){
+            document.getElementById("Ej5").innerHTML = "Invalido"
+        }else{
+            radianes = (angulo / 180) * Math.PI;
+            document.getElementById("Ej5").innerHTML = "Radianes: " + radianes;
+        }
+
+    </script>
+    
+    <h2>6. Modifica el anterior script para muestre los siguientes valores del valor tomado
+        <br>1. cos(x) Devuelve el coseno de x (x está en radianes).<br>
+        2. sin(x) Devuelve el seno de x (x está en radianes).<br>
+
+        3. tan(x) Devuelve la tangente de un ángulo.<br>
+    </h2>
+    <div id="Ej6"></div>
+
+    <script>
+
+        angulo = parseFloat(prompt("5. Introduce un ángulo: "))
+        radianes = 0;
+        let cos = 0;
+        let seno = 0;
+        let tan = 0;
+
+        if(isNaN(angulo) || angulo <= 0 || angulo > 360){
+            document.getElementById("Ej6").innerHTML = "Invalido"
+        }else{
+            radianes = (angulo / 180) * Math.PI;
+
+            // 1 cos(x)
+            cos = Math.cos(radianes);
+
+            // sin(x)
+            seno = Math.sin(radianes);
+
+            // tan(x)
+            tan = Math.tan(radianes);
+
+            document.getElementById("Ej6").innerHTML = "Coseno: " + cos +
+            "<br>" + "Seno: " + seno +
+            "<br>" + "Tangente " + tan;
+        }
+
+    </script>
+    -->
+    <h2>7. Toma una entrada con window.prompt() y debe tener un if para que
+    su valor este entre en el rango (0 y 1) en caso contrario debe dar error
+    y calcule los siguientes valores<br>
+    1. acos(x) Devuelve el arcocoseno de x, en radianes.<br>
+    2. asin(x) Devuelve el arcoseno de x, en radianes.<br>
+    3. atan(x) Devuelve el arcotangente de x, en radianes con un valor entre -PI/2 y PI/2.</h2>
+    <div id="Ej7"></div>
+
+    <script>
+
+        let num7 = parseFloat(prompt("7. Número entre 0 y 1: "));
+        let arcoCoseno = 0;
+        let arcoSeno = 0;
+        let arcoTangente = 0;
+        
+        if(isNaN(num7) || num7 < 0 || num7 > 1){
+            document.getElementById("Ej7").innerHTML = "Valor invalido";
+        }else{
+            arcoCoseno = Math.acos(num7);
+            arcoSeno = Math.asin(num7);
+            arcoTangente = Math.atan(num7);
+            document.getElementById("Ej7").innerHTML = "Arco coseno: " + arcoCoseno + "<br>"
+            + "Arco seno: " + arcoSeno + "<br>" 
+            + "Arco tangente: " + arcoTangente + "<br>";
+        }
+
+    </script>
+
+    <h2>8. Toma un numero con window.prompt() y debe tener un if para que sea
+    un numero y que calcule su techo, suelo y redondeo.</h2>
+
+</body>
+
+</html>
