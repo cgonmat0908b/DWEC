@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Cristian González Mateo</h1>
+    
+    <h2>
+        1. En un documento html crea un script que te pida tres numeros enteros
+        con un prompt y haga la siguiente formula (Numero1*Numero2 + Numero3)*Numero3.
+        Ojo deben ser numeros para ello debes comprobar su tipo si no son
+        enteros debes dar un error.
+    </h2>
+    <div id="Ej1"></div>
+
+    <script>
+
+        let num1 = parseInt(prompt("Introduce el primer número: "));
+        let num2 = parseInt(prompt("Introduce el segundo número: "));
+        let num3 = parseInt(prompt("Introduce el tercer número: "));
+        
+        let resultado = 0;
+        if(isNaN(num1) || isNaN(num2) || isNaN(num3)){
+            document.getElementById("Ej1").innerHTML = "Error, valor introducido invalido.";
+        }else{
+            resultado = (num1 * num2 * num3) * num3;
+            document.getElementById("Ej1").innerHTML = "Resultado: " + resultado;
+        }
+
+    </script>
+
+    <h2>
+        2. Realiza un ejercicio que muestre un ejemplo en el que se
+        use typeof e instanceof para ver todos los tipos de datos en javascript.
+    </h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        let entero = 1;
+        let flotante = 2.34
+        let boleano = true;
+        let nulo = null;
+        let cadena = "Hola";
+        let array = [1,2,3];
+        let objeto = {
+            "Nombre" : "Paco",
+            "Edad" : 12
+        };
+
+        let funcion = function(){
+            return "Hola";
+        }
+
+        document.getElementById("Ej2").innerHTML = "<ul><li>Entero typeOf: " + typeof(entero)
+        + "</li><li>Flotante typeOf: " + typeof(flotante)
+        + "</li><li>Boleano typeOf: " + typeof(boleano)
+        + "</li><li>Nulo typeOf: " + typeof(nulo)
+        + "</li><li>Cadena typeOf: " + typeof(cadena)
+        + "</li><li>Array typeOf: " + typeof(array)
+        + "</li><li>Objeto typeOf: " + typeof(objeto)       
+        + "</li><li>Funcion typeOf: " + typeof(funcion)
+        + "</li><li>Array instanceOf Array? " + (array instanceof(Array))
+        + "</li><li>Objeto instanceOf Object? " + (objeto instanceof(Object))
+        + "</li><li>Funcion instanceOf Function? " + (funcion instanceof(Function)) + "</li></ul>";
+        
+    </script>
+
+</body>
+
+</html>
