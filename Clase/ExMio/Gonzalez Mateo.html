@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+    <!--
     <h1>Cristian González Mateo</h1>
     
     <h2>
@@ -70,6 +70,83 @@
         + "</li><li>Objeto instanceOf Object? " + (objeto instanceof(Object))
         + "</li><li>Funcion instanceOf Function? " + (funcion instanceof(Function)) + "</li></ul>";
         
+    </script>
+
+    <h2>Ej 3.</h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        let numMes = prompt("Introduce un número de un mes: ");
+        let num = parseInt(numMes);
+        let mensaje = "";
+
+        if(numMes.trim == "" || numMes == null || isNaN(num) || num < 0 || num > 12){
+            mensaje = "Dato invalido";
+        }else{
+            num == 1? mensaje = "Aristoteles" :
+            num == 2? mensaje = "Platón" :
+            num == 3? mensaje = "San Agustín" :
+            num == 4? mensaje = "Santo Tomás" :
+            num == 5? mensaje = "Descartes" :
+            num == 6? mensaje = "Roisseau" :
+            num == 7? mensaje = "Locke" : mensaje = "No conocido"
+            
+        }
+
+        document.getElementById("Ej3").innerHTML = mensaje;        
+
+    </script>
+    -->
+    <h2>Ej 4.</h2>
+    <div id="Ej4"></div>
+
+    <script>
+
+        let numero4 = prompt("Introduce un número: ");
+        let numero4_1 = prompt("Introduce otro número: ");
+        let operacion = prompt("Introduce operando: ");
+
+        let entero4 = parseInt(numero4);
+        let entero4_1 = parseInt(numero4_1);
+
+        let resultado4 = "";
+        if(numero4 == null || numero4.trim() == "" || numero4_1 == null || numero4_1.trim() == ""
+            || isNaN(entero4) || isNaN(entero4_1)
+        ){
+            document.getElementById("Ej4").innerHTML = "Dato invalido";
+        }else{
+            switch(operacion){
+                case "AND":
+                    resultado4 = (entero4 & entero4_1);
+                    break;
+                case "OR":
+                    resultado4 = (entero4 | entero4_1);
+                    break;
+                case "XOR":
+                    resultado4 = (entero4 ^ entero4_1);
+                    break;
+                case "DIZQ":
+                    resultado4 = (entero4 << entero4_1);
+                    break;
+                case "DDER":
+                    resultado4 = (entero4 >> entero4_1);
+                    break;
+                default:
+                    resultado4 = "Operador invalido";
+                    break;
+
+            }
+            if(resultado4 == "Operador invalido"){
+                document.getElementById("Ej4").innerHTML = resultado4;
+            }else{
+                document.getElementById("Ej4").innerHTML = "Decimal: " + entero4 + " " + operacion + " " + entero4_1
+                + " = " + resultado4 + "<br>" + "Binario: " + entero4 + " " + operacion + " " + entero4_1
+                + " = " + (resultado4 >>> 0).toString(2) + "<br>";
+            }
+            
+        } 
+
     </script>
 
 </body>
