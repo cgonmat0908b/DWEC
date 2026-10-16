@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examen JavaScript - Plantilla sin funciones</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 980px;
+      margin: 30px auto;
+      padding: 0 18px;
+      background: #f5f7fa;
+      color: #17212b;
+      line-height: 1.55
+    }
+
+    h1 {
+      margin-bottom: 4px
+    }
+
+    header {
+      padding: 20px 24px;
+      background: #e7eef8;
+      border-radius: 12px
+    }
+
+    section {
+      background: white;
+      border: 1px solid #dbe2eb;
+      border-radius: 12px;
+      margin: 20px 0;
+      padding: 20px 24px
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #183c65
+    }
+
+    .resultado {
+      min-height: 45px;
+      border: 1px dashed #9baec3;
+      background: #f9fbfe;
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 8px 0
+    }
+
+    td,
+    th {
+      border: 1px solid #a4b2c1;
+      padding: 7px 10px
+    }
+
+    progress {
+      max-width: 180px
+    }
+
+    img {
+      object-fit: cover
+    }
+
+    .nota {
+      color: #526276;
+      font-size: .95em
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Examen práctico de JavaScript</h1>
+    <p>Alumno/a: __________________________ Grupo: __________ Fecha: __________</p>
+    <p>Completa cada bloque &lt;script&gt; directamente, sin crear funciones. Los ejercicios se ejecutan al abrir la
+      página. Escribe el HTML de cada respuesta en su variable <code>salidaN</code>; la última línea ya lo muestra en
+      pantalla.</p>
+    <p class="nota">Importante: utiliza nombres de variables distintos en cada ejercicio (por ejemplo, numero1Ej1), ya
+      que todos los scripts comparten el mismo ámbito global.</p>
+  </header>
+  <section>
+    <h2>Ejercicio 1. Operaciones y validación (12 puntos)</h2>
+    <p>Solicita tres números enteros A, B y C mediante prompt(). Si A es mayor que 10, calcula (A + B) × C; en otro
+      caso, (B − C) × A. Si alguno no es entero, muestra un error.</p>
+    <div id="resultado1" class="resultado"></div>
+    <script>
+      let salida1 = "";
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Solicita A, B y C con prompt().
+      // 2. Comprueba que son números enteros válidos.
+      // 3. Utiliza if / else para calcular el resultado.
+      // 4. Añade el mensaje final a salida1.
+
+      document.getElementById("resultado1").innerHTML = salida1;
+    </script>
+  </section>
+  <section>
+    <h2>Ejercicio 2. Tipos de datos (10 puntos)</h2>
+    <p>Crea ejemplos de number, string, boolean, undefined, null, bigint, symbol, Array, Object y Date. Genera una tabla
+      HTML con typeof y, cuando corresponda, instanceof. Explica el caso de null y cómo detectar un array.</p>
+    <div id="resultado2" class="resultado"></div>
+    <script>
+      let salida2 = "";
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Crea variables de los tipos solicitados.
+      // 2. Construye una tabla HTML concatenando texto en salida2.
+      // 3. Utiliza typeof, instanceof y Array.isArray() cuando proceda.
+
+      document.getElementById("resultado2").innerHTML = salida2;
+    </script>
+  </section>
+  <section>
+    <h2>Ejercicio 3. Operador ternario (10 puntos)</h2>
+    <p>Solicita un entero del 1 al 4. Muestra 1: Primavera, 2: Verano, 3: Otoño, 4: Invierno. Usa únicamente ternarios
+      encadenados para seleccionar la estación. Informa de cualquier valor no válido.</p>
+    <div id="resultado3" class="resultado"></div>
+    <script>
+      let salida3 = "";
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Solicita el número mediante prompt().
+      // 2. Valida que sea entero entre 1 y 4.
+      // 3. Selecciona la estación con operadores ternarios encadenados.
+      // 4. Guarda el texto final en salida3.
+
+      document.getElementById("resultado3").innerHTML = salida3;
+    </script>
+  </section>
+  <section>
+    <h2>Ejercicio 4. Operadores binarios (15 puntos)</h2>
+    <p>Solicita dos enteros entre 0 y 255 y una operación: AND (&amp;), OR (|), XOR (^), IZQ (&lt;&lt;) o DER
+      (&gt;&gt;). Para desplazamientos, el segundo número debe estar entre 0 y 7. Usa if / else if y muestra operandos y
+      resultado en decimal y binario.</p>
+    <div id="resultado4" class="resultado"></div>
+    <script>
+      let salida4 = "";
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Lee los dos números y el código de operación.
+      // 2. Valida las entradas y el rango del desplazamiento.
+      // 3. Resuelve la operación con if / else if.
+      // 4. Convierte los números a binario con toString(2).
+      // 5. Genera el HTML de salida4.
+
+      document.getElementById("resultado4").innerHTML = salida4;
+    </script>
+  </section>
+  <section>
+    <h2>Ejercicio 5. Switch y break (13 puntos)</h2>
+    <p>Solicita una opción entera del 1 al 10. Para 1, 2 y 3 muestra mensajes acumulativos: «Nivel básico alcanzado»,
+      «Nivel intermedio alcanzado» y «Nivel avanzado alcanzado» (para 3 salen los tres). Para 4, 5 o 6: «Nivel
+      profesional». Para 8: «Nivel experto». Para 9: «Nivel maestro». En otros casos: «Opción no válida». Utiliza switch
+      y break en los lugares adecuados.</p>
+    <div id="resultado5" class="resultado"></div>
+    <script>
+      let salida5 = "";
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Solicita la opción.
+      // 2. Usa switch con agrupación de casos y caída entre casos cuando corresponda.
+      // 3. Construye los mensajes en salida5.
+
+      document.getElementById("resultado5").innerHTML = salida5;
+    </script>
+  </section>
+  <section>
+    <h2>Ejercicio 6. Tabla de multiplicaciones N × N (15 puntos)</h2>
+    <p>Solicita un entero N entre 1 y 10. Genera una tabla HTML de N filas y N columnas con el producto de fila ×
+      columna. Usa dos bucles anidados y asigna a cada columna un color del array dado.</p>
+    <p><strong>Colores:</strong> array proporcionado en el script.</p>
+    <div id="resultado6" class="resultado"></div>
+    <script>
+      let salida6 = "";
+
+      const coloresEj6 = ["#FFE0E0", "#FFE8CC", "#FFF5CC", "#E2F0CB", "#D4F1F4", "#DDE7FF", "#E8D9FF", "#F8D9F0", "#D9F2E6", "#EAEAEA"];
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Solicita y valida N.
+      // 2. Crea una tabla HTML con dos bucles for anidados.
+      // 3. Cada celda debe mostrar fila × columna y el color de su columna.
+      // 4. Guarda el HTML en salida6.
+
+      document.getElementById("resultado6").innerHTML = salida6;
+    </script>
+  </section>
+  <section>
+    <h2>Ejercicio 7. Recorrido de un objeto (12 puntos)</h2>
+    <p>Recorre el objeto producto mediante el bucle más adecuado. Muestra una tabla con cada propiedad y su valor. Los
+      números se mostrarán con progress (calidad: máximo 10; precio: máximo 1000; para velocidad y catálogo elige un
+      máximo razonable). Para colores, crea una tabla anidada cuyas celdas tengan esos colores de fondo. Para
+      disponible, muestra Sí o No.</p>
+    <p><strong>Objeto:</strong> proporcionado en el script.</p>
+    <div id="resultado7" class="resultado"></div>
+    <script>
+      let salida7 = "";
+
+      const productoEj7 = {
+        nombre: "Portátil",
+        marca: "Lenovo",
+        modelo: "ThinkPad",
+        precio: 850,
+        disponible: true,
+        colores: ["#000", "#0F0", "#0FF"],
+        calidad: 3,
+        velocidad: 2800,
+        categoria: "Informática",
+        catalogo: 2026
+      };
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Recorre las propiedades del objeto con for...in.
+      // 2. Comprueba si cada valor es número, array o booleano.
+      // 3. Construye la tabla principal en salida7.
+      // 4. Para los colores, construye una tabla anidada con fondos de color.
+      // 5. Para los números, utiliza la etiqueta progress.
+
+      document.getElementById("resultado7").innerHTML = salida7;
+    </script>
+  </section>
+
+
+  <section>
+    <h2>Ejercicio 8. Galería de animales (13 puntos)</h2>
+    <p>Recorre el array animales y genera una galería HTML. Cada imagen estará en img/nombreAnimal.jpg, tendrá tamaño
+      120 × 120 píxeles y un atributo alt adecuado. Debajo aparecerá el nombre del animal.</p>
+    <p><strong>Array:</strong> proporcionado en el script.</p>
+    <div id="resultado8" class="resultado"></div>
+    <script>
+      let salida8 = "";
+
+      const animalesEj8 = ["gato", "perro", "conejo", "caballo", "tortuga"];
+
+      // COMPLETA AQUÍ EL EJERCICIO:
+      // 1. Recorre el array con un bucle apropiado.
+      // 2. Construye etiquetas img y sus textos en salida8.
+      // 3. Las imágenes deben estar en la carpeta img.
+
+      document.getElementById("resultado8").innerHTML = salida8;
+    </script>
+  </section>
+
+
+
+
+  <section>
+    <h2>Ejercicio 9. ecuacion
+    </h2>
+
+    Debes usar un bucle para implementar el algoritmo de la raiz cuadrada de las calculadoras basado en divisiones con
+    precisión 0.001 <br>
+    Donde:<br> <img src="imgs/ecuacion.jpg"> <br>
+    <br>• N es el número al que queremos calcular la raíz cuadrada.
+    <br>• xn es la aproximación actual.
+    <br>• xn+1 es la aproximación mejorada.
+    <br>En cada iteración, hacemos la media entre nuestra estimación actual y el resultado de dividir el número original
+    entre esa estimación.
+    <br>En cada iteracion el error cometido es (xn+1 - xn) /2 asi tenemos que ejecutar el bucle hasta que ese valor sea
+    menor que 0.001
+    <br>
+
+
+    <div id="resultado9" class="resultado"></div>
+    <script>
+  
+let salida9 = "";
+
+
+document.getElementById("resultado9").innerHTML = salida9;
+
+
+     
+    </script>
+  </section>
+</body>
+
+</html>
