@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>The Window Navigator Object</h1>
+        <h2>The The geolocation Property</h2>
+
+        <p id="demo"></p>
+
+        <p id="iframe"></p>
+
+        <script>
+            try {
+                if (navigator.geolocation.getCurrentPosition(showPosition).GeolocationPositionError != PERMISSION_DENIED)
+                    navigator.geolocation.getCurrentPosition(showPosition);
+            } catch (e) {
+                document.getElementById("demo").innerHTML =
+                    "Geolocation is not supported by this browser2.";
+            }
+
+            function showPosition(position) {
+                document.getElementById("demo").innerHTML =
+                    "Latitude: " + position.coords.latitude + "<br>" +
+                    "Longitude: " + position.coords.longitude;
+            }
+
+            document.getElementById("iframe").innerHTML = "<iframe src='" + navigator.geolocation.getCurrentPosition(showPosition) + "'" + "</iframe>";
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>
+        Ejercicio 1. Crea un script que lea dos números con prompt y que
+        cree una ventanas nueva con el tamaño indico
+    </h2>
+    <div id="Ej1">
+        <button id="Ej1B" onclick="abrirVentana()">Abrir ventana</button>
+    </div>
+
+    <script>
+        
+        let alto =  parseInt(prompt("Introduce el alto"));
+        let ancho = parseInt(prompt("Introduce el ancho"));
+        let subVentana = null;
+
+        function abrirVentana(){
+            subVentana = window.open("./03-04 JS Objetos Alto nivel y Objeto window.html","Nueva","height=" + alto + "," +"width=" + ancho);
+        }
+
+    </script>
+
+    <h2>
+        Ejercicio 2. Modifica el script anterior para cerrarla
+    </h2>
+    <div id="Ej2">
+        <button id="Ej2B" onclick="cerrarVentana()">Cerrar</button>
+    </div>
+
+    <script>
+        function cerrarVentana(){
+            if (subVentana !== null && !subVentana.closed) {
+                subVentana.close();
+            }
+            subVentana = null;
+        }
+    </script>
+
+    <h2>
+        Ejercicio 3. Modifica el script anterior para comprobar si esta abierta o cerrada
+    </h2>
+    <div id="Ej3">
+        <button id="EjB3" onclick="isAbierta()">Ventana abierta?</button>
+        <p id="resultado3"></p>
+    </div>
+
+    <script>
+        function isAbierta(){
+            if(subVentana === null || subVentana.closed){
+                document.getElementById("resultado3").innerHTML = "La ventana está cerrada";
+            }else{
+                document.getElementById("resultado3").innerHTML = "La ventana está abierta";
+            }
+        }
+    </script>
+
+    <h2>
+        Ejercicio 4. Crea un script que lea una url con prompt y que la abra
+        en una nueva ventana y que muestre sus siguientes propiedades.
+    </h2>
+    <div id="Ej4">
+        <button id="Propiedades" onclick="abrirPropiedades()">Abrir Propiedades</button>
+        <p id="Ej4P"></p>
+    </div>
+
+    <script>
+        let url = prompt("Introduce una URL");
+
+        function abrirPropiedades(){
+            subVentana = window.open(url,"Nueva","height=" + alto + "," +"width=" + ancho);
+            let estado = "";
+
+            if(subVentana.closed){
+                estado = "cerrado";
+            }else{
+                estado = "abierto"
+            }
+
+            document.getElementById("Ej4P").innerHTML = "Estado = " + estado 
+            + "<br>Length = " + subVentana.length 
+            + "<br>Localización = " + subVentana.location
+            + "<br>Nombre = " + subVentana.name;
+            
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="Estado"></div>
+    <button onclick="window.close()">Cerrar Ventana</button>
+    <button onclick="window.open('./window.html')">Abrir Ventana</button>
+    <button onclick="window.blur()">Blurear Ventana</button>
+
+    <button onclick="parar()">Parar</button>
+    <button onclick="iniciar()">Iniciar</button>
+
+    <div id="Intervalo"></div>
+
+    <!-- Clear Interval y Set Interval cae 100% -->
+
+    <script>
+        window.status = "hola que tal"
+        document.getElementById("Estado").innerHTML = window.status
+
+        function escribirRandom(){
+            document.getElementById("Intervalo").innerHTML += "Hola<br>" + Math.random();
+        }
+
+        // Intervalos
+        intervalID = setInterval(escribirRandom, 100)
+        
+        function parar(){
+            window.clearInterval(intervalID);
+            intervalID = null
+        }
+
+        function iniciar(){
+            if(intervalID === 'null'){
+                intervalID = setInterval(escribirRandom, 100)
+            }
+        }
+    </script>
+    
+</body>
+
+</html>
