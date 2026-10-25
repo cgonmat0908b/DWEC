@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="a.js" defer></script> <!-- Imprime: "Script A (defer)" -->
+        <script src="b.js" defer></script> <!-- Imprime: "Script B (defer)" -->
+        <script src="c.js" async></script> <!-- Imprime: "Script C (async)" - pesa 10 KB -->
+
+        <!-- Ejercicio 3 -->
+        <script src="main.js"></script>
+
+    </head>
+    <body>
+        <h1>Cristian González Mateo</h1>
+        <h1>03-00 JS opciones de ejecucion</h1>
+        
+        <h2>
+            Ejercicio 1 Dado el siguiente bloque de código HTML, determina en qué orden se imprimirán los 
+            mensajes en la consola (1, 2, 3, 4, 5).
+            (Asume que el archivo a.js pesa 50 KB y el archivo b.js pesa 2 MB).
+        </h2>
+
+        <p>Respuesta:</p>
+        
+        <p>
+            El orden de ejecución no se puede determinar con total seguridad debido al script C, que utiliza `async` y se ejecuta cuando termina de descargarse. <br>
+            El script inline del body se ejecuta durante el procesamiento del HTML. Posteriormente, los scripts A y B, que utilizan `defer`, se ejecutan en ese orden, independientemente de su tamaño. <br>
+            Como C pesa solamente 10 KB, es posible que se ejecute primero, pero no está garantizado.
+        </p>
+
+        <script>
+            console.log("Script Inline en Body");
+        </script>
+
+        <h2>
+            Ejercicio 2: Selección de la mejor opción
+            Para cada uno de los siguientes escenarios, indica si conviene usar un &lt;script> normal, defer o async, y
+            justifica tu respuesta:
+
+            1. Un script de Google Analytics que rastrea visitas de forma totalmente independiente.
+            2. La librería jQuery junto con un script propio app.js que depende de jQuery para manipular botones
+            del DOM.
+            3. Un script inline muy pequeño que aplica un tema claro/oscuro antes de que el usuario vea la
+            pantalla para evitar un parpadeo de color (FOUC).
+        </h2>
+
+        <p>Respuestas:</p>
+
+        <p>1. Async ya que no es necesario para el funcionamiento de la página</p>
+        <p>2. Defer ya que tienen que existir los elementos como los botones para que funcionase el script</p>
+        <p>3. Script normal en el head ya que ha de cargar cuanto antes</p>
+
+        <h2>
+            Ejercicio 3: Identificación de errores <br>
+            Analiza el siguiente código y explica qué fallo ocurrirá al cargar la página y cómo solucionarlo usando defer:
+        </h2>
+
+        <button id="miBoton">Hacer clic</button>
+
+        <p>
+            Contenido de main.js: <br>
+            JavaScript <br>
+            const boton = document.getElementById("miBoton"); <br>
+            boton.addEventListener("click", () => alert("¡Hola!")); <br>
+        </p>
+
+        <p>Respuesta:</p>
+        <p>El fallo ocurre al cargar la página, el código del script no se va a ejecutar ya que el boton aún no existe</p>
+
+    </body>
+</html>

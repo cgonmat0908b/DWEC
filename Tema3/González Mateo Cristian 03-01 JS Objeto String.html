@@ -12,7 +12,6 @@
     <h2>Cristian González Mateo</h2>
     <h2>03-01 JS Objeto String</h2>
 
-    <!--
     <h2>1. Toma una entrada con window.prompt() y muestra su tamaño</h2>
     <p id="Ej1"></p>
 
@@ -162,8 +161,115 @@
         document.getElementById("Ej11").innerHTML = reemplazada;
 
     </script>
+    
+    <h2>12. search() Busca una subcadena en la cadena y devuelve la posición dónde se encontró.</h2>
+    <p id="Ej12"></p>
+
+    <script>
+        let cadenaEj12 = "Macarrones con tomate";
+        let subCadenaEj12 = "con tomate";
+
+        let posicionEj12 = cadenaEj12.search(subCadenaEj12);
+
+        document.getElementById("Ej12").innerHTML = "Cadena: " + cadenaEj12 + "<br>SubCadena: " + subCadenaEj12 + "<br>Posición subcadena: " + posicionEj12;
+    </script>
+    
+
+    <h2>13. Toma una entradas con window.prompt() y Extrae (la mitad) de la cadena . slice()</h2>
+    <p id="Ej13"></p>
+
+    <script>
+
+        let entradaEj13 = prompt("13. Introduce una cadena:");
+        let cadenaMitadEj13 = entradaEj13.slice(0 ,(entradaEj13.length) / 2);
+
+        document.getElementById("Ej13").innerHTML = "Cadena: " + entradaEj13 + "<br>Tras aplicar slice(): " + cadenaMitadEj13;
+
+    </script>
+    
+    
+    <h2>
+        14. Toma una entradas con window.prompt() Divide una cadena en un
+        array de subcadenas separados por palabras. split()
+    </h2>
+    <p id="Ej14"></p>
+
+    <script>
+
+        let entradaEj14 = prompt("14. Introduce una cadena a dividir en subcadenas");
+        let palabrasEj14 = [entradaEj14.split(" ")];
+
+        document.getElementById("Ej14").innerHTML = palabrasEj14;
+
+    </script>
+    
+    <h2>
+        15. substr() Extrae los caracteres de una cadena, comenzando
+        en una determinada posición y con el número de caracteres indicado.
+    </h2>
+    <p id="Ej15"></p>
+
+    <script>
+
+        let entradaEj15 = prompt("15. Introduce una cadena:")
+        let posiIni = parseInt(prompt("15. Número de inicio para aplicar substr():"));
+        let numCaracteres = parseInt(prompt("15. Número de caracteres: "));
+
+        let cadenaTrasSubstr = entradaEj15.substr(posiIni, numCaracteres);
+
+        document.getElementById("Ej15").innerHTML = cadenaTrasSubstr;
+
+    </script>
+    
+    <h2>16. substring() Extrae los caracteres de una cadena entre dos índices especificados.</h2>
+    <p id="Ej16"></p>
+
+    <script>
+
+        let entradaEj16 = prompt("16. Introduce una cadena:");
+        let indiceIni = parseInt(prompt("16. Indice inicio substring():"));
+        let indiceFin = parseInt(prompt("16. Indice fin substring():"));
+
+        let cadenaTrasSubstring = entradaEj16.substring(indiceIni, indiceFin);
+        document.getElementById("Ej16").innerHTML = cadenaTrasSubstring;
+
+    </script>
+    
+    <h2>
+        17. Toma una entrada con window.prompt() y ponlo en en minúsculas
+        Y en mayúsculas con toLowerCase() toUpperCase()   
+    </h2>
+    <p id="Ej17"></p>
+
+    <script>
+
+        let entradaEj17 = prompt("17. Introduce una cadena:");
+        let cadenaMayus = entradaEj17.toUpperCase();
+        let cadenaMinus = entradaEj17.toLowerCase();
+
+        document.getElementById("Ej17").innerHTML = "Cadena minusculas: " + cadenaMinus + "<br>Cadena mayusculas: " + cadenaMayus;
+
+    </script>
     -->
-    <h2></h2>
+    <h2>
+        18. Modifica el ejercicio 7 con split() para ponerlas en negrita
+        la cadena buscada ejemplo ‘m’ ‘limon’ resultado li-m-on
+    </h2>
+    <p id="Ej18"></p>
+
+    <script>
+
+        let entradaEj18Cadena = prompt("18. Cadena: ");
+        let entradaEj18Separador = prompt("18. Subcadena que divide: ");
+
+        let dividido = entradaEj18Cadena.split(entradaEj18Separador);
+
+        let resultado = dividido.join("<b>" + entradaEj18Separador + "</b>");
+
+        document.getElementById("Ej18").innerHTML = resultado;
+
+    </script>
+
 
 </body>
 
