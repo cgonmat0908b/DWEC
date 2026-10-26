@@ -9,8 +9,171 @@
 
 <body>
 
-    
-    
+    <h2>Cristian González Mateo</h2>
+    <h2>03-01b  String  template literals bacticks</h2>
+
+    <h2>
+        Ejercicio 1. Copia el ejemplo1 y modificalo para que tengas tres usuarios distintos (como no hemos
+        visto aun arrays solo crea tres variables distintas)
+    </h2>
+
+    <script>
+
+        // Datos del usuario
+        const nombre = "Laura García";
+        const edad = 29;
+        const ciudad = "Madrid";
+        const intereses = ["fotografía", "viajes", "tecnología"];
+
+        const nombre2 = "Paquito Paco";
+        const edad2 = 31;
+        const ciudad2 = "Málaga"; 
+        const intereses2 = ["Pasear", "Puzles", "Escribir rap"];
+        
+        const nombre3 = "María Marquez";
+        const edad3 = 20;
+        const ciudad3 = "Sevilla";
+        const intereses3 = ["Coleccionar figuras", "Hacer deporte", "Pasear perros"];
+
+
+
+        // Creamos una plantilla HTML usando backticks
+        const tarjetaUsuario = `
+        <div class="tarjeta">
+        <h2>${nombre}</h2>
+        <p>Edad: ${edad}</p>
+        <p>Ciudad: ${ciudad}</p>
+        <h4>Intereses:</h4>
+        <ul>
+        ${intereses.map(interes => `<li>${interes}</li>`).join("")}
+        </ul>
+        </div>
+        `;
+        // Mostramos el resultado en consola (o en una página)
+        document.writeln(tarjetaUsuario + "<br>1");
+
+        // Creamos una plantilla HTML usando backticks
+        const tarjetaUsuario2 = `
+        <div class="tarjeta">
+        <h2>${nombre2}</h2>
+        <p>Edad: ${edad2}</p>
+        <p>Ciudad: ${ciudad2}</p>
+        <h4>Intereses:</h4>
+        <ul>
+        ${intereses2.map(interes => `<li>${interes}</li>`).join("")}
+        </ul>
+        </div>
+        `;
+        // Mostramos el resultado en consola (o en una página)
+        document.writeln(tarjetaUsuario2);
+
+        // Creamos una plantilla HTML usando backticks
+        const tarjetaUsuario3 = `
+        <div class="tarjeta">
+        <h2>${nombre3}</h2>
+        <p>Edad: ${edad3}</p>
+        <p>Ciudad: ${ciudad3}</p>
+        <h4>Intereses:</h4>
+        <ul>
+        ${intereses3.map(interes => `<li>${interes}</li>`).join("")}
+        </ul>
+        </div>
+        `;
+        // Mostramos el resultado en consola (o en una página)
+        document.writeln(tarjetaUsuario3);
+
+    </script>
+
+    <h2>
+        Ejercicio 2. Formatea una descripción con datos dinámicos Crear un texto descriptivo
+        usando backticks e interpolación, luego usar funciones de String para manipularlo.
+    </h2>
+    <p id="Ej2"></p>
+
+    <script>
+
+        // Ejemplo de entrada
+        const producto = "auriculares inalámbricos";
+        const precio = 59.99;
+        const marca = "SoundMax";
+        // Tareas:
+        // Usa backticks para crear un texto como:
+        // "Los Auriculares Inalámbricos de la marca SoundMax cuestan 59.99€."
+        let cadenaCompleta = `Los ${producto} de la marca ${marca} cuestan ${precio}€.`; 
+
+        // Convierte la primera letra de cada palabra a mayúscula (usa toUpperCase, split, map, join).
+        let palabras = cadenaCompleta.split(" ");
+        let palabrasMayus = [""];
+
+        palabrasMayus = palabras.map(palabra =>{
+            return palabra[0].toUpperCase() + palabra.slice(1);
+        })
+
+        cadenaCompleta = palabrasMayus.join(" ");
+        // Cambia el símbolo € por "euros" (usa replace).
+        cadenaCompleta = cadenaCompleta.replace("€", " euros");
+
+        document.getElementById("Ej2").innerHTML = cadenaCompleta;
+        
+    </script>
+
+    <h2>
+        Ejercicio 3. Construiye una plantilla de correo Crear una plantilla de email
+        personalizada y limpiar texto con métodos de String.
+    </h2>
+    <p id="Ej3"></p>
+
+    <script>
+
+        // Datos
+        const nombreEj3 = " juan pérez ";
+        const productoEj3 = "Teclado mecánico RGB";
+        const fecha = "09/10/2025";
+        // Tareas:
+        // Quita espacios extra en el nombre (usa trim()).
+        // Crea una plantilla de correo con backticks:
+        // "Hola Juan Pérez, tu pedido del producto Teclado mecánico RGB se enviará el 09/10/2025."
+        // Convierte la primera letra del nombre y apellido en mayúsculas (usa split y map).
+        // Convierte todo el mensaje a mayúsculas (usa toUpperCase).
+        let nombreSinEspacio = nombreEj3.trim();
+        let palabrasEj3 = nombreSinEspacio.split(" ");
+
+        let palabrasMayusEj3 = palabrasEj3.map(palabra =>{
+            return palabra[0].toUpperCase() + palabra.slice(1);
+        })
+
+        // Nombre y apellido primera mayúsculas
+        let nombreFormateado = palabrasMayusEj3.join(" ");
+
+        let plantillaMail = `Hola ${nombreFormateado}, tu pedido del producto ${productoEj3} se enviará el ${fecha}.`;
+
+        // Todo el mensaje en mayusculas
+        plantillaMail = plantillaMail.toUpperCase();
+
+        document.getElementById("Ej3").innerHTML = plantillaMail;
+
+    </script>
+
+    <h2>
+        Ejercicio 4. Genera una tabla de datos en HTML. Usar template literals y métodos de
+        cadena para generar un bloque HTML limpio.
+    </h2>
+    <p id="Ej4"></p>
+
+    <script>
+
+        // Datos
+        const usuarios = [" ana ", "PEDRO", "maria "];
+        // Tareas:
+        // Limpia los nombres (trim() y toLowerCase()).
+        // Capitaliza la primera letra de cada uno.
+        // Usa backticks para crear un bloque HTML con una lista <ul> donde cada <li> tenga un nombre formateado.
+        // (Extra) Usa padEnd() o padStart() para alinear los nombres si los imprimes en consola.
+
+        
+
+    </script>
+
 </body>
 
 </html>
