@@ -170,10 +170,84 @@
         // Usa backticks para crear un bloque HTML con una lista <ul> donde cada <li> tenga un nombre formateado.
         // (Extra) Usa padEnd() o padStart() para alinear los nombres si los imprimes en consola.
 
-        
+        let usuariosLimpio = usuarios.map(usuario =>{
+            // Quitar espacios
+            usuario = usuario.trim();
+            // Todos a minúsculas
+            usuario = usuario.toLowerCase();
+            // Primera letra mayuscula
+            return usuario[0].toUpperCase() + usuario.slice(1);
+        })
+
+        let listaNombres = `<ul><li>Primer usuario: ${usuariosLimpio[0].padStart(7 , "-")}
+            </li><li>Segundo usuario: ${usuariosLimpio[1].padStart(7 , "-")}
+            </li><li>Tercer usuario: ${usuariosLimpio[2].padStart(7 , "-")}`;
+
+        document.getElementById("Ej4").innerHTML = listaNombres;
 
     </script>
 
-</body>
+    <h2>
+        Ejercicio 5. Análisis de texto dinámico. Analizar un texto generado con template
+        literals y aplicar varias funciones de String.
+    </h2>
+    <p id="Ej5"></p>
+
+    <script>
+
+        // Datos
+        const nombreEj5 = "Lucía";
+        const hobby = "leer libros de ciencia ficción";
+        // Tareas:
+        // Crea un mensaje: `A ${nombre} le encanta ${hobby}.`
+        let mensaje = `A ${nombreEj5} le encanta ${hobby}`;
+        // Muestra cuántas letras tiene el mensaje (length).
+        let numLetras = mensaje.length;
+        // Verifica si el texto incluye la palabra “ficción” (includes()).
+        let incluye = false;
+        if(mensaje.includes("ficcion")){
+            incluye = true;
+        }
+        // Reemplaza “ficción” por “aventuras” (replace()).
+        if(incluye == true){
+            mensaje = mensaje.replace("ficción", "aventuras");
+        }
+        // Convierte la oración a minúsculas y luego a mayúsculas (toLowerCase(), toUpperCase()).
+        mensaje = mensaje.toUpperCase();
+        mensaje = mensaje.toLowerCase();
+        // Convierte todo el mensaje a mayúsculas (usa toUppercase).
+        mensaje = mensaje.toUpperCase();
+
+        document.getElementById("Ej5").innerHTML = `${mensaje}, Longitud del mensaje: ${numLetras}`;
+
+    </script>
+
+    <h2>
+        Ejercicio 6. Plantilla de perfil resumido. Generar un resumen de usuario y recortar
+        texto si es demasiado largo.
+    </h2>
+    <p id="Ej6"></p>
+
+    <script>
+
+        const usuario = {
+        nombre: "Beatriz",
+        descripcion: "Apasionada del desarrollo web, la inteligencia artificial y los videojuegos."
+        };
+        // Tareas:
+        // Genera un texto con backticks: `Perfil de ${usuario.nombre}: ${usuario.descripcion}`
+        let texto = `Perfil de ${usuario.nombre}: ${usuario.descripcion}`;
+        // Si la descripción tiene más de 50 caracteres, recórtala y añade "..." al final (usa slice y length).
+        if(usuario.descripcion.length > 50){
+            usuario.descripcion = usuario.descripcion.slice(0,49);
+            usuario.descripcion = usuario.descripcion + "...";
+            texto = `Perfil de ${usuario.nombre}: ${usuario.descripcion}`;
+        }
+        // Muestra el resultado final.
+        document.getElementById("Ej6").innerHTML = texto;
+
+    </script>
+
+</body> 
 
 </html>
