@@ -128,7 +128,7 @@
         }
 
     </script>
-    -->
+    
     <h2>7. Toma una entrada con window.prompt() y debe tener un if para que
     su valor este entre en el rango (0 y 1) en caso contrario debe dar error
     y calcule los siguientes valores<br>
@@ -156,9 +156,84 @@
         }
 
     </script>
-
+    
     <h2>8. Toma un numero con window.prompt() y debe tener un if para que sea
     un numero y que calcule su techo, suelo y redondeo.</h2>
+    <div id="Ej8"></div>
+
+    <script>
+
+        entradaEj8 = prompt("8. Introduce un número");
+        numEj8 = parseFloat(entradaEj8);
+
+        techo = 0;
+        suelo = 0;
+        redondeo = 0;
+
+        if(!isNaN(numEj8) || !entradaEj8 == "" || !entradaEj8 == null){
+            techo = Math.ceil(numEj8)
+            suelo = Math.floor(numEj8)
+            redondeo = Math.round(numEj8)
+        }
+
+        document.getElementById("Ej8").innerHTML = "<p>Número: " + numEj8 + "</p>"
+        + "<p>Techo: " + techo + "</p>"
+        + "<p>Suelo: " + suelo + "</p>"
+        + "<p>Redondeo: " + redondeo + "</p>";
+
+    </script>
+    
+
+    <h2>
+
+        9. Toma un numero con window.prompt() y debe tener un if para que sea un numero y que calcule su
+        redondeo con un decimal con esta formula
+        Redondeo1Decimal(x)= Redondeo(x*10)/10
+
+    </h2>
+    <div id="Ej9"></div>
+    
+    <script>
+
+        entradaEj9 = prompt("9. Introduce un número:");
+        numEj9 = parseFloat(entradaEj9);
+        redondeoFormula = 0
+
+        if(!isNaN(numEj9) || !entradaEj9 || !entradaEj9 == null ){
+            redondeoFormula = Math.round(numEj9 * 10) / 10;
+        }
+
+        document.getElementById("Ej9").innerHTML = "<p>Número: " + numEj9
+        + "</p><p>Tras redondear: " + redondeoFormula;
+
+    </script>
+    -->
+    <h2>
+        10. Toma numeros con window.prompt() hasta que el numero entrado sea 0 y calcula su máximo y mínimo
+        max(x,y,z,...,n) Devuelve el número más alto de los que se pasan como parámetros.
+        min(x,y,z,...,n) Devuelve el número más bajo de los que se pasan como parámetros.
+    </h2>
+    <div id="Ej10"></div>
+
+    <script>
+
+        continuar = true
+        max = 0;
+        min = 0;
+        numsEj10 = 0;
+
+        numeros = [];
+
+        while(continuar){
+            numEj10 = parseFloat(prompt("10. Introduce un número: "));
+            if(numEj10 == 0){
+                continuar = false;
+            }else{
+                numeros.push(numsEj10)
+            }
+        }
+
+    </script>
 
 </body>
 
