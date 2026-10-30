@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="theme-color" content="#ff0000">
+</head>
+
+<body>
+    <div id="res"> </div>
+    <script>
+        let res1 = document.getElementById("res");
+        let array1 = [1, 2, 3, 4, 5, 6, 7];        
+        res1.innerHTML += array1[0] + "<br>";
+        array1.shift();
+        res1.innerHTML += array1[0] + "<br>";
+        array1.unshift(10);
+        res1.innerHTML += array1[0] + "<br>";
+        array1.splice(4,2)
+        res1.innerHTML += array1[4] + "<br>";
+        let array2=new Array();
+        for(let i=0;i<20;i++) {
+            array2 [i] = 50+ Math.round(Math.random()*50);
+        }
+        let max=0
+        let min=100
+        let media = 0;
+        let num=0;
+
+        for(let i=0;i<20;i++) {    
+            num = array2[i];       
+            max = (max<num)?num:max;
+            min = (min>num)?num:min;
+            media += num; 
+            console.log(num,max,min,media )
+        }
+
+      
+
+        for(let i=0;i<20;i++) {
+            res1.innerHTML += array2[i] + "-";
+        }
+        res1.innerHTML +=   "<br> Maximo: "+max;
+        res1.innerHTML +=   "<br> min: "+min;
+        res1.innerHTML +=   "<br> media: "+media/20;
+        res1.innerHTML +=   "<br>";
+
+        array2.sort();
+        for(let i=0;i<20;i++) {
+            res1.innerHTML += array2[i] + "-";
+        }
+        res1.innerHTML +=   "<br> mediana: "+ array2[Math.round(array2.length/2)];
+        let modanum=array2[0];
+        let modanumMax=1;
+        
+        let moda=1;
+        let numAnt=array2[0];
+                
+         for(let i=1;i<20;i++) {
+            num = array2[i]; 
+            if(num==numAnt)  moda++ ;  
+            else  {
+                    modanumMax = (modanumMax>moda)?modanumMax: moda; 
+                    modanum = (modanumMax>moda)?modanum: numAnt; 
+                    moda =1;
+                  }
+                numAnt= num;           
+        }
+
+        res1.innerHTML +=   "<br> Valor Moda: "+ modanum;
+        res1.innerHTML +=   "<br>  Moda: "+ modanumMax;
+
+
+        
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html><html > 
+    <head>  <meta charset="UTF-8" />
+     <title>Ejercicio Arrays</title>        </head>
+     <body>        
+        <br><h2> Ejercicio 1 Arrays Numeros random</h2>
+        <div id="arrayx"> </div>
+        
+    <div ="Ejercicio1"> 
+        <script language="JavaScript">
+        var arrayX= new Array(50);
+        var tamano=arrayX.length;        
+        // for(var i=0;i<tamano;i++) { arrayX[i]=Math.round(Math.random()*100);  }
+        maximo=0; minimo=100; suma=0;
+        for(var i=0;i<tamano;i++) {             
+            valor=Math.round(Math.random()*100);  
+            if(valor>maximo) maximo=valor;
+            if(valor<minimo) minimo=valor;
+            arrayX[i]=valor
+            suma+=valor;        
+        }
+        let media = suma / tamano;
+        cadena="<br>Array:" + arrayX.join(",");
+        cadena+="<br>maximo:" + maximo;
+        cadena+="<br>minimo:" + minimo;
+        cadena+="<br>suma:" + suma;
+        cadena+="<br>media:" + media;
+        document.getElementById("arrayx").innerHTML=cadena;
+
+
+
+        
+        
+        
+     </script>
+
+<h1> salto salto </h1>
+<div id="arrayx2"> </div>
+    <script>
+        cadena="<br>prueba:"+media;
+        document.getElementById("arrayx2").innerHTML+=cadena;
+    </script>
+     
+     </body>
+     </html>

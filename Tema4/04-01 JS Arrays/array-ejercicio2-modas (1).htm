@@ -1,0 +1,54 @@
+<!DOCTYPE html><html > 
+    <head>  <meta charset="UTF-8" />
+     <title>Ejercicio Arrays</title>        </head>
+     <body>        
+        <br><h2> Ejercicio 1 Arrays Numeros random</h2>
+        <div id="arrayx"> </div>   
+    
+        <script language="JavaScript">
+        var arrayX= new Array(15);
+        var tamano=arrayX.length;        
+        for(var i=0;i<tamano;i++) { arrayX[i]=1+Math.round(Math.random()*10); }
+        moda=arrayX[0];
+        maximomoda=1;        
+        arrayX.sort();
+        modatemp=1;
+        for(var i=1;i<tamano;i++) {           
+            if(arrayX[i]==arrayX[i-1])  { modatemp++; }
+            else  {  if(modatemp>maximomoda)   { maximomoda=modatemp; moda=arrayX[i-1]; }
+                     modatemp=1;    
+                  }         
+          }
+        indicemedio=Math.floor((tamano-1)/2); 
+        mediana = arrayX[indicemedio];
+
+        cadenaArray2="";
+        for(var i=1;i<tamano;i++) {    
+            if(i==indicemedio)  {  cadenaArray2+="<strong><font color='red'>" +arrayX[i]+ "</font></strong>,";}
+            else {  cadenaArray2+="" +arrayX[i]+ ",";}
+        }
+
+        arrayX1=arrayX.slice(0,indicemedio-1);
+        arrayXN=arrayX.slice(indicemedio+1,tamano-1);
+        cadenaArray=arrayX1.join(",")+",<strong>" +mediana+ "</strong>,"+arrayXN.join(",");
+
+        // arrayX[indicemedio]="<strong>" +mediana+ "</strong>";
+
+        cadena="<br>Array:" + arrayX.join(",");
+        cadena+="<br>Array2:" + cadenaArray;
+        cadena+="<br>Array3:" + cadenaArray2;
+        cadena+="<br>moda:" + moda;
+        cadena+="<br>valor maximo de moda:" + maximomoda;        
+        cadena+="<br>indicemedio:" + indicemedio;        
+        cadena+="<br>mediana:" + mediana;        
+        document.getElementById("arrayx").innerHTML=cadena;   
+
+
+        
+    
+        
+     </script>
+
+     
+     </body>
+     </html>

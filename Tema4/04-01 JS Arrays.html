@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01 JS Arrays</title>
+</head>
+
+<body>
+
+    <h2>Cristian González Mateo</h2>
+    <h2>04-01 JS Arrays</h2>
+
+    <h2>
+        Ejercicio 1. Realiza un ejercicio que te cree un array con 50 números random (Math.random) con un bucle y
+        que te calcule el mayor menor, media.
+    </h2>
+    <div id="Ej1"></div>
+
+    <script>
+        
+        let arrEj1 = new Array(50);
+
+        for(let i = 0; i < arrEj1.length; i++){
+            arrEj1[i] = Math.round(Math.random() * 100);
+        }
+
+        let media = 0;
+        let min = Number.MAX_SAFE_INTEGER;
+        let max = Number.MIN_SAFE_INTEGER;
+        
+        for(n in arrEj1){
+            media += arrEj1[n];
+
+            min = min > arrEj1[n]? min = arrEj1[n]: min;
+            max = max < arrEj1[n]? max = arrEj1[n]: max;
+        }
+
+        media /= arrEj1.length;
+
+        document.getElementById("Ej1").innerHTML = `<p>Array entero: ${arrEj1.join("-")}</p>
+        <p>Media: ${media}</p><p>Mínimo: ${min}</p><p>Máximo: ${max}</p>`;
+
+
+    </script>
+
+    <h2>
+        Ejercicio 2. Realiza un ejercicio que te cree un array con 50 números random (Math.random) enteros del uno
+        al 10 con un bucle y que te los ordene de mayor a menor y te calcule la moda (elemento que mas se
+        repite ) y la mediana
+    </h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        let arrEj2 = new Array(50);
+        let contadorModaDefinitivo = 0;
+        let numModa = 0;
+        let contadorModaAnterior = 1;
+
+        for(let i = 0; i < arrEj2.length; i++){
+            arrEj2[i] = Math.round(Math.random() * 10);
+        }
+
+        arrEj2.sort();
+
+        for(let i = 0; i < arrEj2.length - 1; i++){
+            actual = arrEj2[i];
+            siguiente = arrEj2[i + 1];
+
+            if(actual == siguiente){
+                contadorModaAnterior++;
+            }else{
+                if(contadorModaAnterior > contadorModaDefinitivo){
+                    contadorModaDefinitivo = contadorModaAnterior;
+                    numModa = actual;
+                }
+                contadorModaAnterior = 1;
+            }
+        }
+
+        let mediana = arrEj2[arrEj2.length / 2];
+
+        document.getElementById("Ej2").innerHTML = `<p>Array entero: ${arrEj2.join("-")}</p>
+        <p>El número ${numModa} es la moda, repetido ${contadorModaDefinitivo} veces</p>
+        <p>La mediana es: ${mediana}`;
+
+    </script>
+
+    <h2>
+        Ejercicio 3. Ejecuta este código y observa que hace
+    </h2>
+
+    <br>
+    <h2>Ejercicio Arrays</h2>
+
+    <p>
+        Array X
+        <input type="text" size="60" name="caja1" value="X1,X2,X3,X4,X5">
+    </p>
+
+    <p>
+        <input type="button" name="button" value="Add Array" onclick="addArrays();">
+    </p>
+
+    <hr>
+
+    <p id="explica"></p>
+    <h2 id="tamano"></h2>
+
+    <br>
+
+    <script language="JavaScript">
+        var arrayX = new Array();
+        var arraymix = new Array();
+
+        function addArrays() {
+            arrayXstr = document.getElementsByName("caja1")[0].value;
+            arrayX = arrayXstr.split(',');
+            lX = arrayX.length;
+
+            for (var i = 0; i < lX; i++) {
+                arraymix.push(arrayX[i]);
+            }
+
+            contenidostr = "El contenido del array es " + arraymix.join('-');
+            tamanostr = "El tamano del array es " + arraymix.length;
+
+            //alert(contenidostr);
+
+            document.getElementById("explica").innerHTML = contenidostr;
+            document.getElementById("tamano").innerHTML = tamanostr;
+        }
+    </script>
+
+    <h2>
+        Ejercicio 4. Realiza un ejercicio que te añada los datos de un campo text a un 
+        array pulsando en un botón y te los muestre debajo
+    </h2>
+
+    <div id="Ej4">
+        <label for="valores">Valores:</label><br>
+        <input type="text" name="" id="valorEj4"><button onclick="anyadir()">Añadir elemento</button><br>
+        <p id="textoEj4"></p>
+    </div>
+
+    <script>
+        let valorEj4 = []
+
+        function anyadir(){
+            valorEj4.push(document.getElementById("valorEj4").value);
+
+            document.getElementById("textoEj4").innerHTML = `El contenido del array es: ${valorEj4.join('-')}`
+        }
+    </script>
+
+    <h2>
+        Ejercicio 5. Modifica el ejercicio anterior para que pulsando en un
+        botón y te los ordene y muestre
+    </h2>
+
+    <div id="Ej5">
+        <label for="valores">Valores:</label><br>
+        <input type="text" name="" id="valorEj5"><button onclick="anyadirEj5()">Añadir elemento</button><button onclick="ordenarEj5()">Ordenar</button><br>
+        <p id="textoEj5"></p>
+    </div>
+
+    <script>
+        let valorEj5 = []
+
+        function anyadirEj5(){
+            valorEj5.push(document.getElementById("valorEj5").value);
+            document.getElementById("textoEj5").innerHTML = `El contenido del array es: ${valorEj5.join('-')}`;
+        }
+
+        function ordenarEj5(){
+            valorEj5.sort();
+            document.getElementById("textoEj5").innerHTML = `El contenido del array es: ${valorEj5.join('-')}`;
+        }
+    </script>
+
+    <h2>
+        Ejercicio 6. Dado un vector de enteros, comprobar el mayor, el
+        menor y por último la media de todos.
+    </h2>
+    <div id="Ej6">
+        <label for="nums">Introduce los números separados por ,</label><br>
+        <input type="text" name="" id=""><button>Introducir valores</button><br>
+        <button>Calcular</button><button>Reiniciar</button>
+    </div>
+
+    <script>
+
+
+
+    </script>
+
+    <h2>
+
+        Modifica el anterior para Concatenar tres arraysX
+
+        ,ArrayY, arraysZ de la siguiente forma:
+        X1-Y1-Z1-X2-Y2-Z2-X3-Z3-X4-Z4-X5-Z5-Z6-Z7-Z8 .(ojo que
+        debes usar push para añadir por detras) .
+        Los vectores tendrán la diferente longitud. (El for es el máximo
+        de los tamaños y tienes que hacer un if antes de insertar para
+        asegurarte que estas en tamaño)
+        
+    </h2>
+
+    <div id="Ej8">
+
+        <label for="">Array X</label>
+        <input type="text" name="" id="txtX"><br>
+
+        <label for="">Array Y</label>
+        <input type="text" name="" id="txtY"><br>
+
+        <label for="">Array Z</label>
+        <input type="text" name="" id="txtZ"><br>
+        <button onclick="calcularEj8bis()">Mezclar arrays</button>
+
+        <p id="Ej8Salida"></p>
+
+    </div>
+
+
+    <script>
+
+        function calcularEj8bis(){
+
+        let stringX = document.getElementById("txtX").value;
+        let stringY = document.getElementById("txtY").value;
+        let stringZ = document.getElementById("txtZ").value;
+
+        let arrX = stringX.split(",");
+        let arrY = stringY.split(",");
+        let arrZ = stringZ.split(",");
+
+        let completo = [];
+        let tamanioX = arrX.length;
+        let tamanioY = arrY.length;
+        let tamanioZ = arrZ.length;
+
+        let mayorTamanio = Math.max(tamanioX,tamanioY,tamanioZ);
+        let menorTamanio = Math.min(tamanioX,tamanioY,tamanioZ);
+
+        let arrayMayor = [];
+        let arrayMedio = [];
+        let arrayMenor = [];
+
+        if(tamanioX == mayorTamanio && tamanioY == menorTamanio){
+            arrayMayor = arrX;
+            arrayMenor = arrY;
+            arrayMedio = arrZ;
+
+        }else if(tamanioX == mayorTamanio && tamanioZ == menorTamanio){
+            arrayMayor = arrX;
+            arrayMenor = arrZ;
+            arrayMedio = arrY;
+
+        }else if(tamanioY == mayorTamanio && tamanioX == menorTamanio){
+            arrayMayor = arrY;
+            arrayMenor = arrX;
+            arrayMedio = arrZ;
+        }else if(tamanioY == mayorTamanio && tamanioZ == menorTamanio){
+            arrayMayor = arrY;
+            arrayMenor = arrZ;
+            arrayMedio = arrX;
+        }else if(tamanioZ == mayorTamanio && tamanioX == menorTamanio){
+            arrayMayor = arrZ;
+            arrayMenor = arrX;
+            arrayMedio = arrY;
+        }else if(tamanioZ == mayorTamanio && tamanioY == menorTamanio){
+            arrayMayor = arrZ;
+            arrayMenor = arrY;
+            arrayMedio = arrX;
+        }
+
+        
+        for(let i = 0; i < menorTamanio; i++){
+            completo.push(arrayMayor[i]);
+            completo.push(arrayMedio[i]);
+            completo.push(arrayMenor[i]);
+        }
+
+        for(let i = menorTamanio + 1; i < arrayMedio.length; i++){
+            completo.push(arrayMayor[i]);
+            completo.push(arrayMedio[i]);
+        }
+
+        for(let i = arrayMedio.length + 1; i < mayorTamanio; i++){
+            completo.push(arrayMayor[i]);
+        }
+    1
+        document.getElementById("Ej8Salida").innerHTML = completo;
+    }
+    
+
+    </script>
+
+
+</body>
+
+</html>
