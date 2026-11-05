@@ -207,7 +207,7 @@
         + "</p><p>Tras redondear: " + redondeoFormula;
 
     </script>
-    -->
+    
     <h2>
         10. Toma numeros con window.prompt() hasta que el numero entrado sea 0 y calcula su máximo y mínimo
         max(x,y,z,...,n) Devuelve el número más alto de los que se pasan como parámetros.
@@ -217,20 +217,83 @@
 
     <script>
 
-        continuar = true
-        max = 0;
-        min = 0;
-        numsEj10 = 0;
+        let continuar = true
+        let max = 0;
+        let min = 0;
+        let numsEj10 = 0;
 
-        numeros = [];
+        let numeros = [];
 
         while(continuar){
-            numEj10 = parseFloat(prompt("10. Introduce un número: "));
-            if(numEj10 == 0){
+            numsEj10 = parseFloat(prompt("10. Introduce un número: "));
+            if(numsEj10 == 0){
                 continuar = false;
             }else{
-                numeros.push(numsEj10)
+                if(!isNaN(numsEj10)){
+                    numeros.push(numsEj10)
+                }
             }
+        }
+
+        if(numeros.length > 0){
+            max = Math.max(...numeros);
+            min = Math.min(...numeros);
+        }else{
+            max = "Valores no introducidos";
+            min = "Valores no introducidos";
+        }
+
+        document.getElementById("Ej10").innerHTML = `<p>Valor máximo de los introducidos: ${max}
+            </p><p>Valor mínimo de los introducidos: ${min}</p>`;
+
+    </script>
+    
+    <h2>
+        11. Toma una entrada con window.prompt() debes sacar un numero aleatorio entre
+        0 y ese numero usando esta formula: 
+        aleatorio entre 0 y B = AleatorioMaxB= round(random()*B)
+        aleatorio entre A y B = AleatorioMaxB= round( random()*(B-A) ) + A
+    </h2>
+    <div id="Ej11"></div>
+
+    <script>
+
+        let numEj11 = parseFloat(prompt("11. Introduce un número: "));
+        let numAleatorioEj11 = 0;
+
+        if(!isNaN(numEj11)){
+            numAleatorioEj11 = Math.round(Math.random() * numEj11);
+        }else{
+            numAleatorioEj11 = "Invalido";
+        }
+
+        document.getElementById("Ej11").innerHTML = `<p>Numero aleatorio entre 0 y ${numEj11}: ${numAleatorioEj11}</p>`;
+
+    </script>
+    -->
+    <h2>
+        12. Toma una entrada con window.prompt() debes mostrarla
+        1. en base 2, 8 y 16
+        2. notación exponencial.
+        3. con 10 digitos decimales después del punto decimal.
+        4. con número a la longitud 8
+    </h2>
+
+    <script>
+
+        let entradaEj12 = parseInt(prompt("12. Introduce un número:"));
+
+        let base2 = 0;
+        let base8 = 0;
+        let base16 = 0;
+        let expo = 0;
+        let decimales10 = 0;
+        let long8 = 0;
+
+        let resultadoEj12 = "";
+
+        if(!isNaN(entradaEj12)){
+            resultadoEj12 = ``
         }
 
     </script>
