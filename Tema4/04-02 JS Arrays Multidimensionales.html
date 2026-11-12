@@ -241,59 +241,30 @@
     </div>
 
     <h2>
-
-        Ejercicio 7. Haz una función que recorra el array calculando la media por años y lo muestre.
-
+        Ejercicio 8. función mostrartabla(tabla,id) que tome el array y devuelva el código
+        html para dibujarla como una tabla.
     </h2>
-    <div id="Ej7"></div>
-
+    <table id="Ej7" style="border: 2px solid black; border-collapse: collapse;">
+    </table>
+    
     <script>
 
-        let numsEj7 = valores.map(function(elem){
-            return elem[0];
-        });
+        let resultadoEj7 = valores.map(function(fila){
+            return "<tr style='border: 2px solid black;'>" + fila.map(function(elemento){
+                return "<td style='border: 2px solid black;'>" + elemento + "</td>";
+            }).join("") + "</tr>";
+        }).join("");
 
-        let nombreEj7 = valores.map(function(elem){
-            return elem[1];
-        });
-
-        let dos20 = valores.map(function(elem){
-            return elem[2];
-        });
-
-        let dos10 = valores.map(function(elem){
-            return elem[3];
-        });
-
-        let dos00 = valores.map(function(elem){
-            return elem[4];
-        });
-
-        let mil90 = valores.map(function(elem){
-            return elem[5];
-        });
-
-        let mil81 = valores.map(function(elem){
-            return elem[6];
-        });
-
-        let mil70 = valores.map(function(elem){
-            return elem[7];
-        });
-
-        let comAut = valores.map(function(elem){
-            return elem[8];
-        });
-
-        document.getElementById("Ej7").innerHTML = numsEj7.join("-");
-
-        let resultadoEj7 = valores.map(function(elementos){
-            return "<td>" + indices[elementos] + "</td>"
-        }).map(function(indices){
-            return "<tr>" + valores[indices] ;
-        })
+        document.getElementById("Ej7").innerHTML = resultadoEj7;
 
     </script>
+
+    <h2>
+        Ejercicio 9. crear una función en JavaScript que resuelva un sistema de ecuaciones lineales representado
+        por matrices. Para un sistema de ecuaciones Ax=B Ax=B, donde A es una matriz 3x3 y B es una matriz
+        3x1 puedes usar el método de inversión de matrices si A es invertible. Aquí hay una función que puedes
+        utilizar:
+    </h2>
 
 </body>
 

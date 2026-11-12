@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Ej1</h2>
+    <div id="Ej1"></div>
+    
+    <script>
+
+        let numeros = [2, 5, 8, 10, 15];
+
+        let multiplicados = numeros.map(function(num){
+            return num * 3;
+        }).join("-");
+
+        document.getElementById("Ej1").innerHTML = multiplicados;
+
+    </script>
+
+    <h2>Ej2</h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        let nombres = ["Ana", "Pedro", "Lucía", "Carlos"];
+
+        let posNom = nombres.map(function(nom, pos){
+            return `${pos + 1}. ${nom}`;
+        }).join(" - ");
+
+        document.getElementById("Ej2").innerHTML = posNom;
+    </script>
+
+
+    <h2>Ej3</h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        let alumnos = [
+            ["Ana", 20, "DAW"],
+            ["Pedro", 22, "DAM"],
+            ["Lucía", 19, "DAW"],
+            ["Carlos", 21, "ASIR"]
+        ];
+
+        let nom = alumnos.map(function(fila){
+            return fila[0];
+        })
+
+        document.getElementById("Ej3").innerHTML = nom;
+
+    </script>
+
+    <h2>Ej4</h2>
+    <div id="Ej4"></div>
+
+    <script>
+
+        let nomEdad = alumnos.map(function(fila){
+            return `${fila[0]} tiene ${fila[1]} años`;
+        }).join("<br>");
+
+        document.getElementById("Ej4").innerHTML = nomEdad;
+    </script>
+
+    <h2>Ej5</h2>
+    <div id="Ej5"></div>
+
+    <script>
+
+        let matriz = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+
+        let matrizX2 = matriz.map(function(fila){
+            return fila.map(function(num){
+                return num * 2;
+            }).join("-");
+        }).join("<br>");
+
+        document.getElementById("Ej5").innerHTML = matrizX2;
+
+    </script>
+
+    <h2>Ej6</h2>
+    <div id="Ej6"></div>
+
+    <script>
+
+        let matriz2 = [
+            [10, 20, 30],
+            [40, 50, 60],
+            [70, 80, 90]
+        ];
+
+        let matrizIndices = matriz2.map(function(fila, pos){
+            return fila.map(function(num,posNum){
+                return `${pos}-${posNum}: ${num}`;
+            }).join(",    ");
+        }).join("<br>");
+
+        document.getElementById("Ej6").innerHTML = matrizIndices;
+
+    </script>
+
+    <h2>Ej7</h2>
+    <table id="Ej7" style="border: 2px solid black; border-collapse: collapse;">
+
+    </table>
+    
+
+    <script>
+
+        let productos = [
+            ["Teclado", 25, 3],
+            ["Ratón", 15, 5],
+            ["Monitor", 180, 2],
+            ["Auriculares", 40, 4]
+        ];
+
+        let tablaProductos = productos.map(function(fila){
+            return "<tr>" + fila.map(function(valor){
+                return `<td>${valor}</td>`;
+            }).join("</tr>");
+        }).join("");
+
+        document.getElementById("Ej7").innerHTML = tablaProductos;
+
+    </script>
+
+</body>
+
+</html>
