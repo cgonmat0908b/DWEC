@@ -270,31 +270,160 @@
         document.getElementById("Ej11").innerHTML = `<p>Numero aleatorio entre 0 y ${numEj11}: ${numAleatorioEj11}</p>`;
 
     </script>
-    -->
+    
     <h2>
-        12. Toma una entrada con window.prompt() debes mostrarla
-        1. en base 2, 8 y 16
-        2. notación exponencial.
-        3. con 10 digitos decimales después del punto decimal.
-        4. con número a la longitud 8
+        12. Toma una entrada con window.prompt() debes mostrarla <br>
+        1. en base 2, 8 y 16   <br>
+        2. notación exponencial.    <br>
+        3. con 10 digitos decimales después del punto decimal.  <br>
+        4. con número a la longitud 8   <br>
     </h2>
+    <div id="Ej12"></div>
 
     <script>
 
-        let entradaEj12 = parseInt(prompt("12. Introduce un número:"));
-
-        let base2 = 0;
-        let base8 = 0;
-        let base16 = 0;
-        let expo = 0;
-        let decimales10 = 0;
-        let long8 = 0;
+        let entradaEj12 = Number(prompt("12. Introduce un número:"));
 
         let resultadoEj12 = "";
 
         if(!isNaN(entradaEj12)){
-            resultadoEj12 = ``
+            resultadoEj12 = `<p>Base 2: ${entradaEj12.toString(2)}</p>
+            <p>Base 8: ${entradaEj12.toString(8)}</p>
+            <p>Base 16: ${entradaEj12.toString(16)}</p>
+            <p>Exponencial: ${entradaEj12.toExponential()}</p>
+            <p>Diez decimales: ${entradaEj12.toExponential()}</p>
+            <p>Longitud 8: ${entradaEj12.toPrecision(8)}</p>`;
         }
+
+        document.getElementById("Ej12").innerHTML = resultadoEj12;
+
+    </script>
+    
+    <h2>
+        13. Toma una entrada con window.prompt() debes mostrarla    <br>
+        1. Como Euros   <br>
+        2. Como yenes   <br>
+        3. Con 3 decimales minimo   <br>
+        4.Con 3 decimales minimo y maximo
+    </h2>
+    <div id="Ej13"></div>
+
+    <script>
+
+        let entradaEj13 = Number(prompt("13. Introduce un número:"));
+
+        let eur = entradaEj13.toFixed(2) + "€";
+        let yen = Math.round(entradaEj13) + "¥";
+        let decimales3 = entradaEj13.toFixed(3);
+
+        let resultadoEj13 = `<p>Euros: ${eur}</p>
+        <p>Yenes: ${yen}</p>
+        <p>3 decimales: ${decimales3}</p>`;
+
+        document.getElementById("Ej13").innerHTML = resultadoEj13;
+        
+
+    </script>
+    
+    <h2>
+        14. Toma una entrada con window.prompt() a b c y resulelve la ecuación
+    </h2>
+    <div id="Ej14"></div>
+
+    <script>
+        let entrada1Ej14 = Number(prompt("14.A:"));
+        let entrada2Ej14 = Number(prompt("14.B:"));
+        let entrada3Ej14 = Number(prompt("14.C:"));
+        let resultadoEj14 = "";
+
+        if(entrada1Ej14 != 0 && !isNaN(entrada1Ej14) && !isNaN(entrada2Ej14) && !isNaN(entrada3Ej14) && entrada1Ej14 != null && entrada2Ej14 != null && entrada3Ej14 != null){
+            let positivo = ecuacionPositiva(entrada1Ej14,entrada2Ej14,entrada3Ej14);
+            let negativo = ecuacionNegativa(entrada1Ej14,entrada2Ej14,entrada3Ej14);
+            
+            resultadoEj14 = `<p>Resultado positivo: ${positivo}</p>
+            <p>Resultado negativo: ${negativo}</p>`;
+
+        }else{
+            resultadoEj14 = "No es posible.";
+        }
+        
+        function ecuacionPositiva(a,b,c){
+            let resultado = 0;
+            let discriminante = Math.pow(b,2) - 4 * a * c;
+            
+            if(discriminante > 0){
+                resultado = (-b + Math.sqrt(discriminante)) / (2 * a)
+
+            }else if(discriminante < 0){
+                resultado = "No es posible.";
+
+            }else{
+                resultado = -b / (2 * a);
+
+            }
+
+            return resultado;
+        }
+
+        function ecuacionNegativa(a,b,c){
+            let resultado = 0;
+            let discriminante = Math.pow(b,2) - 4 * a * c;
+
+            if(discriminante > 0){
+                resultado = (-b - Math.sqrt(discriminante)) / (2 * a)
+
+            }else if(discriminante < 0){
+                resultado = "No es posible.";
+
+            }else{
+                resultado = -b / (2 * a);
+
+            }
+
+            return resultado;
+        }
+
+        document.getElementById("Ej14").innerHTML = resultadoEj14;
+
+    </script>
+    -->
+
+    <h2>
+        15. Toma una entrada con window.prompt() para tomar a1 a2 b1 b2 c1 c2 <br>
+        1. Sea un sistema <br>
+        a1x+b1y =c1 <br>
+        a2x+b2y =c2 <br>
+        Resuelvelo <br>
+    </h2>
+    <div id="Ej15"></div>
+    
+    <script>
+
+        let a1 = Number(prompt("15. A1:"));
+        let b1 = Number(prompt("15. B1:"));
+        let c1 = Number(prompt("15. C1:"));
+        let a2 = Number(prompt("15. A2:"));
+        let b2 = Number(prompt("15. B2:"));
+        let c2 = Number(prompt("15. C2:"));
+
+        let determinante = a1 * b2  - a2 * b1;
+        let determinanteX = c1 * b2 - c2 * b1;
+        let determinanteY = a1 * c2 - a2 * c1;
+
+        let x = 0;
+        let y = 0;
+
+        let resultadoEj15 = "";
+
+        if(determinante != 0){
+            x = determinanteX / determinante;
+            y  = determinanteY / determinante;
+            resultadoEj15 = `<p>X = ${x}, Y = ${y}</p>`;
+        }else{
+            resultadoEj15 = "Solución indefenida";
+        }
+
+        document.getElementById("Ej15").innerHTML = resultadoEj15;
 
     </script>
 

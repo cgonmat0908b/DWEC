@@ -141,6 +141,9 @@
         </script>
     </div>
 
+    <h2>
+        Ejercicio 6. Crea un array multidimensional para almacenar esta tabla
+    </h2>
     <div id="Ej6">
         <script>
             const valores=[
@@ -236,6 +239,61 @@
             document.getElementById("Ej6").innerHTML = mostrarMedia + "<br><br><br><br><br>" + resumenMap;
         </script>
     </div>
+
+    <h2>
+
+        Ejercicio 7. Haz una función que recorra el array calculando la media por años y lo muestre.
+
+    </h2>
+    <div id="Ej7"></div>
+
+    <script>
+
+        let numsEj7 = valores.map(function(elem){
+            return elem[0];
+        });
+
+        let nombreEj7 = valores.map(function(elem){
+            return elem[1];
+        });
+
+        let dos20 = valores.map(function(elem){
+            return elem[2];
+        });
+
+        let dos10 = valores.map(function(elem){
+            return elem[3];
+        });
+
+        let dos00 = valores.map(function(elem){
+            return elem[4];
+        });
+
+        let mil90 = valores.map(function(elem){
+            return elem[5];
+        });
+
+        let mil81 = valores.map(function(elem){
+            return elem[6];
+        });
+
+        let mil70 = valores.map(function(elem){
+            return elem[7];
+        });
+
+        let comAut = valores.map(function(elem){
+            return elem[8];
+        });
+
+        document.getElementById("Ej7").innerHTML = numsEj7.join("-");
+
+        let resultadoEj7 = valores.map(function(elementos){
+            return "<td>" + indices[elementos] + "</td>"
+        }).map(function(indices){
+            return "<tr>" + valores[indices] ;
+        })
+
+    </script>
 
 </body>
 
