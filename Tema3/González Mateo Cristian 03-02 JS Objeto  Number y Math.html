@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <!--
+    
     <h2>03-02 JS Objeto  Number y Math</h2>
     <h2>Cristian González Mateo</h2>
     
@@ -386,7 +386,7 @@
         document.getElementById("Ej14").innerHTML = resultadoEj14;
 
     </script>
-    -->
+    
 
     <h2>
         15. Toma una entrada con window.prompt() para tomar a1 a2 b1 b2 c1 c2 <br>
@@ -424,6 +424,198 @@
         }
 
         document.getElementById("Ej15").innerHTML = resultadoEj15;
+
+    </script>
+
+    <h2>
+        16. Toma una entrada con window.prompt() para tomar una de estas figuras y que
+        pregunte sus cooredenadas y muestre el area y el volumen
+    </h2>
+    <div id="Ej16"></div>
+
+    <script>
+
+        let entradaEj16  = prompt("16. Elige una figura geometrica(Cubo,Ortoedro,Esfera,Cilindro,Cono,Pirámide)");
+        let salidaEj16 = "";
+        let arVol = [];
+
+        if(entradaEj16 == null  || entradaEj16.trim() == "" || (entradaEj16 != "Cubo"
+        && entradaEj16 != "Ortoedro" && entradaEj16 != "Esfera" && entradaEj16 != "Cilindro" &&
+        entradaEj16 != "Cono" && entradaEj16 != "Pirámide")){
+            salidaEj16 = "Figura no válida";
+        }else{
+            switch(entradaEj16){
+                case "Cubo":
+                    let longAris =Number(prompt("16. Longitud de la arista:"));
+                    
+                    if(validarDimesion(longAris)){
+                        arVol = cubo(longAris);
+                    }else{
+                        salidaEj16 = "Valor invalido";
+                    }
+                    
+                    break;
+                
+                case "Ortoedro":
+                    let largo = Number(prompt("16. Largo:"));
+                    let ancho = Number(prompt("16. Ancho:"));
+                    let alto = Number(prompt("16. Alto:"));
+
+                    if(validarDimesion(largo) && validarDimesion(ancho) && validarDimesion(alto)){
+                        arVol = ortoedro(largo,ancho,alto);
+                    }else{
+                        salidaEj16 = "Valor invalido";
+                    }
+
+                    break;
+
+                case "Esfera":
+                    let rEsfera = Number(prompt("16. Radio:"));
+                    if(validarDimesion(rEsfera)){
+                        arVol = esfera(rEsfera);
+                    }else{
+                        salidaEj16 = "Valor invalido";
+                    }
+
+                    break;
+
+                case "Cilindro":
+                    let rCilindro = Number(prompt("16. Radio:"));
+                    let alturaCilindro = Number(prompt("16. Altura"));
+
+                    if(validarDimesion(rCilindro) && validarDimesion(alturaCilindro)){
+                        arVol = cilindro(rCilindro,alturaCilindro);
+                    }else{  
+                        salidaEj16 = "Valor invalido";
+                    }
+
+                    break;
+
+                case "Cono":
+                    let rCono = Number(prompt("16. Radio:"));
+                    let alturaCono = Number(prompt("16. Altura"));
+
+                    if(validarDimesion(rCono) && validarDimesion(alturaCono)){
+                        arVol = cono(rCono,alturaCono);
+                    }else{
+                        salidaEj16 = "Valor invalido";
+                    }
+
+                    break;
+
+                case "Pirámide":
+                    let ladoBase = Number(prompt("16. Lado de la base:"));
+                    let alturaPiram = Number(prompt("16. Altura:"));
+
+                    if(validarDimesion(ladoBase) && validarDimesion(alturaPiram)){
+                        arVol = piramide(ladoBase,alturaPiram);
+                    }else{
+                        salidaEj16 = "Valor invalido";
+                    }
+
+                    break;
+            }
+            if(arVol.length == 2){
+                salidaEj16 = `Área: ${arVol[0]}, Volumen: ${arVol[1]}`;
+            }
+        }
+
+        document.getElementById("Ej16").innerHTML = salidaEj16;
+
+        function validarDimesion(valor){
+            if(!isNaN(valor) && valor > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        function cubo(longAris){
+            let arVol = [];
+            arVol.push(6 * Math.pow(longAris,2));
+            arVol.push(Math.pow(longAris,3));
+
+            return arVol;
+        }
+
+        function ortoedro(largo,ancho,alto){
+            let arVol = [];
+            arVol.push(2 * (largo * ancho + ancho * alto + largo * alto));
+            arVol.push(largo * ancho * alto);
+
+            return arVol;
+        }
+
+        function esfera(r){
+            let arVol = [];
+            arVol.push(4 * Math.PI * Math.pow(r,2));
+            arVol.push((4 / 3) * Math.PI * Math.pow(r,3));
+
+            return arVol;
+        }
+
+        function cilindro(r,altura){
+            let arVol = [];
+            arVol.push(2 * Math.PI * r * (r + altura));
+            arVol.push(Math.PI * Math.pow(r,2) * altura);
+
+            return arVol;
+        }
+
+        function cono(r,altura){
+            let arVol = [];
+            let gen = Math.sqrt(Math.pow(altura,2) + Math.pow(r,2));
+            arVol.push(Math.PI * r * (r + gen));
+            arVol.push((1 / 3) * Math.PI * Math.pow(r,2) * altura);
+
+            return arVol;
+        }
+
+        function piramide(lado, alto){
+            let arVol = [];
+            let hc = Math.sqrt(Math.pow(alto,2) + (lado / 2) ** 2);
+            let areaBase = lado ** 2;
+            let areaLateral = (4 * lado * hc) / 2;
+            arVol.push(areaBase + areaLateral);
+            arVol.push((areaBase * alto) / 3); 
+
+            return arVol;
+        }
+
+    </script>
+
+    <h2>
+        17. Toma una entrada con window.prompt() para tomar el numero de Iones muestre el Ph
+        con una tabla que muestre su fondo de rojo intenso muy acido a azul intenso muy basico
+    </h2>
+    <div id="Ej17"></div>
+
+    <script>
+
+        let concentracion = Number(prompt("17. Introduce la concentración:"));
+        let resultadoEj17 = "";
+
+        if(Number.isFinite(concentracion) && concentracion > 0){
+            let ph = -Math.log10(concentracion);
+            let color = "";
+            if(ph <= 3){
+                color = "red";
+            }else if(ph < 7 && ph > 3){
+                color = "orange";
+            }else if(ph == 7){
+                color = "green";
+            }else if(ph > 7 && ph < 11){
+                color = "lightcyan";
+            }else if(ph >= 11){
+                color = "blue";
+            }
+
+            resultadoEj17 = `<table style="border: 1px solid black; background-color:${color}"><tr><td>${ph}ph</td></tr></table>`;
+        }else{
+            resultadoEj17 = "Valor invalido";
+        }
+        
+        document.getElementById("Ej17").innerHTML = resultadoEj17;
 
     </script>
 

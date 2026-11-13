@@ -244,18 +244,18 @@
         Ejercicio 8. función mostrartabla(tabla,id) que tome el array y devuelva el código
         html para dibujarla como una tabla.
     </h2>
-    <table id="Ej7" style="border: 2px solid black; border-collapse: collapse;">
+    <table id="Ej8" style="border: 2px solid black; border-collapse: collapse;">
     </table>
     
     <script>
 
-        let resultadoEj7 = valores.map(function(fila){
+        let resultadoEj8 = valores.map(function(fila){
             return "<tr style='border: 2px solid black;'>" + fila.map(function(elemento){
                 return "<td style='border: 2px solid black;'>" + elemento + "</td>";
             }).join("") + "</tr>";
         }).join("");
 
-        document.getElementById("Ej7").innerHTML = resultadoEj7;
+        document.getElementById("Ej8").innerHTML = resultadoEj8;
 
     </script>
 
