@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="h1">Hola</h1>
+    <button id="parar" onclick="parar()">Parar</button><br>
+    <script>
+
+        let contador = 0;
+        // Función anónima
+        var manejador = setTimeout(function(){
+            contador++;
+            document.getElementById("h1").innerHTML += " Esto se ha añadido";
+
+        },3000);
+
+        contador = 0;
+
+        // Función anónima
+        var manejadorIntervalo = setInterval(function(){
+            contador++;
+            document.getElementById("h1").innerHTML += " Esto se ha añadido";
+
+        },1000);
+
+        // Función anónima
+        let parar = function(){
+            clearInterval(manejadorIntervalo);
+        };
+
+    </script>
+
+    <script>
+        // Función anonima autoejecutable
+        (function(param){
+            document.getElementById("h1").innerHTML += "<br>" +  param;
+        })("función autoejecutable");
+
+    </script>
+
+    <script>
+        // Función flecha
+        let funcionFlecha = () => {
+            document.write("Patata");
+        };
+
+        // Función flecha sin return
+        let funcionFlecha2 = () => (2 + 2);
+
+        // Función flecha autoejecutable
+        ((param) =>{
+            return param;
+        })("Patata");
+
+    </script>
+
+    <script>
+
+        // Parametros Rest / Función Rest
+        let anomRest = (valor1,valor2, ...Arg) =>{
+            for(i = 0; i < Arg.length; i++){
+                document.write(`El parametro ${i} es ${Arg[i]}<br>`);
+            }
+        };
+
+        anomRest(1,2,3,3,4,4,5,1);
+        anomRest(1,2,3,4,5,1)
+
+    </script>
+
+
+    <h2>Ejercicio 1. Crea una función Ej1Trigonometica que se le pase dos parametros</h2>
+    <div id="apartadoA"></div>
+
+    <script>
+
+        let Ej1Trigonometrica = (angulo, valor) => {
+            if(valor == "cos"){
+                
+            }else if(valor == "sen"){
+
+            }else if(valor == "tan"){
+
+            }
+        }
+
+    </script>
+
+    <h2>Ej 2?</h2>
+    <div id="Ej"></div>
+    
+    <script>
+
+        let listaen = (arrayValores,id) =>{
+            document.getElementById(id).innerHTML = `<ol><li> ${arrayValores.split(",").join("</li><li>")}</li></ol>`; 
+        };
+
+        listaen("ola,paco,pepe","Ej");
+
+    </script>
+
+    
+
+</body>
+
+</html>
