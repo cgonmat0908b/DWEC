@@ -9,6 +9,9 @@
 
 <body>
 
+    <h2>Nombre: Cristian González Mateo</h2>
+    <h2>Práctica: 03-04 JS Objetos Alto nivel y Objeto window</h2>
+
     <h2>
         Ejercicio 1. Crea un script que lea dos números con prompt y que
         cree una ventanas nueva con el tamaño indico
@@ -73,6 +76,7 @@
     </div>
 
     <script>
+
         let url = prompt("Introduce una URL");
 
         function abrirPropiedades(){
@@ -90,6 +94,102 @@
             + "<br>Localización = " + subVentana.location
             + "<br>Nombre = " + subVentana.name;
             
+        }
+
+    </script>
+    
+    <h2>
+        Ejercicio 5. Muestra una ventana emergente de alerta con el mensaje 
+        “ALERTA Te estan Robando el banco” y después Muestra una ventana emergente
+        de alerta con el mensaje “Estas de acuerdo?” y dependiendo de él Escribe de acuerdo o no.
+    </h2>
+    <div id="Ej5">
+        <button id="banco" onclick="robando()">Te roban</button>
+        <p id="Ej5p"></p>
+    </div>
+
+    <script>
+
+        function robando(){
+            window.alert("ALERTA Te estan Robando el banco");
+
+            let deAcuerdo = window.confirm("Esta de acuerdo?");
+            let salidaEj5 = "";
+
+            if(deAcuerdo){
+                salidaEj5 = `De acuerdo`;
+            }else{
+                salidaEj5 = "No esta de acuerdo";
+            }
+
+            document.getElementById("Ej5p").innerHTML = salidaEj5;
+        }
+
+    </script>
+
+    <h2>
+        Ejercicio 6. Usa este código para crear un ejemplo de clearInterval() Resetea el
+        cronómetro ajustado con setInterval() y setInterval( funcion, milisegundos)
+    </h2>
+    <div id="Ej6">
+        <button id="parar" onclick="parar()">Parar</button>
+        <button id="iniciar" onclick="iniciar()">Iniciar</button>
+        <p id="Ej6p"></p>
+    </div>
+
+    <script>
+
+        let funcionHola = () => {
+            document.getElementById("Ej6p").innerHTML += "Hola<br>"
+        }
+
+        let intervalo = setInterval(funcionHola, 1000)
+
+
+        let parar = () =>{
+            if(intervalo !== null){
+                clearInterval(intervalo);
+                intervalo = null;
+            }
+        }
+
+        let iniciar = () =>{
+            if(intervalo === null){
+                intervalo = setInterval(funcionHola,1000)
+            }
+        }
+        
+    </script>
+
+    <h2>
+        Ejercicio 7. Modificalo para que te muestre la hora cada segundo
+    </h2>
+    <div id="Ej7">
+        <button id="parar2" onclick="parar2()">Parar</button>
+        <button id="iniciar2" onclick="iniciar2()">Iniciar</button>
+        <p id="Ej7p"></p>
+    </div>
+    
+    <script>
+
+        let mostrarHora = () =>{
+            let hora = new Date();
+            document.getElementById("Ej7p").innerHTML += `Hora: ${hora.toLocaleTimeString("es-ES")}<br>`;
+        }
+
+        let intervaloHora = setInterval(mostrarHora,1000);
+
+        let parar2 = () =>{
+            if(intervaloHora !== null){
+                clearInterval(intervaloHora);
+                intervaloHora = null;
+            }
+        }
+
+        let iniciar2 = () =>{
+            if(intervaloHora === null){
+                intervaloHora = setInterval(mostrarHora,1000)
+            }
         }
 
     </script>

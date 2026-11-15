@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Nombre: Cristian González Mateo</h2>
+    <h2>Práctica: 03-03 JS Objetos Boolean y Date</h2>
+
+    <h2>Ejercicio 1. Crea un script que te cree la fecha de hoy a mano</h2>
+    <div id="Ej1"></div>
+
+    <script>
+
+        let fechaActual = new Date(2026,10,13,13,33,0);
+        document.getElementById("Ej1").innerHTML = fechaActual;
+
+    </script>
+
+    <h2>Ejercicio 2. usa este formato de string para crear una fecha</h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        let fechaString = new Date("11/06/2023");
+        document.getElementById("Ej2").innerHTML = fechaString;
+
+    </script>
+
+    <h2>Ejercicio 3. Usa este código para hacer la misma función</h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        const tiempoTranscurrido = Date.now();
+        const hoy = new Date(tiempoTranscurrido);
+
+        let segundos = tiempoTranscurrido / 1000;
+        let min = segundos / 60;
+        let hora = min / 60;
+        let dias = hora / 24;
+        let meses = dias / 31;
+        let anios = meses / 12;
+
+        document.getElementById("Ej3").innerHTML = `<p>Tiempo transcurrido:</p>
+        <p>Segundos: ${segundos}</p><p>Minutos: ${min}</p><p>Horas: ${hora}</p>
+        <p>Dias: ${dias}</p><p>Meses: ${meses}</p><p>Años: ${anios}</p>`;
+        
+    </script>
+
+    <h2>Ejercicio 4. Crea un script que te lea tu fecha de nacimiento y te calcule cuantos días llevas vivo.</h2>
+    <div id="Ej4"></div>
+    
+
+    <script>
+
+        let fechaNacim = new Date("08/09/2004");
+        let fechaAct = new Date();
+
+        let diasVivo = (fechaAct - fechaNacim) / (1000 * 60 * 60 * 24); 
+
+        document.getElementById("Ej4").innerHTML = diasVivo + " dias";
+
+    </script>
+
+    <h2>
+        Ejercicio 5. Crea un script que te lea tu año de nacimiento y pais y sexo.
+        Te calcule cuantos años te quedan para llegar a la edad Media de esperanza
+        de vida tu país (debes hacer un if )
+    </h2>
+    <div id="Ej5"></div>
+
+    <script>
+
+        let nacimTex = new Date(prompt("5. Introduce tu fecha de nacimiento. ('dd/mm/yyyy')"));
+        let pais = prompt("5. Introduce un pais:");
+        let sexo = prompt("6. Introduce tu sexo:");
+
+        let paisesEdades = [
+            {"Pais" : "Japón", "Media" : 84.3, "Hombre" : 81.5, "Mujer" : 86.9},
+            {"Pais" : "Suiza", "Media" : 83.4, "Hombre" : 81.8, "Mujer" : 85.1},
+            {"Pais" : "España", "Media" : 83.2, "Hombre" : 80.7, "Mujer" : 85.7},
+            {"Pais" : "Italia", "Media" : 83.0, "Hombre" : 80.9, "Mujer" : 84.9},
+            {"Pais" : "Irak", "Media" : 72.4, "Hombre" : 69.9, "Mujer" : 75.0},
+            {"Pais" : "Guinea Ecuatorial", "Media" : 62.2, "Hombre" : 60.9, "Mujer" : 63.6},
+            {"Pais" : "Somalia", "Media" : 56.5, "Hombre" : 54.0, "Mujer" : 59.2}
+        ];
+
+        let resultadoEj5 = "";
+
+        if(nacimTex != null && pais != null && pais.trim() != "" && sexo != null && sexo.trim() != ""
+            && (sexo == "Hombre" || sexo == "Mujer") && (pais == paisesEdades[0].Pais ||
+            pais == paisesEdades[1].Pais || pais == paisesEdades[2].Pais || pais == paisesEdades[3].Pais
+            || pais == paisesEdades[4].Pais || pais == paisesEdades[5].Pais || pais == paisesEdades[6].Pais)){
+
+                let edadActual = Number(((new Date() - nacimTex) / (1000 * 60 * 60 * 24 * 365)).toFixed(2));
+
+                for(let paises of paisesEdades){
+                    if(paises.Pais == pais){
+                        let anyosRestantes = paises.Media - edadActual;
+                        if(anyosRestantes > 0){
+                            resultadoEj5 = `<p>Te faltan ${anyosRestantes.toFixed(2)} para alcanzar la Media</p>`;
+                        }else{
+                            resultadoEj5 = `<p>Hace ${Math.abs(anyosRestantes).toFixed(2)} que pasaste la Media</p>`;
+                        }
+                    }
+                }
+
+        }else{
+            resultadoEj5 = "Algún valor introducido es invalido.";
+        }
+
+        document.getElementById("Ej5").innerHTML = resultadoEj5;
+
+    </script>
+
+    <h2>
+        Ejercicio 6. Instala la libreria datejs y ejecuta los siguientes códigos de ejemplo
+    </h2>
+    <div id="Ej6"></div>
+    <script type="text/javascript" src="libreria.minima.datejs/date-es-ES.js"></script>
+
+    <script>
+
+        let hoyy = Date.today();
+        let proximoViernes = Date.today().next().friday();
+        let lunesAnterior = Date.today().last().monday();
+        let proximoMarzo = new Date().next().march();
+        let semanaAnterior = new Date().last().week();
+        let esViernes = Date.today().is().friday();
+        let esViernesAbreviado = Date.today().is().fri();
+        let esNoviembre = Date.today().is().november();
+        let esNoviembreAbreviado = Date.today().is().nov();
+        let esLaborable = Date.today().is().weekday();
+
+        let manana = Date.today().addDays(1);
+        let haceTresMeses = Date.today().addMonths(-3);
+        let sumarUnDia = Date.today().add(1).day();
+        let restarTresMeses = Date.today().add(-3).months();
+        let dentroDeUnDia = (1).day().fromNow();
+        let haceTresMesesDesdeAhora = (3).months().ago();
+
+        let n = 6;
+        let dentroDeSeisMeses = n.months().fromNow();
+
+        let lunesActual = Date.monday();
+        let lunesAbreviado = Date.mon();
+        let marzoActual = Date.march();
+        let marzoAbreviado = Date.mar();
+
+        let primerJueves = Date.today().first().thursday();
+        let segundoJueves = Date.today().second().thursday();
+        let tercerJuevesMarzo = Date.march().third().thursday();
+        let cuartoDomingoOctubre = Date.october().fourth().sunday();
+        let quintoDomingo = Date.today().fifth().sunday();
+        let ultimoDomingoOctubre = Date.october().final().sunday();
+        let primerLunesEnero = Date.january().first().monday();
+        let ultimoViernesDiciembre = Date.december().final().friday();
+
+        let horaTexto = Date.today().at("6:15pm");
+
+        let time = {hour:18, minute:15};
+        let horaObjeto = Date.today().at(time);
+
+        let birthDayParty = {month: 1, day: 20, hour: 20, minute: 30};
+        let fechaCumpleanos = Date.today().set(birthDayParty);
+
+        document.getElementById("Ej6").innerHTML = `
+        <p>Date.today() // Returns today's date, with time set to 00:00 (start of day). <br><strong>Resultado:</strong> ${hoyy}</p>
+        <p>Date.today().next().friday() // Returns the date of the next Friday. <br><strong>Resultado:</strong> ${proximoViernes}</p>
+        <p>Date.today().last().monday() // Returns the date of the previous Monday. <br><strong>Resultado:</strong> ${lunesAnterior}</p>
+        <p>new Date().next().march() // Returns the date of the next March. <br><strong>Resultado:</strong> ${proximoMarzo}</p>
+        <p>new Date().last().week() // Returns the date one week ago. <br><strong>Resultado:</strong> ${semanaAnterior}</p>
+        <p>Date.today().is().friday() // Returns true|false if the day-of-week matches. <br><strong>Resultado:</strong> ${esViernes}</p>
+        <p>Date.today().is().fri() // Abbreviated day names. <br><strong>Resultado:</strong> ${esViernesAbreviado}</p>
+        <p>Date.today().is().november() // Month names. <br><strong>Resultado:</strong> ${esNoviembre}</p>
+        <p>Date.today().is().nov() // Abbreviated month names. <br><strong>Resultado:</strong> ${esNoviembreAbreviado}</p>
+        <p>Date.today().is().weekday() // Is today a weekday? <br><strong>Resultado:</strong> ${esLaborable}</p>
+        <p>Date.today().addDays(1) // Add one day (+1). <br><strong>Resultado:</strong> ${manana}</p>
+        <p>Date.today().addMonths(-3) // Subtract three months (-3). <br><strong>Resultado:</strong> ${haceTresMeses}</p>
+        <p>Date.today().add(1).day() // Add one (+1) day. Supports all date parts. <br><strong>Resultado:</strong> ${sumarUnDia}</p>
+        <p>Date.today().add(-3).months() // Subtract three (-3) months. <br><strong>Resultado:</strong> ${restarTresMeses}</p>
+        <p>(1).day().fromNow() // One (1) day from now. <br><strong>Resultado:</strong> ${dentroDeUnDia}</p>
+        <p>(3).months().ago() // Three (3) months ago. <br><strong>Resultado:</strong> ${haceTresMesesDesdeAhora}</p>
+        <p>n.months().fromNow() // Six (6) months from now. <br><strong>Resultado:</strong> ${dentroDeSeisMeses}</p>
+        <p>Date.monday() // Returns Monday of the current week. <br><strong>Resultado:</strong> ${lunesActual}</p>
+        <p>Date.mon() // Abbreviated version of Date.monday(). <br><strong>Resultado:</strong> ${lunesAbreviado}</p>
+        <p>Date.march() // Returns March 1st of this year. <br><strong>Resultado:</strong> ${marzoActual}</p>
+        <p>Date.mar() // Abbreviated version of Date.march(). <br><strong>Resultado:</strong> ${marzoAbreviado}</p>
+        <p>Date.today().first().thursday() // Returns the first Thursday of the current month. <br><strong>Resultado:</strong> ${primerJueves}</p>
+        <p>Date.today().second().thursday() // Returns the second Thursday of the current month. <br><strong>Resultado:</strong> ${segundoJueves}</p>
+        <p>Date.march().third().thursday() // Returns the third Thursday in March of the current year. <br><strong>Resultado:</strong> ${tercerJuevesMarzo}</p>
+        <p>Date.october().fourth().sunday() // Returns the fourth Sunday in October. <br><strong>Resultado:</strong> ${cuartoDomingoOctubre}</p>
+        <p>Date.today().fifth().sunday() // Returns the fifth Sunday in the current month. <br><strong>Resultado:</strong> ${quintoDomingo}</p>
+        <p>Date.october().final().sunday() // Returns the final Sunday in October. <br><strong>Resultado:</strong> ${ultimoDomingoOctubre}</p>
+        <p>Date.january().first().monday() // Returns the first Monday of the current year. <br><strong>Resultado:</strong> ${primerLunesEnero}</p>
+        <p>Date.december().final().friday() // Returns the last Friday of the current year. <br><strong>Resultado:</strong> ${ultimoViernesDiciembre}</p>
+        <p>Date.today().at("6:15pm") // Returns today's date at 6:15pm. <br><strong>Resultado:</strong> ${horaTexto}</p>
+        <p>Date.today().at(time) // Set time with a config object. <br><strong>Resultado:</strong> ${horaObjeto}</p>
+        <p>Date.today().set(birthDayParty) // Set date and time with a config object. <br><strong>Resultado:</strong> ${fechaCumpleanos}</p>`;
+
+    </script>
+
+    <h2>
+        Ejercicio 7. utiliza la libreria datejs para calcular las siguientes fechas
+    </h2>
+    <div id="Ej7"></div>
+
+    <script>
+
+        // 1
+        let hoy7 = Date.today()
+
+        // 2
+        let proximoLunes = Date.today().next().monday();
+
+        // 3
+        let hoy2300 = Date.today().at("11:00pm")
+
+        // 4 
+        let hoyEnUnAnyo = Date.today().next().add(1).year();
+
+        // 5
+        let cumEsteAnyo = Date.today().set({month:8,day:8});
+
+        // 6
+        let primerLunesMesSiguiente = Date.today().moveToFirstDayOfMonth().addMonths(1).first().monday();
+
+        // 7
+        let esViernesHoy = Date.today().is().friday();
+
+        // 8
+        let eraSeptiembre = Date.today().addMonths(-1).is().september();
+
+        document.getElementById("Ej7").innerHTML = `
+        <p>1. Fecha de hoy: ${hoy7}</p>
+        <p>2. Próximo lunes: ${proximoLunes}</p>
+        <p>3. Hoy a las 23:00: ${hoy2300}</p>
+        <p>4. Hoy dentro de un año: ${hoyEnUnAnyo}</p>
+        <p>5. Mi cumpleaños este año: ${cumEsteAnyo}</p>
+        <p>6. Primer lunes del mes siguiente: ${primerLunesMesSiguiente}</p>
+        <p>7. ¿Hoy es viernes?: ${esViernesHoy}</p>
+        <p>8. ¿Hace un mes fue septiembre?: ${eraSeptiembre}</p>`; 
+        
+    </script>
+
+</body>
+
+</html>
