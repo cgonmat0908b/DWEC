@@ -8,17 +8,17 @@
 </head>
 
 <body>
-
+    
     <h2>Nombre: Cristian González Mateo</h2>
     <h2>Practica: 03-05 JS Objetos location y navigator</h2>
-
+    
     <h2>
         1. Ejecuta el siguiente codigo y explica La estructura
         document.getElementById("elementoaCambiar").innerHTML
     </h2>
     <div id="elementoaCambiar"> </div>
     <script >
-    document.getElementById("elementoaCambiar").innerHTML="texto nuevo";
+        document.getElementById("elementoaCambiar").innerHTML="texto nuevo";
     </script>
     <div id="Ej1">
         <p>
@@ -26,14 +26,14 @@
             busca el "elemento" con la id "elementoaCambiar", y escribe en el "texto nuevo".
         </p>
     </div>
-
+    
     <h2>
         2. Realiza un script que muestre las siguientes propiedades del objeto location
     </h2>
     <div id="Ej2"></div>
-
+    
     <script>
-
+        
         let propiedades = []
         propiedades.push(location.hash);
         propiedades.push(location.host);
@@ -43,7 +43,7 @@
         propiedades.push(location.port);
         propiedades.push(location.protocol);
         propiedades.push(location.search);
-
+        
         document.getElementById("Ej2").innerHTML = `Hash: ${propiedades[0]}<br>
         Host: ${propiedades[1]}<br>
         HostName: ${propiedades[2]}<br>
@@ -52,53 +52,53 @@
         Port: ${propiedades[5]}<br>
         Protocol: ${propiedades[6]}<br>
         Search: ${propiedades[7]}<br> `;
-
+        
     </script>
-
+    
     <h2>3. Ejecuta el siguiente código y explica que hace assign().</h2>
     <h2>The assign Property of Location Object</h2>
     <button onclick="myFunction()">Load new document</button>
     <div id="Ej3">
         <p>Cambia la URL de nuestra página web a la que introducimos en assign() y nos dirige a ella</p>
     </div>
-
+    
     <script>
-
+        
         function myFunction() {
             location.assign("https://www.iesplayamar.es");
         };
-
+        
     </script>
-
+    
     <h2>
         4. Modifica este ejemplo para que cargue el valor que se le pase desde
         un input text o un prompt
     </h2>
     <button onclick="cambiarLocation()">Cambiar location</button>
-
+    
     <script>
-
+        
         let cambiarLocation = () =>{
             let url = prompt("Introduce la URL");
             location.assign(url);
         };
-
+        
     </script>
-
+    
     <h2>
         5. Haz un ejemplo de window.reload() añadiendo un botón al anterior ejercicio
     </h2>
     <button onclick="cambiarLocation()">Cambiar location</button>
     <button onclick="refrescarVentana()">Refrescar ventana</button>
-
+    
     <script>
-
+        
         let refrescarVentana = () => {
             location.reload();
         };
-
+        
     </script>
-
+    
     <h2>
         6. Haz un ejemplo de window.replace() añadiendo un botón al anterior ejercicio
     </h2>
@@ -106,16 +106,16 @@
     <button onclick="refrescarVentana()">Refrescar ventana</button>
     <button onclick="reemplazar()">Reemplazar</button>
     
-
+    
     <script>
-
+        
         let reemplazar = () =>{
             let url = prompt("6. Introduce la URL");
             location.replace(url);
         };
-
+        
     </script>
-
+    
     <h2>
         7. Que diferencia hay entre replace y assign ?
     </h2>
@@ -128,14 +128,14 @@
             no podemos volver a la página anterior.
         </p>
     </div>
-
+    
     <h2>
         8. Realiza un script que muestre las siguientes propiedades del objeto Navigator
     </h2>
     <div id="Ej8"></div>
-
+    
     <script>
-
+        
         let propiedadesEj8 = [];
         propiedadesEj8.push(navigator.appCodeName);
         propiedadesEj8.push(navigator.appName);
@@ -143,37 +143,103 @@
         propiedadesEj8.push(navigator.cookieEnabled);
         propiedadesEj8.push(navigator.platform);
         propiedadesEj8.push(navigator.userAgent);
-
-        document.getElementById("Ej8").innerHTML = `AppCodeName: ${propiedadesEj8[0]}<br>
+        
+        document.getElementById("Ej8").innerHTML = `
+        AppCodeName: ${propiedadesEj8[0]}<br>
         appName: ${propiedadesEj8[1]}<br>
         appVersion: ${propiedadesEj8[2]}<br>
         coockieEnabled ${propiedadesEj8[3]}<br>
         platform ${propiedadesEj8[4]}<br>
         userAgent ${propiedadesEj8[5]}<br>
         `;
-
+        
     </script>
     
     <h2>
         9. Copia un script que te cargue las coordenadas usadas por muestre las
         siguientes propiedades del objeto location
     </h2>
+    <div id="Ej9"></div>
+    
+    <script>
+        try {
+            if (navigator.geolocation.getCurrentPosition(showPosition).GeolocationPositionError != PERMISSION_DENIED)
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } catch (e) {
+            document.getElementById("demo").innerHTML =
+            "Geolocation is not supported by this browser2.";
+        }
+        function showPosition(position) {
+            document.getElementById("Ej9").innerHTML =
+            "Latitude: " + position.coords.latitude + "<br>" +
+            "Longitude: " + position.coords.longitude;
+        }
+    </script>
+    
+    <h2>
+        10. Modifica dicho script con assign para que te cargue el mapa de google maps en un iframe
+    </h2>
+    <div id="Ej10"></div>    
+    
+    <script>
+        try {
+            if (navigator.geolocation.getCurrentPosition(showPosition).GeolocationPositionError != PERMISSION_DENIED)
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } catch (e) {
+            document.getElementById("Ej10").innerHTML =
+            "Geolocation is not supported by this browser2.";
+        }
+        function showPosition(position) {
+            document.getElementById("Ej10").innerHTML =`
+            <iframe src="https://maps.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}&z=15&output=embed" frameborder="0"></iframe>
+            `;
+        };
+    </script>
+    
+    <h2>
+        11. Modifica dicho script Para poner un boton que aumente o minimice el zoom del iframe modificando el valor
+        de ,15z
+    </h2>
+    <button onclick="masZoom()">Aumentar zoom</button>
+    <button onclick="menosZoom()">Disminuir zoom</button>
+    <div id="Ej11"></div>
 
     <script>
         try {
             if (navigator.geolocation.getCurrentPosition(showPosition).GeolocationPositionError != PERMISSION_DENIED)
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } catch (e) {
-                document.getElementById("demo").innerHTML =
-                "Geolocation is not supported by this browser2.";
-            }
-            function showPosition(position) {
-                document.getElementById("demo").innerHTML =
-                "Latitude: " + position.coords.latitude + "<br>" +
-                "Longitude: " + position.coords.longitude;
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } catch (e) {
+            document.getElementById("Ej11").innerHTML =
+            "Geolocation is not supported by this browser2.";
         }
-    </script>
 
+        let latitud = ""
+        let longitud = ""
+        let zoom = 15;
+
+        function showPosition(position) {
+            latitud = position.coords.latitude;
+            longitud = position.coords.longitude;
+            document.getElementById("Ej11").innerHTML =`
+            <iframe src="https://maps.google.com/maps?q=${latitud},${longitud}&z=${zoom}&output=embed" frameborder="0"></iframe>
+            `;
+        };
+
+        let masZoom = () =>{
+            zoom += 1;
+            document.getElementById("Ej11").innerHTML = `
+            <iframe src="https://maps.google.com/maps?q=${latitud},${longitud}&z=${zoom}&output=embed" frameborder="0"></iframe>
+            `;
+        };
+
+        let menosZoom = () =>{
+            zoom -= 1;
+            document.getElementById("Ej11").innerHTML = `
+            <iframe src="https://maps.google.com/maps?q=${latitud},${longitud}&z=${zoom}&output=embed" frameborder="0"></iframe>
+            `;
+        };
+    </script>
+    
 </body>
 
 </html>
