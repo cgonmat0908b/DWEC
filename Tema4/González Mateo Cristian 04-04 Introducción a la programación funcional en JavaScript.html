@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Nombre: Cristian González Mateo</h2>    
+    <h2>Práctica: 04-04 Introducción a la programación funcional en JavaScript</h2>
+
+    <h2>Ejercicio 1: Datos de un estudiante</h2>
+    <div id="Ej1"></div>
+
+    <script>
+
+        let luis = {
+            name : "Luis",
+            grade : 7,
+            approved : false
+        };
+
+        // Congelar objeto
+        Object.freeze(luis);
+
+        // Tras congelar, cambiar nota
+        luis.grade = 5;
+
+        // Tras congelar, agregar propiedad
+        luis.age = 18;
+
+        // Tras congelar, eliminar propiedad
+        delete luis.approved;
+
+        document.getElementById("Ej1").innerHTML = JSON.stringify(luis);
+
+    </script>
+
+    <h2>Ejercicio 2: Sellar configuración</h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        let obj = {
+            volume : 50,
+            brightness : 80
+        };
+
+        // Añadir propiedad constrast antes de sellarlo
+        obj.contrast = 100;
+
+        // Sellar objeto
+        Object.seal(obj);
+
+        // Cambiar valores
+        obj.volume = 5;
+        obj.brightness = 3;
+        obj.contrast = 2;
+
+        // Agregar/Eliminar propiedad
+        obj.resolution = 1080;
+        delete obj.brightness;
+
+        document.getElementById("Ej2").innerHTML = JSON.stringify(obj);
+    </script>
+
+    <h2>Ejercicio 3: Congelación profunda</h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        let ana = {
+            user:{
+                name : "Ana",
+                preferences :{
+                    theme : "dark"
+                    }
+                }
+        };
+
+        let deepFreeze = (obj) =>{
+            Object.freeze(obj);
+            Object.values(obj).filter(value => typeof value === "object" && value !== null)
+            .forEach(value => deepFreeze(value));
+            return obj;
+        };
+
+        deepFreeze(ana);
+
+        ana.user.name = "paco";
+        ana.user.preferences.theme = "blanco";
+
+        document.getElementById("Ej3").innerHTML = JSON.stringify(ana);
+    </script>
+
+    <h2>Ejercicio 4: Diferencias freeze vs seal</h2>
+    <div id="Ej4"></div>
+
+    <script>
+
+        const car1 = { brand: "Ford", year: 2010 };
+        const car2 = { brand: "Ford", year: 2010 };
+
+        // Freeze coche1
+        Object.freeze(car1);
+
+        // Seal coche2
+        Object.seal(car2);
+
+        // Cambiar año en ambos
+        car1.year = 2015;
+        // No se modifica, freeze no permite cambiar valores de propiedades
+        car2.year = 2015;
+        // Se modifica, seal permite modificar valores
+
+        // Agregar propiedad color
+        car1.color = "Blue";
+        car2.color = "Blue";
+        
+        // Ninguno permite agregar propiedades
+
+        // Eliminar propiedad brand
+        delete car1.brand;
+        delete car2.brand;
+
+        // Ninguno permite borrar propiedades
+
+    </script>
+
+    <h2>Ejercicio 5: Estado de una app</h2>
+
+    <script>
+
+        const state = {
+            settings: {
+                notifications: true,
+                theme: "light"
+            },
+            user: {
+                name: "Carlos",
+                loggedIn: true
+            }
+        };
+
+        // Congelar superficialmente
+        Object.freeze(state);
+
+        // Cambiar loggedIn
+        state.user.loggedIn = false;
+
+        // Cambiar theme
+        state.settings.theme = "White";
+        
+        document.getElementById("Ej5").innerHTML = `
+        <p>Si lo congelo superficialmente, ambas propiedades pueden ser modificadas.</p>`
+    </script>
+
+    <h2>Ejercicio 6: Sellar un modelo</h2>
+    <div id="Ej6"></div>
+
+    <script>
+
+        const book = { id: 1, title: "1984", author: "Orwell" };
+
+        // Sellar objeto
+        Object.seal(book);
+
+        // Función actualizar libro
+        let updateBook = (obj, newTittle) =>{
+            obj.title = "Paaco";
+            obj.pages = 50;
+            delete obj.author;
+        }
+
+        updateBook(book);
+
+        document.getElementById("Ej6").innerHTML = JSON.stringify(book);
+
+    </script>
+
+</body>
+
+</html>

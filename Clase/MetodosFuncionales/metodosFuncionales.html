@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="Ej1"></div>
+    
+    <script>
+        let cadena = "Hola como estas";
+        let arrayCadena = Array.from(cadena, (x,i) => (x.toUpperCase() + i));
+
+        document.getElementById("Ej1").innerHTML = arrayCadena.join("-");
+    </script>
+    <br>
+
+    <div id="Ej2"></div>
+
+    <script>
+
+        let arrayCadena2 = Array.of("Hola", "Como", "Estas", "Nigga", "?")
+        document.getElementById("Ej2").innerHTML = arrayCadena2.join("-");
+
+    </script>
+    <br>
+    
+    <div id="Ej3"></div>
+
+    <script>
+
+        document.getElementById("Ej3").innerHTML = arrayCadena2.at(2);
+        document.getElementById("Ej3").innerHTML += arrayCadena2[2];
+
+    </script>
+    <br>
+
+    <div id="Ej4"></div>
+
+    <script>
+
+        let arrayWith = arrayCadena2.with(2,"Pollón");
+        arrayCadena2[3] = "Pollón2";
+
+        document.getElementById("Ej4").innerHTML += arrayCadena2.join("-") + "<br>" + arrayWith.join("-");
+
+    </script>
+    <br>
+
+    <!-- Meter y sacar cosas de array -->
+    <div id="Ej5"></div>
+    
+    <script>
+        // .unshift(x) introduce un valor a la primera posición y desplaza el resto de valores a la derecha
+        // .shift(x() saca el primer valor y desplaza el resto de valores a la izquierda
+
+        let valores = [1,2,3,4,5,6,7];
+
+        valores.pop();
+        valores.push("Paco");
+        
+        valores.shift();
+        valores.unshift("Añadido");
+
+        document.getElementById("Ej5").innerHTML = valores;
+
+    </script>
+    <br>
+    <div id="Ej6"></div>
+
+    <script>
+
+        let valores2 = new Array(5);
+        valores2.fill("Nigga",0,5);
+
+        document.getElementById("Ej6").innerHTML = valores2;
+    </script>
+    <br>
+    <div id="Ej7"></div>
+
+    <script>
+
+        let valoress1 = [1,2,3,4];
+        let valoress2 = [5,6,7,8];
+        let combinados = valoress1.concat(valoress2)
+
+        document.getElementById("Ej7").innerHTML = combinados;
+    </script>
+    <br>
+
+    <div id="Ej7"></div>
+
+    <script>
+
+        
+
+        document.getElementById("Ej8").innerHTML = ;
+    </script>
+
+</body>
+
+</html>
