@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Nombre: Cristian González Mateo</h2>
+    <h2>Práctica: 03-06 JS Objetos document y frame</h2>
+
+    <h2>
+        1. Crea un script que te muestre con bucle los siguientes htmlCollections (arrays)
+        ojo algunos podrían fallar ya que están deprectated
+    </h2>
+    <div id="Ej1"></div>
+
+    <script>
+
+        // anchors y applets deprecated.
+
+        let links = document.links;
+        let forms = document.forms;
+        let images = document.images;
+        let scripts = document.scripts;
+        let style = document.styleSheets;
+        let cookies = document.cookie;
+
+        let salidaEj1 = "";
+
+        let recorrer = (htmlCollection) =>{
+            
+            let cadena = "";
+
+            if(htmlCollection.length == 0){
+                cadena = "No hay elementos.";
+            }else{
+                cadena = htmlCollection[0];
+                for(let i = 1; i < htmlCollection.length; i++){
+                    cadena += `,${htmlCollection[i]}` ;
+                }
+            }
+
+            return cadena;
+        };
+
+        salidaEj1 += `Links: ${recorrer(links)}<br>`;
+        salidaEj1 += `Formularios: ${recorrer(forms)}<br>`;
+        salidaEj1 += `Imagenes: ${recorrer(images)}<br>`;
+        salidaEj1 += `Scripts: ${recorrer(scripts)}<br>`;
+        salidaEj1 += `Estilos: ${recorrer(style)}<br>`;
+        salidaEj1 += `Cookies: ${recorrer(cookies)}<br>`;
+
+        document.getElementById("Ej1").innerHTML = salidaEj1;
+
+    </script>
+
+    <h2>2. Muestra las siguientes Propiedades del objeto Document</h2>
+    <div id="Ej2"></div>
+
+    <script>
+
+        let domain = document.domain;
+        let lastMod = document.lastModified;
+        let ready = document.readyState;
+        let referrer = document.referrer;
+        let title = document.title;
+        let url = document.URL;
+
+        salidaEj2 = `
+        Dominio: ${domain}<br>
+        Last Modified: ${lastMod}<br>
+        Ready State: ${ready}<br>
+        Referrer: ${referrer}<br>
+        Tittle: ${title}<br>
+        Url: ${url}<br>`;
+
+        document.getElementById("Ej2").innerHTML = salidaEj2;
+
+    </script>
+    <!--
+    <h2>3. Ejecuta el siguiente código para observar como podemos cambiar el titulo de la pagina</h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        let nombre = prompt("3. Ingrese su nombre");
+        alert("Titulo antiguo: " + document.title);
+        document.title = nombre;
+        alert("Titulo nuevo: " + document.title);
+
+    </script>
+
+    <h2>
+        4. Modifica el código anterior para sustituir los alert por 
+        document.getElementById("idetiqueta").innerHTML =”
+    </h2>
+    <div id="Ej4"></div>
+
+    <script>
+
+        let salidaEj4 = "";
+        nombre = prompt("4. Ingrese su nombre");
+        salidaEj4 = `Nombre previo del documento: ${document.title}<br>`; 
+        document.title = nombre;
+        salidaEj4 += `Nombre actual del documento: ${document.title}<br>`;
+
+        document.getElementById("Ej4").innerHTML = salidaEj4;
+
+    </script>
+    -->
+    <h2 id="enunciadoEj5">
+        5. Ejercicio Usa getElementById()para acceder a un elemento
+        identificado por el id escrito entre paréntesis.
+    </h2>
+    <div id="Ej5"></div>
+
+    <script>
+
+        let enunciado = document.getElementById("enunciadoEj5");
+
+        document.getElementById("Ej5").innerHTML = enunciado.textContent;
+
+    </script>
+
+    <h2>
+        6. Ejercicio Usa getElementsByName().InnerElement para acceder a un elemento
+        identificado por el id escrito entre paréntesis.
+    </h2>
+
+    <div>
+        <input type="text" name="Nombre">Nombre<br>
+        <input type="text" name="Edad"> Edad<br>
+        <button onclick="inputs()">Enviar</button>
+    </div>
+
+    <div id="Ej6"></div>
+
+    <script>
+
+        let inputs = () =>{
+            let input1 = document.getElementsByName("Nombre")[0].value;
+            let input2 = document.getElementsByName("Edad")[0].value;
+
+            document.getElementById("Ej6").innerHTML = `Input 1: ${input1}<br>Input 2: ${input2}`;
+        }
+        
+    </script>
+
+    <h2>
+        7. Ejecuta el siguiente código para ver como se Usa getElementsByName().InnerHTML
+        para acceder a un elemento identificado por el id escrito entre paréntesis.
+    </h2>
+
+    <h1> Objeto Document</h1>
+
+    <h2>Metodo getElementsByTagName()</h2>
+
+    <p> Una Lista ordenada:</p>
+
+    <ol>
+        <li>Torremolinos</li>
+        <li>Málaga</li>
+        <li>Granada</li>
+    
+        <li>Sevilla</li>
+        <li>Alhaurin</li>
+        <li>Churriana</li>
+    </ol>
+
+    <p id="indice"></p>
+
+    <h2 id="lista"></h2>
+
+    <script>
+
+        numero = prompt('Ingrese el numero que deseas selecionar:', '');
+        indice_string = "El " + numero + "o elemento de la lista es";
+        const collection = document.getElementsByTagName("li");
+        document.getElementById("lista").innerHTML = collection[numero - 1].innerHTML;
+        document.getElementById("indice").innerHTML = indice_string;
+
+    </script>
+
+    <h2>
+        8. Modifica el siguiente código para ver el contenido de la etiqueta que se le indique
+    </h2>
+    <h1> una cabecera h1</h1>
+
+    <h2> una cabecera h2</h2>
+
+    <p> Un parrafo </p>
+
+    <span>Torremolinos</span>
+
+    <p id="explica"></p>
+
+    <h2 id="elemento"></h2>
+
+    <script>
+        etiqueta = prompt('Ingrese el contenido que deseas conocer (p,h1,h2,span) que deseas seleccionar:', '');
+        
+        const collection2 = document.getElementsByTagName(etiqueta);
+        document.getElementById("explica").innerHTML = "El contenido de la etiqueta " + etiqueta + " es: ";
+        document.getElementById("elemento").innerHTML = collection[0].innerHTML; ;
+        
+    </script>
+
+    <h2></h2>
+    <div id="Ej"></div>
+
+    <script>
+
+        
+
+    </script>
+
+    <h2>
+        9. Modifica el siguiente código para ver el contenido de la etiqueta que se le indique
+    </h2>
+
+    <p> etiqueta1 
+        <input type="text" name="etiqueta1" value="Guadalajara">
+    </p>
+    
+    <p>
+        etiqueta2 <input type="text" name="etiqueta2" value="Toledo"> 
+    </p>
+
+    <p> 
+        etiqueta3 <input type="text" name="etiqueta3" value="Cuenca">
+    </p>
+
+    <hr>
+
+    <p id="explica"></p>
+
+    <h2 id="elemento"></h2>
+
+    <script language="JavaScript">
+
+        numero = prompt('Ingresa el numero de la etiqueta:', '');
+        valorDeEtiqueta = document.getElementByName(numero).value;
+        elements = document.getElementsByName("etiqueta" + numero);
+        valorDeEtiqueta = elements[0].value;
+        document.getElementById("explica").innerHTML = "El contenido de la etiqueta " + numero + " es: ";
+        document.getElementById("elemento").innerHTML = valorDeEtiqueta;
+
+    </script>
+
+</body>
+
+</html>
