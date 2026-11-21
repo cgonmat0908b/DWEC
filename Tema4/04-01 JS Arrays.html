@@ -364,9 +364,104 @@
         </ul>
     </h2>
 
-    <div id="Ej9">
+    <fieldset>
+    
+        <legend>Entrada</legend>
+    
+        <label for="id">Id</label>
+        <input type="text" name="id" id="id"><br>
+    
+        <label for="nom">Nombre:</label>
+        <input type="text" name="nom" id="nom"><br>
+    
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido"><br>
+    
+        <label for="nacim">Fecha de nacimiento:</label>
+        <input type="date" name="nacim" id="nacim"><br>
+    
+        <label for="puesto">Puesto:</label>
+        <input type="text" name="puesto" id="puesto"><br>
+    
+        <button onclick="introducir()">Introducir trabajador</button>
+    
+        <hr>
+    
+        <h2>Mostrar datos</h2>
+    
+        <button onclick="mostrarDatos()">Mostar todo</button><br>
+    
+        <div id="mostarTodos"></div>
+    
+        <hr>
+    
+        <h2>Mostrar Uno</h2>
+    
+        <label for="idMostar">Id:</label>
+        <input type="text" name="idMostrar" id="idMostrar"><br>
+    
+        <button onclick="mostrarPorId()">Mostrar</button><br>
+    
+        <div id="mostarPorId"></div>
+    
+        <hr>
+    
+        <h2>Mostrar años activos hasta jubilación</h2>
+    
+    </fieldset>
 
-    </div>
+    <script>
+        let personal = [];
+
+        let introducir = () => {
+
+            if()
+
+            let datos = [];
+
+            if(personal.length == 0){
+                
+                datos[0] = [
+                    document.getElementById("id").value,
+                    document.getElementById("nom").value,
+                    document.getElementById("apellido").value,
+                    document.getElementById("nacim").value,
+                    document.getElementById("puesto").value,
+                ];
+
+                personal.push(datos[0]);
+
+            }else{
+                let id = document.getElementById("id").value;
+                let existe = false;
+
+                for(let i = 0; i < personal.length; i++){
+                    if(personal[i][0] == id){
+                        existe = true;
+                    }
+                }
+
+                if(existe){
+                    alert("La id ya se encuentra en la lista, prueba con otra.");
+                }else{
+                    personal.push(
+                        [
+                            document.getElementById("id").value,
+                            document.getElementById("nom").value,
+                            document.getElementById("apellido").value,
+                            document.getElementById("nacim").value,
+                            document.getElementById("puesto").value,
+                        ]
+                    );
+                }
+            }
+        };
+
+        let mostrarDatos = () =>{
+            document.getElementById("mostarTodos").innerHTML = personal[0].join("-");
+        }
+
+    </script>
     
 
 
