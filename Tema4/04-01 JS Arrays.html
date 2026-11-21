@@ -369,19 +369,19 @@
         <legend>Entrada</legend>
     
         <label for="id">Id</label>
-        <input type="text" name="id" id="id"><br>
+        <input type="text" name="id" id="id" required><br>
     
         <label for="nom">Nombre:</label>
-        <input type="text" name="nom" id="nom"><br>
+        <input type="text" name="nom" id="nom" required><br>
     
         <label for="apellido">Apellido:</label>
-        <input type="text" name="apellido" id="apellido"><br>
+        <input type="text" name="apellido" id="apellido" required><br>
     
         <label for="nacim">Fecha de nacimiento:</label>
-        <input type="date" name="nacim" id="nacim"><br>
+        <input type="date" name="nacim" id="nacim" required><br>
     
         <label for="puesto">Puesto:</label>
-        <input type="text" name="puesto" id="puesto"><br>
+        <input type="text" name="puesto" id="puesto" required><br>
     
         <button onclick="introducir()">Introducir trabajador</button>
     
@@ -391,7 +391,7 @@
     
         <button onclick="mostrarDatos()">Mostar todo</button><br>
     
-        <div id="mostarTodos"></div>
+        <div id="mostrarTodos"></div>
     
         <hr>
     
@@ -407,63 +407,259 @@
         <hr>
     
         <h2>Mostrar años activos hasta jubilación</h2>
+        <button onclick="calcularDias()">Calcular días restantes</button>
+        <div id="diasRestantes"></div>
     
     </fieldset>
 
     <script>
         let personal = [];
 
-        let introducir = () => {
+        let comprobarEntradas = (id,nom,apellido,fechaNacim,puesto) =>{
+            let entradaValida = true;
 
-            if()
+            // Validación de cadenas
+            if(typeof id !== "string" || id.trim().length === 0){
+                entradaValida = false;
+            }
 
-            let datos = [];
+            if(typeof nom !== "string" || nom.trim().length === 0){
+                entradaValida = false;
+            }
 
-            if(personal.length == 0){
-                
-                datos[0] = [
-                    document.getElementById("id").value,
-                    document.getElementById("nom").value,
-                    document.getElementById("apellido").value,
-                    document.getElementById("nacim").value,
-                    document.getElementById("puesto").value,
-                ];
+            if(typeof apellido !== "string" || apellido.trim().length === 0){
+                entradaValida = false;
+            }
 
-                personal.push(datos[0]);
-
+            // Validación de fecha, vacia 
+            if(fechaNacim === ""){
+                entradaValida = false;
+            
+            // Si la cadena no esta vacia
             }else{
-                let id = document.getElementById("id").value;
-                let existe = false;
+                let fechaDate = new Date(fechaNacim);
 
-                for(let i = 0; i < personal.length; i++){
-                    if(personal[i][0] == id){
-                        existe = true;
-                    }
-                }
-
-                if(existe){
-                    alert("La id ya se encuentra en la lista, prueba con otra.");
+                // Si la fecha al pasarla a número no es un número
+                if(isNaN(fechaDate.getTime())){
+                    entradaValida = false;
                 }else{
-                    personal.push(
-                        [
-                            document.getElementById("id").value,
-                            document.getElementById("nom").value,
-                            document.getElementById("apellido").value,
-                            document.getElementById("nacim").value,
-                            document.getElementById("puesto").value,
-                        ]
-                    );
+                    // La fecha es correcta numericamente
+                    let hoy = new Date();
+
+                    // Guardamos en 3 posiciones año, mes y dia
+                    let anyoMesDia = [];
+                    anyoMesDia[0] = fechaDate.getFullYear();
+                    anyoMesDia[1] = fechaDate.getMonth();
+                    anyoMesDia[2] = fechaDate.getDate();
+
+                    // Edad imprecisa es restar el año actual al año de la fecha del usuario
+                    let edadImprecisa = hoy.getFullYear() - anyoMesDia[0];
+                    let edadFinal = 0;
+
+                    // Si el mes actual es Enero y el cumpleaños es en Febrero se le resta un año
+                    if(hoy.getMonth() < anyoMesDia[1]){
+                        edadFinal = edadImprecisa - 1;
+                    // Si el mes de entrada es el mismo comprobamos el día aplicando la misma regla anterior que en mes
+                    }else if(hoy.getMonth() == anyoMesDia[1]){
+                        if(hoy.getDate() < anyoMesDia[2]){
+                            edadFinal = edadImprecisa - 1
+                        }else{
+                            edadFinal = edadImprecisa;
+                        }
+                    }else{
+                        edadFinal = edadImprecisa;
+                    }
+
+                    // Si la fecha introducida es posterior a hoy o tiene menos de dieciocho o más de 66
+                    if(fechaDate > hoy ||edadFinal < 18 || edadFinal >= 67){
+                        entradaValida = false;
+                    }
+
+                }
+            }
+
+            // Validación de cadena
+            if(typeof puesto !== "string" || puesto.trim().length === 0){
+                entradaValida = false;
+            }
+
+            return entradaValida;
+        }
+
+        let introducir = () => {
+            
+            // Cogemos todos los valores
+            let nom = document.getElementById("nom").value;
+            let apellido = document.getElementById("apellido").value;
+            let id = document.getElementById("id").value;
+            let fechaNacim = document.getElementById("nacim").value;
+            let puesto = document.getElementById("puesto").value;
+
+            // Comprobamos la entrada
+            let entradaValida = comprobarEntradas(id,nom,apellido,fechaNacim,puesto);
+
+            // Si es correcta, advertimos al usuario de ello
+            if(!entradaValida){
+                alert("Algún dato introducido es incorrecto, intentelo de nuevo.");
+            }else{
+
+                // Si la entrada es correcta y no tenemos ningun usuario aún, lo guardamos
+                if(personal.length == 0){
+                    
+                    personal[0] = [
+                        nom,apellido,id,fechaNacim,puesto
+                    ];
+                
+                // Si ya tenemos usuarios en la lista, comprobamos el ID
+                }else{
+                    let id = document.getElementById("id").value;
+                    let existe = false;
+
+                    for(let i = 0; i < personal.length; i++){
+                        if(personal[i][2] == id){
+                            existe = true;
+                        }
+                    }
+
+                    // Si el ID ya se encontraba en la lista, alertamos al usuario
+                    if(existe){
+                        alert("La id ya se encuentra en la lista, prueba con otra.");
+                    }else{
+                        // Si el id no se encuentra en la lista, guardamos al usuario
+                        personal.push(
+                            [
+                                document.getElementById("nom").value,
+                                document.getElementById("apellido").value,
+                                document.getElementById("id").value,
+                                document.getElementById("nacim").value,
+                                document.getElementById("puesto").value,
+                            ]
+                        );
+                    }
                 }
             }
         };
 
         let mostrarDatos = () =>{
-            document.getElementById("mostarTodos").innerHTML = personal[0].join("-");
+
+            if(personal.length > 0){
+                let datos = "";
+                for(let i = 0; i < personal.length; i++){
+
+                    if(i == 0){
+                        datos = `<ol><li>${personal[i][0]}  ${personal[i][1]}`; 
+                    }else{
+                        datos += `<li>${personal[i][0]}  ${personal[i][1]}`
+                    }
+
+                    datos += `
+                        <ul>
+                            <li>ID: ${personal[i][2]}</li>
+                            <li>Fecha de nacimiento: ${personal[i][3]}</li>
+                            <li>Puesto: ${personal[i][4]}</li>
+                        </ul></li>
+                    `;
+
+                }
+
+                document.getElementById("mostrarTodos").innerHTML = datos + "</ol>";
+            }else{
+                alert("Aún no hay trabajadores que mostrar.");
+            }
+        };
+
+        let mostrarPorId = () =>{
+
+            let idUsuario = document.getElementById("idMostrar").value;
+            let entradaValida = true;
+            let idExiste = false;
+
+            let indiceTrabajador = 0;
+            
+            // Validación de cadenas
+            if(typeof idUsuario !== "string" || idUsuario.trim().length === 0){
+                entradaValida = false;
+            }
+
+            if(!entradaValida){
+                alert("La ID introducida no es valida");
+            }else if(personal.length == 0 ){
+                alert("No hay personal que mostrar.");
+            }else{
+                for(let i = 0; i < personal.length; i++){
+                    if(personal[i][2] == idUsuario){
+                        idExiste = true;
+                        indiceTrabajador = i;
+                    }
+                }
+            }
+
+            if(idExiste){
+                document.getElementById("mostarPorId").innerHTML = `
+                <ol><li>${personal[indiceTrabajador][0]} ${personal[indiceTrabajador][1]}
+                    <ul>
+                        <li>Indice: ${personal[indiceTrabajador][2]}</li>
+                        <li>Fecha de nacimiento: ${personal[indiceTrabajador][3]}</li>
+                        <li>Puesto: ${personal[indiceTrabajador][4]}</li>
+                    </ul>º
+                </li></ol>` 
+            }else{
+                alert("La ID introducida no existe en la lista.");
+            }
         }
 
-    </script>
-    
+        let calcularDias = () => {
 
+            if(personal.length == 0){
+                alert("Aún no hay trabajadores que mostrar.");
+            }else{
+                let datos = "<ul>";
+                let hoy = new Date();
+
+                for(let i = 0; i < personal.length; i++){
+
+                    // Obtenemos la fecha de nacimiento
+                    let fechaNacimiento = new Date(personal[i][3]);
+
+                    // Calculamos la fecha en la que cumplirá 67 años
+                    let fechaJubilacion = new Date(
+                        fechaNacimiento.getUTCFullYear() + 67,
+                        fechaNacimiento.getUTCMonth(),
+                        fechaNacimiento.getUTCDate()
+                    );
+
+                    // Calculamos los días restantes hasta la jubilación
+                    let hoyUTC = Date.UTC(
+                        hoy.getFullYear(),
+                        hoy.getMonth(),
+                        hoy.getDate()
+                    );
+
+                    let jubilacionUTC = Date.UTC(
+                        fechaJubilacion.getFullYear(),
+                        fechaJubilacion.getMonth(),
+                        fechaJubilacion.getDate()
+                    );
+
+                    let diasRestantes = Math.max(0, 
+                        (jubilacionUTC - hoyUTC) / (1000 * 60 * 60 * 24)
+                    );
+
+                    datos += `
+                        <li>
+                            ${personal[i][0]} ${personal[i][1]}:
+                            ${diasRestantes} días restantes hasta la jubilación.
+                        </li>
+                    `;
+                }
+
+                datos += "</ul>";
+
+                document.getElementById("diasRestantes").innerHTML = datos;
+            }
+        };
+
+    </script>
 
 </body>
 
