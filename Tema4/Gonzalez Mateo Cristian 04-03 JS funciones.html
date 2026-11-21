@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Nombre: Cristian González Mateo</h2>
+    <h2>Práctica: 04-03 JS funciones</h2>
+
+    <h2>
+        Ejercicio 1. Crea una función Ej1Trigonometica que se le pase dos parametros
+    </h2>
+    <div id="Ej1"></div>
+
+    <script>
+
+        let Ej1Trigonometrica = (angulo,operacion) => {
+            let radian = angulo * Math.PI / 180;
+            let resultado = 0;
+
+            if(operacion == "cos"){
+                resultado = Math.cos(radian);
+            }else if(operacion == "sen"){
+                resultado = Math.sin(radian);
+            }else if(operacion == "tan"){
+                resultado = Math.tan(radian);
+            }
+
+            return resultado;
+        };
+
+        let angulo = Number(prompt("1. Introduce el ángulo:"));
+        let operacion = prompt("1. Operación a realizar:");
+        let resultadoEj1 = "";
+
+        if(isFinite(angulo) && !(angulo <= 0) && (operacion == "cos" || operacion == "sen" || operacion == "tan")){
+            resultadoEj1 = `Resultado de la operación: ${Ej1Trigonometrica(angulo,operacion)}`;
+        }else{
+            resultadoEj1 = "Valor invalido";
+        }
+
+        document.getElementById("Ej1").innerHTML = resultadoEj1;
+
+    </script>
+
+
+    <h2>
+        Ejercicio 2. Crea una función Ej2JS que le pases una lista de valores y un id y te cree una lista ordenada
+        con ellos escrita en el el id
+    </h2>
+    <div id="Ej2"></div>
+
+    <script>
+        let listaValores = "Paco,pepe,juan,roberto,franco";
+        let idEj2 = "Ej2";
+
+        let Ej2JS = (listaValores, id) => {
+            let valores = listaValores.split(",");
+            let mostrarLista = "<ul>";
+
+            for(let i = 0; i < valores.length; i++){
+                mostrarLista += `<li>${valores[i]}</li>`;
+            }
+
+            document.getElementById(id).innerHTML = mostrarLista + "</ul>";
+        }
+
+        Ej2JS(listaValores,idEj2);
+
+    </script>
+
+    <h2>
+        Ejercicio 3. Modifica el anterior para que uses parametros rest
+        con un numero indeterminado de parametros, esto es la función debe
+        ser algo como
+    </h2>
+    <div id="Ej3"></div>
+
+    <script>
+
+        let idEj3 = "Ej3";
+
+        let Ej3JS = (id, ...listaValores) => {
+            let mostrarListaEj3 = "<ul>";
+
+            for(let i = 0; i < listaValores.length; i++){
+                mostrarListaEj3 += `<li>${listaValores[i]}</li>`;
+            }
+
+            document.getElementById(id).innerHTML = mostrarListaEj3 + "</ul>";
+        }
+
+        Ej3JS(idEj3,"Paco","Pepe","Juan","Rodrigo");
+        
+    </script>
+
+    <h2>
+        Ejercicio 4. Crea una función anónima que calcule el triple 
+        de un numero y asigna lo a una variable y ejecutalo.
+    </h2>
+    <div id="Ej4"></div>
+
+    <script>
+
+        let tripleNum = function(num) {
+            return num*3;
+        };
+
+        document.getElementById("Ej4").innerHTML = `
+        <p>El triple de 5 es ${tripleNum(5)}</p>`;
+
+    </script>
+
+    <h2>
+        Ejercicio 5. Crea una función anónima con flechas que calcule
+        el cuadrado de un numero y asigna lo a una variable y ejecutalo.
+    </h2>
+    <div id="Ej5"></div>
+
+    <script>
+
+        let potenciaFlechaAnon = (num) =>{
+            return Math.pow(num,2);
+        }
+
+        document.getElementById("Ej5").innerHTML = `
+        <p>El cuadrado de 8 es ${potenciaFlechaAnon(8)}`;
+
+    </script>
+
+    <h2>
+        Ejercicio 6. Crea una función anónima con flechas 
+        que escriba hola mundo y que se ejecute automáticamente.
+    </h2>
+    <div id="Ej6"></div>
+
+    <script>
+
+        let holaMundoFlechaAnon = (() =>{
+            document.getElementById("Ej6").innerHTML = `<p>Hola mundo</p>`;
+        })();
+
+    </script>
+
+    <h2>
+        Ejercicio 7. Crea una función anónima con flechas que ponga en negrita
+        el parámetro añadiéndole &gt;strong>&gt;/strong> y usala con la función
+        map sobre un array como por ejemplo
+    </h2>
+    <div id="Ej7"></div>
+
+    <script>
+
+        let a = ["ola","adios","amalia pide muchos detalles"];
+
+        let negrita = a.map((texto)=>{
+            return `<strong>${texto}</strong>`;
+        }).join("<br>")
+
+        document.getElementById("Ej7").innerHTML = negrita;
+
+    </script>
+
+    <h2>
+        Ejercicio 8. Escribe una función que genere al azar
+        20 números enteros comprendidos entre 0 y 9.
+    </h2>
+    <div id="Ej8"></div>
+
+    <script>
+
+        let numsAleatorios = () =>{
+            let numeros = [];
+            for(let i = 0; i < 20; i++){
+                numeros.push(Math.round(Math.random() * 10));
+            }
+            return numeros;
+        }
+
+        document.getElementById("Ej8").innerHTML = numsAleatorios().join("-");
+
+    </script>
+
+    <div id="Ej9"></div>
+
+    <script>
+
+        let i = 15;
+
+        let cuadrado = cuadradoMagico(i);
+
+        function cuadradoMagico(i){
+            return [
+                [i + 3, i + 8, i + 1],
+                [i + 2, i + 4, i + 6],
+                [i + 7, i, i + 5]
+            ];
+        };
+
+        document.getElementById("Ej9").innerHTML = `
+        <table border 1;><tr>${cuadrado.map(fila => "<tr>" + 
+        fila.map(elemento => "<td>" + elemento + "</td>").join("")
+        + "</tr>" ).join("")
+        + "</table>"}`;
+
+    </script>
+
+    <h2>
+        Ejercicio 10. Haz una función que se le pase un id y un color y
+        cambie su color de texto. Debes usar el siguiente código
+    </h2>
+    <select id="colores">
+        <option value="red">Rojo</option>
+        <option value="blue">Azul</option>
+        <option value="green">Verde</option>
+    </select><br><br>
+    <div id="Ej10">Texto que irá cambiando de color</div><br>
+    <button onclick="cambiarColor('Ej10',document.getElementById('colores').value)">Cambiar color</button>
+    
+    <script>
+
+        let cambiarColor = (id,color) =>{
+            let obj = document.getElementById(id);
+            obj.style.color = color;
+        }
+
+    </script>
+
+    <h2>
+        Ejercicio 11. Observa esta función recursiva
+    </h2>
+
+    <script>
+        function sumatorio(valor) {
+            if (valor==1) return 1;
+            else return valor+factorial(valor-1);
+        }
+    </script>
+
+    <h2>
+        Ejercicio 12. Haz un ejercicio que calcule el factorial
+        de un numero de manera recursiva.
+    </h2>
+    <div id="Ej12"></div>
+    
+    <script>
+
+        let factorial = (valor) =>{
+            if (valor==1){
+                return 1;
+            }
+            else{
+                return valor * factorial(valor-1);
+            }
+        }
+
+        document.getElementById("Ej12").innerHTML = `
+        <p>El factorial de 5 es ${factorial(5)}`;
+
+    </script>
+
+</body>
+</html>
