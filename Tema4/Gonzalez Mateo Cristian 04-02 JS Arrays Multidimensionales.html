@@ -266,6 +266,126 @@
         utilizar:
     </h2>
 
+    <h3>Introduce los coeficientes</h3>
+
+    <input type="number" id="a" placeholder="a">
+    <input type="number" id="b" placeholder="b">
+    <input type="number" id="c" placeholder="c">
+    <input type="number" id="j" placeholder="j">
+    <br>
+
+    <input type="number" id="d" placeholder="d">
+    <input type="number" id="e" placeholder="e">
+    <input type="number" id="f" placeholder="f">
+    <input type="number" id="k" placeholder="k">
+    <br>
+
+    <input type="number" id="g" placeholder="g">
+    <input type="number" id="h" placeholder="h">
+    <input type="number" id="i" placeholder="i">
+    <input type="number" id="l" placeholder="l">
+    <br><br>
+
+    <button onclick="calcular()">Resolver sistema</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+
+    <script>
+
+        function calcularDeterminante(matriz) {
+            let a = matriz[0][0];
+            let b = matriz[0][1];
+            let c = matriz[0][2];
+            let d = matriz[1][0];
+            let e = matriz[1][1];
+            let f = matriz[1][2];
+            let g = matriz[2][0];
+            let h = matriz[2][1];
+            let i = matriz[2][2];
+
+            return (a * e * i + b * f * g + c * d * h) -
+                (c * e * g + b * d * i + a * f * h);
+        }
+
+        function resolverSistema(A, B) {
+            let detA = calcularDeterminante(A);
+
+            if (detA === 0) {
+                return null;
+            }
+
+            // Matriz para calcular X
+            let matrizX = [
+                [B[0], A[0][1], A[0][2]],
+                [B[1], A[1][1], A[1][2]],
+                [B[2], A[2][1], A[2][2]]
+            ];
+
+            // Matriz para calcular Y
+            let matrizY = [
+                [A[0][0], B[0], A[0][2]],
+                [A[1][0], B[1], A[1][2]],
+                [A[2][0], B[2], A[2][2]]
+            ];
+
+            // Matriz para calcular Z
+            let matrizZ = [
+                [A[0][0], A[0][1], B[0]],
+                [A[1][0], A[1][1], B[1]],
+                [A[2][0], A[2][1], B[2]]
+            ];
+
+            let x = calcularDeterminante(matrizX) / detA;
+            let y = calcularDeterminante(matrizY) / detA;
+            let z = calcularDeterminante(matrizZ) / detA;
+
+            return { x, y, z };
+        }
+
+        function calcular() {
+            // Obtener los valores del HTML
+            let A = [
+                [
+                    Number(document.getElementById("a").value),
+                    Number(document.getElementById("b").value),
+                    Number(document.getElementById("c").value)
+                ],
+                [
+                    Number(document.getElementById("d").value),
+                    Number(document.getElementById("e").value),
+                    Number(document.getElementById("f").value)
+                ],
+                [
+                    Number(document.getElementById("g").value),
+                    Number(document.getElementById("h").value),
+                    Number(document.getElementById("i").value)
+                ]
+            ];
+
+            let B = [
+                Number(document.getElementById("j").value),
+                Number(document.getElementById("k").value),
+                Number(document.getElementById("l").value)
+            ];
+
+            // Resolver el sistema
+            let solucion = resolverSistema(A, B);
+
+            // Mostrar el resultado en el HTML
+            if (solucion === null) {
+                document.getElementById("resultado").innerHTML =
+                    "El sistema no tiene solución única";
+            } else {
+                document.getElementById("resultado").innerHTML =
+                    `x = ${solucion.x}<br>
+                            y = ${solucion.y}<br>
+                            z = ${solucion.z}`;
+            }
+        }
+
+    </script>
+
 </body>
 
 </html>
