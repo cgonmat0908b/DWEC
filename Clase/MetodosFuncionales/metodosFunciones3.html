@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div id="prueba1"></div>
+
+    <script>
+
+        // isArray()
+        let arr1 = [1,2,3,4,5];
+        document.getElementById("prueba1").innerHTML = `<h2>isArray()</h2>
+        Es ${arr1} un array? ${Array.isArray(arr1)}<br>
+        `; 
+
+    </script>
+
+    <div id="prueba2"></div>
+
+    <script>
+
+        let arraEvery = [1, 30, 39, 29, 10, 13];
+
+        let arraParImpar = [0, 1, 2, 3, 4, 5];
+
+        let menoresDiez = arraEvery.every((elemento) => elemento < 10)
+        
+        let menoresCien = arraEvery.every((elemento) => elemento < 100)
+
+        let indiceParIndiceImpar = arraParImpar.every((elemento,indice) =>{
+            indice % 2 == 0? elemento % 2 == 0: elemento % 2 != 0
+            indice % 2 != 0? elemento % 2 != 0: elemento % 2 == 0
+        });
+
+        document.getElementById("prueba2").innerHTML = `<h2>Array.every()</h2>
+        Son todos los elementos de este array ${arraEvery} menores que diez: ${menoresDiez}<br>
+        Son todos los elementos de este array ${arraEvery} menores que cien: ${menoresCien}<br>
+        Son todos los elementos de este array par impar par impar ${arraParImpar} menores que cien: ${indiceParIndiceImpar}<br>`;
+    </script>
+
+    <div id="prueba3"></div>
+
+    <script>
+        
+        document.getElementById("prueba3").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba4"></div>
+
+    <script>
+
+        document.getElementById("prueba4").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba5"></div>
+    
+    <script>
+
+        document.getElementById("prueba5").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba6"></div>
+    
+    <script>
+
+        document.getElementById("prueba6").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba7"></div>
+    
+    <script>
+
+        document.getElementById("prueba7").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba8"></div>
+    
+    <script>
+
+        document.getElementById("prueba8").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+</body>
+
+</html>

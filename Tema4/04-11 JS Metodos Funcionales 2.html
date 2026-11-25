@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h2>
+        Ejercicio 1: Reorganización de datos en una tabla<br><br>
+        Contexto: Estás gestionando una tabla de datos de un sistema y necesitas reorganizar algunas
+        filas.<br>
+        1. Descripción: Tienes un array que contiene los ID de las filas de una tabla: [10, 20, 30,
+        40, 50]. Luego:<br>
+        Usa Array.copyWithin() para copiar los IDs que van desde la posición 2 a 4, al
+        inicio del array (en la posición 0).<br>
+        Usa Array.reverse() para invertir el orden de los IDs en el array.<br>
+        Finalmente, usa Array.slice() para seleccionar los tres primeros IDs.<br>
+        2. Resultado esperado:<br>
+        [30, 40, 50]
+    </h2>
+
+    <div id="Ej1"></div>
+
+    <script>
+
+        let arrEj1 = [10,20,30,40,50];
+
+        let arrCopia = arrEj1.copyWithin(0,2,5);
+        
+        let arrInverso = arrCopia.reverse();
+
+        let arrSliceado = arrInverso.slice(0,3);
+
+        document.getElementById("Ej1").innerHTML = `
+        <p>Resultado tras todas las moficaciones: ${arrSliceado}</p>`;
+
+
+    </script>
+
+    <h2>
+        Ejercicio 2: Nombres de productos en un catálogo<br><br>
+        Contexto: Tienes un catálogo de productos con sus nombres y quieres mostrar la clave de
+        cada producto junto con su nombre.<br>
+        1. Descripción: Tienes un array con los nombres de los productos [“manzana”, “naranja”,
+        “plátano”]. Luego:<br>
+        Usa Array.entries() para obtener tanto la clave (índice) como el valor (nombre del
+        producto).<br>
+        Usa un bucle for...of para recorrer las entradas y mostrar un mensaje para cada
+        producto, por ejemplo: "Producto 0: manzana".<br>
+        Finalmente, usa Array.keys() para obtener un array de las claves de los
+        productos.<br>
+        2. Resultado esperado:<br>
+
+        Producto 0: manzana<br>
+        Producto 1: naranja<br>
+        Producto 2: plátano<br>
+        Claves de productos: [0, 1, 2]<br>
+    </h2>
+
+    <div id="Ej2"></div>
+
+    <h2>
+        Ejercicio 3: Filtrar y ordenar un registro de estudiantes<br><br>
+        Contexto: Estás gestionando un registro de calificaciones de estudiantes.<br>
+        1. Descripción: Tienes un array con las calificaciones [85, 75, 95, 65, 90]. Luego:<br>
+        Usa Array.values() para obtener un iterador que contenga únicamente los valores
+        de las calificaciones.<br>
+        Usa Array.sort() con una función de comparación para ordenar las calificaciones
+        de mayor a menor.<br>
+        Finalmente, usa Array.slice() para obtener las tres calificaciones más altas.
+        2. Resultado esperado:<br>
+
+        [95, 90, 85]<br>
+    </h2>
+
+    <div id="Ej3"></div>
+
+    <script>
+
+        let calificaciones = [85,75,95,65,90];
+        let iterador = calificaciones.values();
+        let califOrdenadas = [...iterador].sort((num1,num2) => num2 - num1);
+
+        document.getElementById("Ej3").innerHTML = `
+        <p>Calificaciones ordenadas: ${califOrdenadas.slice(0,3).join(", ")}</p>`;
+
+    </script>
+
+</body>
+
+</html>

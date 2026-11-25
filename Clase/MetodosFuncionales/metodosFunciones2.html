@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="pruebas1"></div>
+
+    <script>
+
+        const array1 = [1, 2, 3, 4];
+        const array2 = [1, 2, 3, 4];
+        const arrayCombo1 = array1.concat(array2);
+        const arrayLleno1 = [...arrayCombo1].fill("$");
+        const arrayLleno2 = [...arrayCombo1].fill("*",3);
+        const arrayLleno3 = [...arrayCombo1].fill("+",3,4);
+
+        // Fill no es un método seguro, es decir, modifica el array original no da una copia
+        // asi que usamos la expresion [...array] que crea un nuevo array con los elementos del anterior
+
+        document.getElementById("pruebas1").innerHTML = `
+        ${arrayLleno1} <br>
+        ${arrayLleno2} <br>
+        ${arrayLleno3} <br>
+        `;
+
+    </script>
+
+    <div id="pruebas2"></div>
+
+    <script>
+
+        let arr = [10,20,30,40,50];
+
+        let arrMod = [...arr].copyWithin(2,0,1);
+
+        let arrModNegativo = [...arr].copyWithin(-1,0,1);
+
+        document.getElementById("pruebas2").innerHTML = `<h2>Copy within</h2>
+        <p>Sin modificar: ${arr}</p>
+        <p>Modificado: ${arrMod}</p>
+        <p>Modificado2: ${arrModNegativo}</p>`;
+
+
+    </script>
+
+    <div id="pruebas3">
+
+        <script>
+
+            // Slice
+            let arrSinSlice = [1,2,3,4,5,6,7,8,9];
+            
+            let arrSlice = arrSinSlice.slice(3);
+
+            let arrSlice2 = arrSinSlice.slice(6,10);
+
+
+            document.getElementById("pruebas3").innerHTML = `<h2>Slice</h2>
+            <p>Sin slice ${arrSinSlice}</p>
+            <p>Con slice ${arrSlice}</p>
+            <p>Con slice ${arrSlice2}</p>
+            `;
+
+        </script>
+
+
+        <div id="pruebas4">
+
+            <script>
+
+                // Sort
+                let arrSinSort = [1,5,3,8,2,6,7,5,9];
+                
+                let arrSort = [...arrSinSlice].sort();
+
+                let arrSort2 = [...arrSinSlice].reverse();
+                
+                // Objetos
+                let arrObjetos =[
+                    {"indice" : 2, "Nombre" : "BPaco5"},
+                    {"indice" : 3, "Nombre" : "CPaco2"},
+                    {"indice" : 1, "Nombre" : "APaco1"}
+                ];
+
+                // Creciente a - b decreciente b - a
+                let arrObjSorted = [...arrObjetos].sort((a,b) => a.indice - b.indice);
+
+                let recorrerArrObj = (arr) => {
+                    return arr.map((obj) => "indice: " + obj.indice + " Nombre: " + obj.Nombre).join("<br>")
+                };
+
+                // Ordenar por nombre
+                let arrObjNombre = [...arrObjetos].sort((a,b) => b.Nombre.localeCompare(a.Nombre));
+
+                document.getElementById("pruebas4").innerHTML = `<h2>Sort</h2>
+                <p>Sin sort ${arrSinSort}</p>
+                <p>Con sort ${arrSort}</p>
+                <p>Con reverse ${arrSort2}</p>
+                <h2>Ordenar objetos</h2>
+                <p>Objetos sin ordenar:<br>${recorrerArrObj(arrObjetos)}</p>
+                <p>Objetos ordenados:<br>${recorrerArrObj(arrObjSorted)}</p>
+                <p>Objetos ordenado nombre:<br>${recorrerArrObj(arrObjNombre)}</p>
+                `;
+
+            </script>
+
+    </div>
+</body>
+
+</html>
