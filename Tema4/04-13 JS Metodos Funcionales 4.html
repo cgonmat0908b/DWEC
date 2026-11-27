@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Nombre: Cristian González Mateo</h2>
+    <h2>Práctica: 04-13 JS Metodos Funcionales 4</h2>
+
+    <h2>Ejercicio 1: Filtrar productos con precios menores a un valor</h2>
+    <div id="Ej1"></div>
+
+    <script>
+        let precios = [100,45,30,70,25];
+        let productosMenor50 = precios.filter((elem) => elem < 50); 
+        document.getElementById("Ej1").innerHTML = `
+        Precios menores que 50: ${productosMenor50}
+        `;
+    </script>
+
+    <h2>Ejercicio 2: Desanidar listas de comentarios en un foro</h2>
+    <div id="Ej2"></div>
+
+    <script>
+        const comentarios = [
+            ["Buen post", "Gracias"],
+            ["Interesante"],
+            ["No estoy de acuerdo", ["Muy cierto", "Concuerdo"]]
+        ];
+
+        let listaComentarios = comentarios.flat(2);
+        document.getElementById("Ej2").innerHTML = `
+        Comentarios: ${listaComentarios.join(";")}
+        `;
+    </script>
+
+    <h2>Ejercicio 3: Procesamiento de datos de usuarios y asignación de etiquetas</h2>
+    <div id="Ej3"></div>
+
+    <script>
+        const usuarios = [
+            { "nombre": "Juan", "roles": ["admin", "editor"] },
+            { "nombre": "María", "roles": ["usuario"] },
+            { "nombre": "Pedro", "roles": ["moderador", "editor"] }
+        ];
+
+        let roles = usuarios.flatMap((elem) => elem.roles);
+
+        document.getElementById("Ej3").innerHTML = `
+        Lista de roles: ${roles}
+        `;
+    </script>
+
+    <h2>Ejercicio 4: Imprimir una lista de tareas pendientes</h2>
+    <div id="Ej4"></div>
+
+    <script>
+        const tareas = ["Lavar platos", "Comprar comida", "Hacer ejercicio"];
+        let tareasTexto = "";
+        tareas.forEach((elem,indice) => tareasTexto += `${indice}. ${elem}<br>`);
+        document.getElementById("Ej4").innerHTML = ` 
+        Tareas a realizar:<br>${tareasTexto}<br>
+        `;
+        
+    </script>
+
+    <h2>Ejercicio 5: Generar una lista de precios con IVA aplicado</h2>
+    <div id="Ej5"></div>
+
+    <script>
+        const preciosOriginales = [100,200,300,400,500,600];
+        let preciosIva = preciosOriginales.map(elem => elem * 1.21);
+        document.getElementById("Ej5").innerHTML = `
+        Precios sin iva: ${preciosOriginales}<br>
+        Precios con iva: ${preciosIva}
+        `;
+    </script>
+
+    <h2>Ejercicio 6: Filtrar usuarios activos en un sistema</h2>
+    <div id="Ej6"></div>
+
+    <script>
+
+        const usuarios2 = [
+            { "nombre": "Juan", "activo": true },
+            { "nombre": "María", "activo": false },
+            { "nombre": "Pedro", "activo": true }
+        ];
+
+        let activos = usuarios2.filter(elem => elem.activo)
+        document.getElementById("Ej6").innerHTML = `
+        Lista de usuarios activos: ${activos.map((elem) => elem.nombre).join(",")}
+        `;
+    </script>
+
+    <h2>Ejercicio 7: Simplificación de listas de categorías de productos</h2>
+    <div id="Ej7"></div>
+
+    <script>
+        
+        document.getElementById("Ej7").innerHTML = `
+        `;
+    </script>
+
+    <h2>Ejercicio 8: Crear una lista de nombres en mayúsculas</h2>
+    <div id="Ej8"></div>
+
+    <script>
+        document.getElementById("Ej8").innerHTML = `
+        `;
+    </script>
+
+    <h2>Ejercicio 9: Imprimir las cantidades de productos vendidos</h2>
+    <div id="Ej9"></div>
+
+    <script>
+        document.getElementById("Ej9").innerHTML = `
+        `;
+    </script>
+
+    <h2>Ejercicio 10: Calcular el precio total de productos con descuento</h2>
+    <div id="Ej10"></div>
+
+    <script>
+        document.getElementById("Ej10").innerHTML = `
+        `;
+    </script>
+
+
+    
+</body>
+
+</html>

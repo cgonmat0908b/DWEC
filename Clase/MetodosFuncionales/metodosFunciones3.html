@@ -47,8 +47,48 @@
     <div id="prueba3"></div>
 
     <script>
+        // Find
+        let arrayFind = [1,2,3,4,5,6,7,8,9,10];
         
-        document.getElementById("prueba3").innerHTML = `<h2></h2>
+        let buscado = arrayFind.find((valor) => valor > 3 &&  valor < 8);
+
+        // Find last
+        let ultimoBuscado = arrayFind.findLast((valor) => valor > 3 &&  valor < 8);
+
+        // Find index
+        const petsObjeto = [
+            {"Animal" : "perro", "id" : 1, "Cantidad" : 6},
+            {"Animal" : "gato", "id" : 2, "Cantidad" : 2},
+            {"Animal" : "uron", "id" : 3, "Cantidad" : 4}
+        ];
+        let animalMenor2 = petsObjeto.findIndex((valor) => valor.Cantidad > 3 &&  valor.Cantidad < 7);
+
+        // LastIndexOf
+        let valores = ["Paco","Paco","Paco","Paco","Pepe","Paco","Pepe","Pepe"];
+        let ultimoIndice = valores.lastIndexOf("Paco");
+        
+        // Todos los indices de un objeto
+        let indiceInicio = 0;
+        let elementoBuscado = "Paco";
+        let indicesEncontrados = [];
+        let indice = valores.indexOf(elementoBuscado,indiceInicio);
+
+        while(indice !== -1){
+            indicesEncontrados.push(indice);
+            indiceInicio = indice + 1;
+            indice = valores.indexOf(elementoBuscado,indiceInicio)
+        }
+
+        document.getElementById("prueba3").innerHTML = `<h2>Find</h2>
+        Primer encontrado: ${buscado}<br>
+        <h2>Find last</h2>
+        Último encontrado: ${ultimoBuscado}<br>
+        <h2>findIndex</h2>
+        Primer indice de un animal cuya cantidad es mayor que 3 y menor que 7: ${animalMenor2}<br>
+        <h2>LastIndexOf</h2>
+        Ultima vez que aparece Paco: ${ultimoIndice}<br>
+        <h2>Algo</h2>
+        La palabra "Paco", aparece en los indices ${indicesEncontrados.join("-")}
         <br>`; 
     </script>
 
@@ -56,7 +96,44 @@
 
     <script>
 
-        document.getElementById("prueba4").innerHTML = `<h2></h2>
+        // Filter
+        let soloPe = valores.filter((e) => e.split("").includes("e"));
+        
+        // Flat
+        let arrayMulti = [
+            [1,2,3,4,5,6],
+            [7,8,9,10,11,12],
+            [13,14,15,16,17,[1,2,3,4]],
+        ];
+
+        let arrayFlateado = arrayMulti.flat(1).join("--");
+
+        // flatMap
+
+        let arrayMulti2 = [
+            [1,2,3,4,5,6],
+            [7,8,9,10,11,12],
+            [13,14,15,16,17,[1,2,3,4]],
+            [7,8,9,10,11,5,6,1,2],
+            [7,8,9,10,11,12,3,5]
+        ];
+
+        let flatMap = arrayMulti2.flatMap((elem) => elem.length > 6?[]:elem);
+
+        // forEach
+        let nums = [1,2,3,4,5,6,7,8,9,10];
+        let numsCuadrado = [];
+        nums.forEach((e) => numsCuadrado.push(Math.pow(e,2)));
+        
+
+        document.getElementById("prueba4").innerHTML = `<h2>Filter</h2>
+        Pepes: ${soloPe};<br>
+        <h2>Flat</h2>
+        ${arrayFlateado}<br>
+        <h2>Flatmap</h2>
+        ${flatMap}<br>
+        <h2>ForEach</h2>
+        Números del 1 al diez al cuadrado: ${numsCuadrado}<br>
         <br>`; 
     </script>
 

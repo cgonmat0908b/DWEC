@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="prueba1"></div>
+
+    <script>
+
+        document.getElementById("prueba1").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba2"></div>
+
+    <script>
+
+        const numbers = [1, 2, 3, 4, 5];
+        const str = ["Paco"];
+        const sum = numbers.reduce((acum, elem) => acum + elem, 0);
+
+        // Producto
+        const producto = numbers.reduce((acum, elem) => acum * elem, 1);
+
+        // maximo
+        const max = numbers.reduce((acum, elem) => acum > elem ? acum : elem,-Infinity);
+        // minimo
+        const min = numbers.reduce((acum, elem) => acum < elem ? acum : elem,Infinity);
+        // Array a string
+        const cadena = str.reduce((acum, elem) =>(acum == "")?elem:acum + "-" + elem,"");
+        //Reto 4: Contar la cantidad de veces que se repite cada elemento en un array.
+        let cantidadRepetida = numbers.reduce((acum, elem) =>{
+            if(acum[elem] == undefined){
+                acum[elem] = 1;
+            }else{
+                acum[elem] = acum[elem] + 1
+            }
+            return acum;
+        });
+        document.getElementById("prueba2").innerHTML = `<h2>Reduce</h2>
+        Suma del 1 al 5: ${sum}<br>
+        Producto del array: ${numbers}: ${producto}<br>
+        Mayor num del array: ${max}<br>
+        Menor num del array: ${min}<br>
+        ${cadena}<br>
+        <br>`; 
+    </script>
+
+    <div id="prueba3"></div>
+
+    <script>
+
+        document.getElementById("prueba3").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba4"></div>
+
+    <script>
+
+        document.getElementById("prueba4").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+    
+
+    <div id="prueba5"></div>
+
+    <script>
+
+        document.getElementById("prueba5").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+
+    <div id="prueba6"></div>
+
+    <script>
+
+        document.getElementById("prueba6").innerHTML = `<h2></h2>
+        <br>`; 
+    </script>
+    
+</body>
+
+</html>
